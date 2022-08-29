@@ -14,10 +14,10 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
     console.log(`User: ${req.user.id}`)
     const {errors, isValid} = validateGroupInput(req.body);
 
-    if (!isValid){
+    if (!isValid){``
         return res.status(400).json(errors)
     }
-    
+
     const newGroup = new Group({
         name: req.body.name,
         description: req.body.description,
