@@ -4,7 +4,6 @@ const validText = require('./valid-text');
 
 module.exports = function validateGroupInput(data) {
     let errors = {};
-    console.log("INSIDE VALIDATIONS")
     data.name = validText(data.name) ? data.name : '';
     data.description = validText(data.description) ? data.description : '';
 
