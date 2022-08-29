@@ -3,6 +3,8 @@
     flex-direction: column;
     border: 1px solid red;
     padding: 30px;
+    width: 350px;
+    height: 400px;
 }
 
 #login-header {
