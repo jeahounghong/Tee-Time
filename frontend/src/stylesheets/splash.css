@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700;800&display=swap');
+
 .splash-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+#navbar-logo {
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+#navbar-slogan {
+    font-size: 24px;
 }
 
 .splash-right-container img {
