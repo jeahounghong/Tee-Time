@@ -1,11 +1,11 @@
 import React from 'react'
 
-const splash = () => {
+const Splash = () => {
   return (
     <div>
-        
+        Splash
     </div>
   )
 }
 
-export default splash;
+export default Splash;

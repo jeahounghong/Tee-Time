@@ -6,9 +6,10 @@ import configureStore from './store/store'
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
-  store = configureStore({});
+  store = configureStore();
 
+  // debugger;
   const root = document.getElementById('root');
-
+  // debugger;
   ReactDOM.render(<Root store={store} />, root);
 })

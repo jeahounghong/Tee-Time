@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import splash from './splash/splash';
+import Splash from './splash/splash';
+import { Switch } from 'react-router-dom';
 
-const App = () => {
+const App = () => (
     <div>
-        {/* <Route path='/' component={splash} /> */}
+            <Route path='/' component={Splash} />
     </div>
-};
+);
 
 export default App;
