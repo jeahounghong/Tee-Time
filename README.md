@@ -3,7 +3,15 @@
 Tee-Time is a full stack web application where users can connect with other users to find local games happening around their area.
 
 ## Background and Overview 
+One of the biggest barriers to entry for people looking to pick up the game of golf is finding people to play with.
 
+Tee-Time is a platform for finding and building local groups to get together for a round. This full stack web application will also let users easily keep track of their upcoming tee times and groups they are a part of.
+
+Our application will consist of:
+* A user dashboard, with a calendar of upcoming events and a list of their groups
+* A feed page to display open events and public groups for users to join
+* Google Maps API to see events near you on the map
+* Web chat feature within groups/events to discuss details with your party
 
 ## Functionality & MVP 
 * User authorization: signup and login 
