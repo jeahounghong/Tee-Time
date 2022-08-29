@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/jeahounghong/Tee-Time#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@fortawesome/free-regular-svg-icons": "^6.1.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "concurrently": "^7.3.0",
@@ -29,6 +33,7 @@
     "mongoose": "^6.5.3",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
+    "react-fontawesome": "^1.7.1",
     "react-redux": "^8.0.2",
     "sass": "^1.54.5",
     "validator": "^13.7.0"
