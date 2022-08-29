@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../stylesheets/login.css';
+
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
@@ -40,8 +42,8 @@ class LoginForm extends React.Component {
                         <input type="password" value={this.state.password} onChange={this.update('password')}/>
                     </div>
                     <div className="login-form-footer">
-                        <button type="login">Sign in</button>
-                        <p>Don't have an account? </p>
+                        <button id="login-btn" type="login">Sign in</button>
+                        <p id="login-footer-info">Don't have an account? </p>
                     </div>
                 </form>
             </div>
