@@ -30,7 +30,12 @@ Tee-Time is a full stack web application where users can connect with other user
 * Nodejs 
 
 ## Group Members & Work Breakdown 
-#### Michael Shen, David Hong, Calvin Koo, Torben Ginsberg
+#### Members: 
+* Michael Shen, David Hong, Calvin Koo, Torben Ginsberg
+#### Backend: 
+* David Hong, Torben Ginsberg 
+#### Frontend: 
+* Michael Shen, Calvin Koo
 
 ### Day 1 
 * Finish backend for user auth, groups, and courses 
