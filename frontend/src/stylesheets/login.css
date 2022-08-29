@@ -8,10 +8,11 @@
 #login-form-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
     padding: 30px;
     width: 350px;
     height: 400px;
+    margin-left: 150px;
+    margin-bottom: 10px;
 }
 
 #login-header {
@@ -65,10 +66,27 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin-top: 10px;
+}
+
+.login-form-footer button {
+    color: white;
+    margin-bottom: 20px;
+    width: 120px;
+    height: 30px;
+    border-radius: 26px;
+    background-color: rgb(142,200,64);
+    border: 1px solid white;
 }
 
 #signup-link {
     text-decoration: none;
     color: rgb(142,200,64);
     font-weight: 600;
+}
+
+.session-form-image img {
+    min-height: 700px;
+    max-width: 650px;
+    top: -200px;
 }
