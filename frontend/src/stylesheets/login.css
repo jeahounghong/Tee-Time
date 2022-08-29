@@ -35,4 +35,14 @@
 
 #login-btn {
     border-radius: 28px;
+    border-style: none;
+    padding: 6px 16px;
+    background-color: black;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+}
+
+#login-btn:hover {
+    cursor: pointer;
 }
