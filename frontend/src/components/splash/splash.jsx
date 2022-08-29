@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGolfBallTee, faCalendar, faUsers, faCircleUser } from '@fortawesome/free-solid-svg-icons'
+import { faGolfBallTee} from '@fortawesome/free-solid-svg-icons'
 import '../../stylesheets/splash.css';
 
 const Splash = () => {
   return (
     <div className="splash-container">
         <div className="splash-left-container">
-          <div id="navbar-logo">
+          <div id="navbar-logo-splash">
               <FontAwesomeIcon icon={faGolfBallTee}></FontAwesomeIcon>
-              <p id="navbar-slogan">Tee Times</p>
+              <p id="navbar-slogan-splash">Tee Times</p>
           </div>
           <h3 className="splash-logo-text-description">Connect with other players with a passion for the lovely sport of golf. Play anywhere and anytime.</h3>
           <Link to={'/signup'}>
