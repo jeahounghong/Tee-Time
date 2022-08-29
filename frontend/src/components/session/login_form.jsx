@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGolfBallTee} from '@fortawesome/free-solid-svg-icons';
 import '../../stylesheets/login.css';
 
 class LoginForm extends React.Component {
@@ -29,14 +31,18 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="session-form-container">
+                <div id="session-logo">
+                        <FontAwesomeIcon icon={faGolfBallTee}></FontAwesomeIcon>
+                        <p id="navbar-slogan-splash">Tee Times</p>
+                </div>
                 <div id="login-form-container">
                     <div className="login-header-container">
                         <p id="login-header">Log In</p>
-                        <p id="login-header-info">Some additional text here describing tee time</p>
+                        <p id="login-header-info">Connect with other players with a passion for the lovely sport of golf. Play anywhere and anytime.</p>
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <div className="login-form-input">
-                            <label>Email</label>
+                            <label id='login-form-input-email'>Email</label>
                             <input type="text" value={this.state.email} onChange={this.update('email')}/>
                         </div>
                         <div className="login-form-input">
@@ -49,7 +55,7 @@ class LoginForm extends React.Component {
                         </div>
                     </form>
                 </div>
-                <div className="session-form-image">
+                <div className="session-form-image" id="splash-img">
                     <img src="https://cdn.dribbble.com/userupload/3079475/file/original-244e5f4b6e1e4476050c9b83515c74fd.jpg?compress=1&resize=1600x1200" alt="" />
                 </div>
             </div>
