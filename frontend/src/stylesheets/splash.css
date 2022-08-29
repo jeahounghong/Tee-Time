@@ -1,8 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700;800&display=swap');
+
 .splash-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+#navbar-logo-splash {
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-bottom: 25px;
+}
+
+#navbar-slogan-splash {
+    font-size: 48px;
+    font-weight: bold;
 }
 
 .splash-right-container img {
@@ -16,13 +31,12 @@
 }
 
 .splash-left-container {
-    margin-left: 50px;
+    margin-left: 120px;
+    max-width: 500px;
 }
 
-.splash-left-container h1 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.splash-logo-text-description {
+    margin-bottom: 24px;
 }
 
 .splash-left-container h3 {
@@ -31,12 +45,21 @@
 
 .splash-left-container button {
     color: white;
-    margin-bottom: 20px;
-    width: 120px;
-    height: 30px;
-    border-radius: 26px;
-    background-color: rgb(142,200,64);
-    border: 1px solid white;
+    margin-bottom: 30px;
+    width: 140px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(0,128,64);
+    margin-top: 20px;
+    padding: 20px auto;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.splash-left-container button:hover {
+    transform: scale(1.1);
 }
 
 .splash-login-redirect-text {
@@ -45,6 +68,7 @@
 
 .splash-login-redirect-link {
     text-decoration: underline;
+    color: rgb(0,128,64);
 }
 
 #splash-img > img {
