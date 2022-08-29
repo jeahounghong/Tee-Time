@@ -5,7 +5,7 @@ import { Switch } from 'react-router-dom';
 
 const App = () => (
     <div>
-            <Route path='/' component={Splash} />
+        <Route path='/' component={Splash} />
     </div>
 );
 
