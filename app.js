@@ -1,11 +1,14 @@
 const express = require("express");
 const mongoose = require('mongoose');
-const app = express();
-const bodyParser = require('body-parser');
-const passport = require('passport');
-const path = require('path');
-
 const users = require("./routes/api/users");
+// const tweets = require("./routes/api/tweets");
+const passport = require('passport');
+
+
+const app = express();
+app.use(passport.initialize());
+require('./config/passport')(passport);
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -23,3 +26,10 @@ mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
+
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use("/api/users",users);
