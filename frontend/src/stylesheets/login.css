@@ -1,6 +1,14 @@
+.session-form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+}
+
 #login-form-container {
     display: flex;
     flex-direction: column;
+    margin-left: 150px
 }
 
 #login-header {
@@ -12,13 +20,15 @@
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 18px;
+    margin-bottom: 20px;
 }
 
 .login-form-input {
     display: flex;
-    width: 290px;
+    width: 350px;
     justify-content: space-between;
     padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .login-form-input > label {
@@ -31,6 +41,20 @@
 .login-form-input > input {
     width: 200px;
     height: 25px;
+    border-radius: 12px;
+    border: 1.5px solid rgb(142,200,64);
+}
+
+.login-form-footer button {
+    margin-bottom: 10px;
+    color: white;
+    margin-bottom: 20px;
+    width: 120px;
+    height: 30px;
+    border-radius: 26px;
+    background-color: rgb(142,200,64);
+    border: 1px solid white;
+    cursor: pointer;
 }
 
 #login-btn {
@@ -45,4 +69,10 @@
 
 #login-btn:hover {
     cursor: pointer;
+}
+
+.session-form-image img {
+    min-height: 700px;
+    max-width: 650px;
+    top: -200px;
 }
