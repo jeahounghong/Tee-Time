@@ -55,3 +55,9 @@
     flex-direction: column;
     align-items: flex-end;
 }
+
+#signup-link {
+    text-decoration: none;
+    color: rgb(142,200,64);
+    font-weight: 600;
+}
