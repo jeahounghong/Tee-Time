@@ -30,10 +30,11 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
             // console.log(group)
             if (group.ownerID !== req.user.id) {
                 return res.status(401).json( {unauthorized: 'Only the owner can update this group.' })
+            } else {
+                group.name = req.body.name;
+                group.description = req.body.description;
+                return group.save().then(group => res.json(group))
             }
-            group.name = req.body.name;
-            group.description = req.body.description;
-            return group.save().then(group => res.json(group))
         })
         .catch(err => res.status(404).json( { noGroupFound: "No group found with that ID"} ))
 })
@@ -59,21 +60,26 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
 });
 
 router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
-    const {errors, isValid} = validateGroupInput(req.body);
+    // const {errors, isValid} = validateGroupInput(req.body);
 
-    if (!isValid) {
-        return res.status(400).json(errors)
-    }
+    // if (!isValid) {
+    //     return res.status(400).json(errors)
+    // }
 
     Group.findById(req.params.id)
         .then(group => {
-            // console.log("GROUP:")
-            // console.log(group)
-            if (group.ownerID !== req.user.id) {
+
+            if (group.ownerId.toString() !== req.user.id) {
+                // console.log("no error here")
                 return res.status(401).json( {unauthorized: 'Only the owner can delete this group.' })
-            }
-            
-            return group.save().then(group => res.json(group))
+            } 
+
+            console.log(`GROUP ID: ${group.id}`)
+            Group.findByIdAndDelete(group.id, function(err){
+                if (err) console.log(err);
+                console.log("Successful deletion.")
+            })
+            return res.status(200).json({deleted: "true"})
         })
         .catch(err => res.status(404).json( { noGroupFound: "No group found with that ID"} ))
 })
