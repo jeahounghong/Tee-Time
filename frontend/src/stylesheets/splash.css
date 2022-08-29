@@ -30,7 +30,13 @@
 }
 
 .splash-left-container button {
+    color: white;
     margin-bottom: 20px;
+    width: 120px;
+    height: 30px;
+    border-radius: 26px;
+    background-color: rgb(142,200,64);
+    border: 1px solid white;
 }
 
 .splash-login-redirect-text {
