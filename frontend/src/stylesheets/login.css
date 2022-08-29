@@ -1,3 +1,10 @@
+.session-form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+}
+
 #login-form-container {
     display: flex;
     flex-direction: column;
@@ -16,13 +23,15 @@
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 18px;
+    margin-bottom: 20px;
 }
 
 .login-form-input {
     display: flex;
-    width: 290px;
+    width: 350px;
     justify-content: space-between;
     padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .login-form-input > label {
