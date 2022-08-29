@@ -6,11 +6,11 @@ import LoginFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
 import NavbarContainer from './navbar/navbar_container';
 import reset from '../stylesheets/reset.css';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute } from '../util/routes_util';
 
 const App = () => (
     <div>
-        <NavbarContainer />
+        {/* <NavbarContainer /> */}
         <Switch>
             <Route exact path='/' component={Splash} />
             <AuthRoute exact path='/login' component={LoginFormContainer} />

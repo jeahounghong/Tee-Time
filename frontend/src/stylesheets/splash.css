@@ -46,3 +46,9 @@
 .splash-login-redirect-link {
     text-decoration: underline;
 }
+
+#splash-img > img {
+    object-fit: cover;
+    height: 102vh;
+    margin-top: -12px;
+}

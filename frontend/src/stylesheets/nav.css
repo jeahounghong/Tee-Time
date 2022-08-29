@@ -6,10 +6,46 @@
     justify-content: space-between;
     border-bottom: 1px solid lightgray;
     background-color: rgb(142,200,64);
-    padding: 20px;
+    padding: 15px;
+}
+
+#navbar-left {
+    display: flex;
+    column-gap: 10px;
+}
+
+#navbar-right, #navbar-welcome {
+    display: flex;
+    align-items: center;
+}
+
+#navbar-welcome {
+    font-size: 20px;
+}
+
+#navbar-logo {
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+#navbar-slogan {
+    font-size: 24px;
 }
 
 .session-link {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+}
+
+#session-links {
+    display: flex;
+}
+
+.session-link-icon {
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
 }
