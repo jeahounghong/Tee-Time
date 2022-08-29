@@ -1,0 +1,15 @@
+#navbar {
+    top: 0;
+    left: 0;
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    background-color: rgb(142,200,64);
+    padding: 20px;
+}
+
+.session-link {
+    padding-left: 10px;
+    padding-right: 10px;
+}
