@@ -42,7 +42,7 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
 
     Group.findById(req.params.id)
         .then(group => {
-            if (group.ownerID !== req.user.id) {
+            if (group.ownerId !== req.user.id) {
                 return res.status(401).json( {unauthorized: 'Only the owner can update this group.' })
             } else {
                 group.name = req.body.name;
