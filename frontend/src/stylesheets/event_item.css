@@ -1,0 +1,23 @@
+.event-item-left {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.event-item-container {
+    /* background-color: red; */
+    margin-left: -12px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-date {
+    color: #b2a694;
+    font-weight: 600;
+}
+
+.event-item-border {
+    border-bottom: 1px solid lightgray;
+}
