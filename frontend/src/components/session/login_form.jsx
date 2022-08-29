@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
                         </div>
                     </form>
                 </div>
-                <div className="session-form-image">
+                <div className="session-form-image" id="splash-img">
                     <img src="https://cdn.dribbble.com/userupload/3079475/file/original-244e5f4b6e1e4476050c9b83515c74fd.jpg?compress=1&resize=1600x1200" alt="" />
                 </div>
             </div>
