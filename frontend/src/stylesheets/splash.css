@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: sans-serif;
 }
 
 .splash-right-container img {
@@ -12,4 +13,30 @@
 
 .splash-login-container {
     display: flex;
+}
+
+.splash-left-container {
+    margin-left: 50px;
+}
+
+.splash-left-container h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.splash-left-container h3 {
+    margin-bottom: 20px;
+}
+
+.splash-left-container button {
+    margin-bottom: 20px;
+}
+
+.splash-login-redirect-text {
+    margin-right: 5px;
+}
+
+.splash-login-redirect-link {
+    text-decoration: underline;
 }

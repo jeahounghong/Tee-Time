@@ -11,7 +11,9 @@ const Splash = () => {
           <button className="splash-signup-button">Sign Up</button>
           <div className="splash-login-container">
             <h3 className="splash-login-redirect-text">Already have an account?</h3>
-            <h3 className="splash-login-redirect-link">Log in instead.</h3>
+            <Link to={'/login'}>
+              <h3 className="splash-login-redirect-link">Log in instead.</h3>
+            </Link>
           </div>
         </div>
         <div className="splash-right-container">
