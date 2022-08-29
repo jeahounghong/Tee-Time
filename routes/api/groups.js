@@ -23,6 +23,16 @@ router.get('/:id', (req, res) => {
         .catch(err => res.status(404).json( { noGroupFound: "No group found with that ID"} )) //if causing problems, look back at this thrown error (null vs error)
 });
 
+router.get('/users/:user_id', (req, res) => {
+    // maybe want to restrict to only logged in user?
+    Group.find({users: req.params.user_id})
+        .sort({ name: 1 })
+        .then(groups => res.json(groups))
+        .catch(err => 
+            res.status(404).json({ noGroupsFound: "This user does not belong to any groups yet." }) //if causing problems, look back at this thrown error (null vs error)
+        )
+})
+
 router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
     const {errors, isValid} = validateGroupInput(req.body);
 
