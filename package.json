@@ -30,6 +30,7 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
     "react-redux": "^8.0.2",
+    "sass": "^1.54.5",
     "validator": "^13.7.0"
   },
   "devDependencies": {
