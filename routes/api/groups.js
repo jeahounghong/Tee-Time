@@ -6,7 +6,7 @@ const router = express.Router();
 
 const validateGroupInput = require('../../validation/groups');
 const User = require("../../models/User");
-const { route } = require("./users");
+
 
 router.get('/test', (req, res) => res.json({msg: "This is the groups route"}))
 
@@ -31,7 +31,7 @@ router.get('/users/:user_id', (req, res) => {
         .catch(err => 
             res.status(404).json({ noGroupsFound: "This user does not belong to any groups yet." }) //if causing problems, look back at this thrown error (null vs error)
         )
-})
+});
 
 router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
     const {errors, isValid} = validateGroupInput(req.body);
@@ -42,7 +42,7 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
 
     Group.findById(req.params.id)
         .then(group => {
-            if (group.ownerID !== req.user.id) {
+            if (group.ownerId !== req.user.id) {
                 return res.status(401).json( {unauthorized: 'Only the owner can update this group.' })
             } else {
                 group.name = req.body.name;

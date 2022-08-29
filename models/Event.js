@@ -12,8 +12,7 @@ const EventSchema = new Schema({
         required: true 
     },
     groupId: {
-        type: ObjectId,
-        required: true 
+        type: ObjectId
     },
     public: {
         type: Boolean,
