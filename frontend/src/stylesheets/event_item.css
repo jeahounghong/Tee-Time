@@ -20,4 +20,42 @@
 
 .event-item-border {
     border-bottom: 1px solid lightgray;
+    width: 100%;
+}
+
+.event-item-border-container {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+}
+
+.attendee-count {
+    font-size: 14px;
+    color: gray;
+}
+
+.event-item-right {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.suggested-event {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.event-name {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.event-description {
+    font-size: 14px;
+}
+
+.event-item-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
 }

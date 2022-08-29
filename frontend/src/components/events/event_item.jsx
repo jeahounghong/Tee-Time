@@ -16,18 +16,22 @@ class EventItem extends React.Component {
                         </div>
                         <div className="event-item-info">
                             <div className="event-date">Aug 20, 6:00pm EST</div>
-                            <div>Name</div>
-                            <div>Description</div>
-                            <div>Number of attendees</div>
+                            <div className="event-name">Independence Day</div>
+                            <div className="event-description">Fiyah Works</div>
+                            <div className="attendee-count">Number of attendees</div>
                         </div>
                     </div>
 
                     <div className="event-item-right">
-                        <div>Suggested</div>
-                        <div>user action icons</div>
+                        <div className="suggested-event">Suggested</div>
+                        <div className="user-actions">
+                            
+                        </div>
                     </div>
                 </div>
-                <div className="event-item-border"></div>
+                <div className="event-item-border-container">
+                    <div className="event-item-border"></div>
+                </div>
             </div>
         )
     }
