@@ -8,7 +8,9 @@ const Splash = () => {
         <div className="splash-left-container">
           <h1 className="splash-logo-title">Tee Time</h1>
           <h3 className="splash-logo-text-description">Connect with other players with a passion for the lovely sport of golf. Play anywhere and anytime.</h3>
-          <button className="splash-signup-button">Sign Up</button>
+          <Link to={'/signup'}>
+            <button className="splash-signup-button">Sign Up</button>
+          </Link>
           <div className="splash-login-container">
             <h3 className="splash-login-redirect-text">Already have an account?</h3>
             <Link to={'/login'}>
