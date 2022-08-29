@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Splash from './splash/splash';
 import { Switch } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
+import reset from '../stylesheets/reset.css';
 
 const App = () => (
     <div>

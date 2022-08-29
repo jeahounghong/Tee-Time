@@ -1,4 +1,15 @@
 .splash-container {
     display: flex;
-    
+    justify-content: space-between;
+    align-items: center;
+}
+
+.splash-right-container img {
+    min-height: 700px;
+    max-width: 650px;
+    top: -200px;
+}
+
+.splash-login-container {
+    display: flex;
 }
