@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
-const Demical128 = Schema.Decimal128;
+// const Decimal128 = Schema.Decimal128;
 
 const CourseSchema = new Schema({
     name: {
@@ -10,11 +10,11 @@ const CourseSchema = new Schema({
     },
     location: {
         lat: {
-            type: Decimal128,
+            type: Number,
             required: true
         },
         long: {
-            type: Decimal128,
+            type: Number,
             required: true
         } 
     },
