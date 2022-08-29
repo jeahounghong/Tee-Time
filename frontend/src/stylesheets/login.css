@@ -1,6 +1,8 @@
 #login-form-container {
     display: flex;
     flex-direction: column;
+    border: 1px solid red;
+    padding: 30px;
 }
 
 #login-header {
@@ -31,18 +33,25 @@
 .login-form-input > input {
     width: 200px;
     height: 25px;
+    border-radius: 10px;
+    border: 1.5px solid black;
 }
 
 #login-btn {
-    border-radius: 28px;
-    border-style: none;
-    padding: 6px 16px;
-    background-color: black;
-    font-weight: 600;
-    font-size: 18px;
-    color: white;
+        color: white;
+        width: 120px;
+        height: 30px;
+        border-radius: 26px;
+        background-color: rgb(142,200,64);
+        border: 1px solid white;
 }
 
 #login-btn:hover {
     cursor: pointer;
+}
+
+.login-form-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }

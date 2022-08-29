@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
                     </div>
                     <div className="login-form-footer">
                         <button id="login-btn" type="login">Sign in</button>
-                        <p id="login-footer-info">Don't have an account? </p>
+                        <p id="login-footer-info">Don't have an account?</p>
                     </div>
                 </form>
             </div>
