@@ -85,7 +85,7 @@ router.post('/register', (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        const payload = {id: user.id, email: user.email}; // payload should have all of the user info that we might want to access later on in the frontend
+                        const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName}; // payload should have all of the user info that we might want to access later on in the frontend
 
                         jwt.sign(
                             payload,
