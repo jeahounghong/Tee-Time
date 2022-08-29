@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
 const GroupSchema = new Schema({
     name: {
@@ -7,7 +8,7 @@ const GroupSchema = new Schema({
         required: true
     },
     ownerId: {
-        type: Number,
+        type: ObjectId,
         required: true 
     },
     users: {
@@ -17,7 +18,8 @@ const GroupSchema = new Schema({
         type: Array
     },
     description: {
-        type: String
+        type: String,
+        required: true
     },
     location: {
         city: {
