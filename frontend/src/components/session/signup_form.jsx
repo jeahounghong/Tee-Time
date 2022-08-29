@@ -17,7 +17,6 @@ class SignUpForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.signup(this.state);
         this.setState({
             firstName: '',
             lastName: '',
@@ -25,6 +24,7 @@ class SignUpForm extends React.Component {
             password: '',
             password2: ''
         });
+        this.props.signup(this.state);
     }
 
     update(field) {
