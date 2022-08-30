@@ -3,17 +3,18 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import '../../stylesheets/modal.css';
 import React from 'react';
 
-class CreateEventModal extends React.Component {
+class EditEventModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            ownerId: this.props.currentUser.id,
+            id: this.props.event._id,
+            name: this.props.event.name || '',
+            ownerId: this.props.currentUser._id,
             courseId: "630d29898d64f824bb700abe",
-            groupId: '',
-            eventTime: '2022-08-31',
-            eventSize: '',
-            description: '',
+            groupId: this.props.event.groupId || '',
+            eventTime: this.props.event.eventTime,
+            eventSize: this.props.event.eventSize,
+            description: this.props.event.description || '',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +28,7 @@ class CreateEventModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createEvent(this.state); 
+        this.props.updateEvent(this.state); 
         this.props.toggleModal();
     }
 
@@ -37,7 +38,7 @@ class CreateEventModal extends React.Component {
                 <div id="overlay" onClick={this.props.toggleModal}></div>
                 <div className="modal">
                     <div className="modal-header">
-                        <p className="modal-header-info">Create Event</p>
+                        <p className="modal-header-info">Edit Event</p>
                         <div className="modal-close" onClick={this.props.toggleModal} >
                             <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
                         </div>
@@ -87,4 +88,4 @@ class CreateEventModal extends React.Component {
     }
 }
 
-export default CreateEventModal;
+export default EditEventModal;
