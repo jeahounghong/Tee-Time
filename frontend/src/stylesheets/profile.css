@@ -1,0 +1,15 @@
+.user-events{
+
+}
+
+.left-right{
+    display: flex;
+    /* justify-content: center; */
+    /* background: red; */
+}
+
+.profile-event-list > li {
+    border: solid 1px black;
+    width: 300px;
+    margin: 5px;
+}
