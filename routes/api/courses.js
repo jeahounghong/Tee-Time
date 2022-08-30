@@ -6,6 +6,12 @@ const router = express.Router();
 
 router.get('/test', (req, res) => res.json({msg: "This is the courses route"}))
 
+router.get('/', (req, res) => {
+    Course.find()
+        .then(courses => res.json(courses))
+        .catch(err => res.status(404).json({ noCoursesFound: 'No courses found' }))
+})
+
 router.post('/', (req,res) => {
 
     console.log("COURSE REQUEST")

@@ -5,7 +5,8 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import {logout} from './actions/session_actions';
-import {fetchCourse} from './actions/course_actions'
+import {fetchCourse, fetchCourses} from './actions/course_actions'
+
 import {fetchEvents, fetchEvent, deleteEvent, createEvent, updateEvent, fetchUserEvents} from './actions/event_actions'
 import {fetchGroups, fetchGroup, deleteGroup, createGroup, updateGroup, fetchUserGroups} from './actions/group_actions'
 import {fetchUsers} from './actions/user_actions';
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.deleteGroup = deleteGroup;
   window.fetchUserGroups = fetchUserGroups;
 
-  window.fetchUsers = fetchUsers;
+  window.fetchCourses = fetchCourses;
 
 
 

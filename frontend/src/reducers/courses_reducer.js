@@ -11,7 +11,7 @@ const CourseReducer = (state = {}, action) => {
 
         case RECEIVE_COURSES:
             Object.values(action.courses).forEach(course => {
-                nextState[course.id] = course;
+                nextState[course._id] = course;
             })
             return nextState;
 

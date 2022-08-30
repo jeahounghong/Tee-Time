@@ -14,4 +14,7 @@ export const receiveCourses = (courses) => ({
 })
 
 export const fetchCourse = (courseId) => dispatch => CourseApiUtil.getCourse(courseId)
-    .then(course => dispatch(receiveCourse(course)))
+    .then(course => dispatch(receiveCourse(course.data)))
+
+export const fetchCourses = () => dispatch => CourseApiUtil.getCourses()
+    .then(courses => dispatch(receiveCourses(courses.data)));

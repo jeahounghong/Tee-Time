@@ -30,7 +30,12 @@ const EventSchema = new Schema({
         type: Array
     },
     description: {
-        type: String
+        type: String,
+        default: ''
+    },
+    name: {
+        type: String,
+        required: true
     }
 })
 
