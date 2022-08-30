@@ -50,6 +50,15 @@
     margin-bottom: 10px;
 }
 
+input[type=text] {
+   padding-left: 10px;
+   font-family: 'Roboto Slab', serif;
+}
+
+input[type=password] {
+    padding-left: 10px;
+}
+
 .signup-form-input {
     display: flex;
     width: 350px;
