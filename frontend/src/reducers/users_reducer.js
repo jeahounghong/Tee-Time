@@ -1,6 +1,6 @@
 import { RECEIVE_USERS } from "../actions/user_actions";
 
-export default UsersReducer = (state = {}, action) => {
+const UsersReducer = (state = {}, action) => {
     Object.freeze(state)
     let nextState = Object.assign({}, state)
     switch(action.type){
@@ -14,3 +14,5 @@ export default UsersReducer = (state = {}, action) => {
             return state
     }
 }
+
+export default UsersReducer
