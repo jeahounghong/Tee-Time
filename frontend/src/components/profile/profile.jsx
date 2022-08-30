@@ -76,7 +76,7 @@ class Profile extends React.Component {
             })
             return <ul>    
                 {keys.map((key) => <li>
-                    <Link to={`/users/${this.props.users[key]._id}`} onMouseDown={() => this.setState({userId: key})}>
+                    <Link to={`/users/${key}`} onMouseDown={() => this.setState({userId: key})}>
                         {this.props.users[key].firstName + " " + this.props.users[key].lastName}
                     </Link>
                     
@@ -133,7 +133,7 @@ class Profile extends React.Component {
     }
 
 
-    render(){return(<div>
+    render(){return(<div className='profile-page'>
         <NavbarContainer {...this.props}/>
         <div className='left-right'>
             <div className='user-events left'>
