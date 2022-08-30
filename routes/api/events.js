@@ -68,10 +68,13 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
         return res.status(400).json(errors)
     }
 
+    const users={}
+    users[req.user.id] = req.user
+
     const newEvent = new Event({
         courseId: req.body.courseId,
         ownerId: req.user.id,
-        users: [req.user],
+        users: users,
         eventTime: new Date(req.body.eventTime),
         eventSize: req.body.eventSize,
         name: req.body.name ? req.body.name : "New event",
