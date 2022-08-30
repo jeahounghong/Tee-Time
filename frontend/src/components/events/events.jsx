@@ -20,9 +20,13 @@ class Events extends React.Component {
     }
     
     componentDidMount() {
-        document.querySelector('body').style.backgroundColor = '#f3f2ee';
+        // document.querySelector('body').style.backgroundColor = '#f3f2ee';
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 437acca5cf4a51decdbc48fd96058dc6cfe893ee
     render() {
         return (
             <div>
