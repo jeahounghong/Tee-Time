@@ -24,6 +24,7 @@ class CreateGroupModal extends React.Component {
         this.updateUsers = this.updateUsers.bind(this);
         this.handleFilter = this.handleFilter.bind(this);
         this.populateGroupMembers = this.populateGroupMembers.bind(this);
+        this.deleteGroupMember = this.deleteGroupMember.bind(this);
     }
 
     update(field) {
@@ -43,18 +44,17 @@ class CreateGroupModal extends React.Component {
         }
     }
 
-    deleteGroupMember(user) {
-        const item = document.getElementById(user._id)
-        return () => {
-            
-            
+    deleteGroupMember() {
+        for (let i = 0; i < this.state.users.length; i++) {
+            let user = this.state.users[i];
         }
     }
 
     populateGroupMembers() {
         return this.state.users.map((user) => {
             return (
-                <div className='added-user' id={`${user._id}`}>{user.firstName} <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon></div>
+                // onClick should remove the relevant user from this.state.users and it should remove the div itself
+                <div onClick={this.deleteGroupMember()} className='added-user' id={`${user._id}`}>{user.firstName} <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon></div>
             )
         })
     }

@@ -1,8 +1,11 @@
-/node_modules
 /node_modules/
 /frontend/node_modules
 /config/keys_dev.js
 /config/keys.js
 .DS_Store
+<<<<<<< HEAD
 /frontend/src/private/keys.js 
 /frontend/src/private/
+=======
+/frontend/src/private/keys.js
+>>>>>>> f0000dea27b37466785b86c553a201495347473f
