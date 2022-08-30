@@ -25,6 +25,12 @@ class Events extends React.Component {
                         </ul> */}
                         <ul>
                             <EventItemContainer />
+                            <EventItemContainer />
+                            <EventItemContainer />
+                            <EventItemContainer />
+                            <EventItemContainer />
+                            <EventItemContainer />
+                            <EventItemContainer />
                         </ul>
 
                     </div>

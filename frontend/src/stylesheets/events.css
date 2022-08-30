@@ -1,6 +1,6 @@
 #events-page {
     display: grid;
-    grid-template-columns: 500px 960px;
+    grid-template-columns: 520px 960px;
     height: 100vh;
 }
 

@@ -1,4 +1,6 @@
 import '../../stylesheets/event_item.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPersonWalkingArrowRight } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 
 class EventItem extends React.Component {
@@ -25,7 +27,10 @@ class EventItem extends React.Component {
                     <div className="event-item-right">
                         <div className="suggested-event">Suggested</div>
                         <div className="user-actions">
-                            
+                            <div className="event-action">
+                                <p>Attend event</p>
+                                <FontAwesomeIcon icon={faPersonWalkingArrowRight}></FontAwesomeIcon>
+                            </div>
                         </div>
                     </div>
                 </div>
