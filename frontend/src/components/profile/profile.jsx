@@ -66,7 +66,7 @@ class Profile extends React.Component {
             return <ul>    
                 {keys.map((key) => <li>
                     <div>
-                        {this.props.users[key].firstName}
+                        {this.props.users[key].firstName + " " + this.props.users[key].lastName}
                     </div>
                     Played with: {playedWithCount[key]} times
                 </li>)}
