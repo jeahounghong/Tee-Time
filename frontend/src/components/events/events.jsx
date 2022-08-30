@@ -22,6 +22,14 @@ class Events extends React.Component {
     
     componentDidMount() {
         document.querySelector('body').style.backgroundColor = '#f3f2ee';
+        this.props.fetchEvents();
+        this.props.fetchCourses();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.courses !== this.props.courses) {
+            this.setState({createEventModalHidden: this.state.createEventModalHidden});
+        }
     }
 
     render() {
@@ -55,7 +63,7 @@ class Events extends React.Component {
                     </div>
 
                     <div id="map">
-                        <MapContainer />
+                        <MapContainer courses={this.props.courses} />
                     </div>
                 </div>
                 {this.state.createEventModalHidden ? "" : 
