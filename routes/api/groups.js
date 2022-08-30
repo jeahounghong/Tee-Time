@@ -67,7 +67,12 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
         users: [req.user.id]
     })
 
-    newGroup.save().then( group => res.json(group))
+    newGroup.save().then( group => {
+        req.user.groups.ownedGroups.push(group.id)
+        req.user.groups.joinedGroups.push(group.id)
+        req.user.save()
+        res.json(group)
+    })
 
 });
 
