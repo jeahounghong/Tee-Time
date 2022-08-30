@@ -7,7 +7,8 @@ import SignUpFormContainer from './session/signup_form_container';
 import reset from '../stylesheets/reset.css';
 import { AuthRoute, ProtectedRoute } from '../util/routes_util';
 import EventsContainer from '../components/events/events_container';
-import GroupsContainer from '../components/groups/groups_container'
+import GroupsContainer from '../components/groups/groups_container';
+import ProfileContainer from './profile/profile_container';
 
 const App = () => (
     <div>
@@ -17,6 +18,7 @@ const App = () => (
             <AuthRoute exact path='/signup' component={SignUpFormContainer} />
             <Route exact path='/events' component={EventsContainer} />
             <Route exact path='/groups' component={GroupsContainer} />
+            <Route path = '/users' component={ProfileContainer}/>
         </Switch>
     </div>
 );
