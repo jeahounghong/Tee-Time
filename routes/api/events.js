@@ -70,7 +70,7 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
     const newEvent = new Event({
         courseId: req.body.courseId,
         ownerId: req.user.id,
-        users: [req.user.id],
+        users: [req.user],
         eventTime: new Date(req.body.eventTime),
         eventSize: req.body.eventSize
     })
