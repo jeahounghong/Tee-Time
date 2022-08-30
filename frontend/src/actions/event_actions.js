@@ -16,7 +16,7 @@ export const receiveEvents = (events) => ({
 
 export const removeEvent = (eventId) => ({
     type: REMOVE_EVENT,
-    eventsId
+    eventId
 })
 
 export const fetchEvent = (eventId) => dispatch => EventApiUtil.getEvent(eventId)
