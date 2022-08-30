@@ -10,9 +10,9 @@ class Groups extends React.Component {
     constructor(props){
         super(props)
 
-        this.state={
-            createGroupModalHidden: true
-        }
+        this.state = {
+            createGroupModalHidden: true,
+        };
 
         this.toggleCreateGroupModal = this.toggleCreateGroupModal.bind(this)
     }
@@ -51,7 +51,7 @@ class Groups extends React.Component {
                         Modal goes here
                     </div>
                 </div>
-                {this.state.createEventModalHidden ? "" : 
+                {this.state.createGroupModalHidden ? "" : 
                 <CreateGroupModal toggleModal={() => this.toggleCreateGroupModal()} action={this.state.createGroupModalHidden} /> }
             </div>
         )

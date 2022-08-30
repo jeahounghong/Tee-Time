@@ -17,6 +17,7 @@
     margin-top: -720px;
     transform: translate(-30px, 20px);
     position: fixed;
+    z-index: 10000;
 }
 
 
