@@ -6,9 +6,7 @@ import keys from '../../private/keys';
 
 export default function Map() {
     const { isLoaded } = useLoadScript({
-        // googleMapsApiKey: "AIzaSyDZ-kDA40lncIO5gjyd5Xp86nKhmcJRkNg",
         googleMapsApiKey: keys.googleMapsApiKey,
-        // googleMapsApiKey: process.env.REACT_GOOGLE_MAPS_API_KEY,
     });
     if (!isLoaded) return <div>Loading...</div>
     return <Map />;
