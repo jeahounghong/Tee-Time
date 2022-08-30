@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import CreateEventModal from '../modals/create_event_modal';
 import '../../stylesheets/events.css';
+import Map from '../map/map';
 import React from 'react';
 
 class Events extends React.Component {
@@ -26,7 +27,7 @@ class Events extends React.Component {
     render() {
         return (
             <div>
-                {/* <CreateEventModal toggleModal={() => this.toggleCreateEventModal()} /> */}
+                {/* {Home()} */}
                 <NavbarContainer />
                 <div id="events-page">
                     <div id="events-container">
@@ -55,7 +56,7 @@ class Events extends React.Component {
                     </div>
 
                     <div id="map">
-                        MAP GOES HERE
+                        <Map />
                     </div>
                 </div>
                 {this.state.createEventModalHidden ? "" : 

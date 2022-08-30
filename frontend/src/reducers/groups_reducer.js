@@ -6,12 +6,12 @@ const GroupsReducer = (state = {}, action) => {
 
     switch(action.type){
         case RECEIVE_GROUP:
-            nextState[action.group.id] = action.group;
+            nextState[action.group._id] = action.group;
             return nextState;
 
         case RECEIVE_GROUPS:
             Object.values(action.groups).forEach(group => {
-                nextState[group.id] = group;
+                nextState[group._id] = group;
             })
             return nextState;
 
