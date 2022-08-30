@@ -15,6 +15,7 @@ class EventItem extends React.Component {
             this.props.currentUser.events.joinedEvents.push(this.props.event);
             this.props.event.users.push(this.props.currentUser);
         }
+
         console.log("attending event");
     }
 
