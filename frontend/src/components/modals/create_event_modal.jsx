@@ -53,6 +53,10 @@ class CreateEventModal extends React.Component {
                             <input type="date" value={this.state.eventTime} onChange={this.update('eventTime')} />
                         </div>
                         <div className="modal-input">
+                            <label>Time</label>
+                            <input type="time" value="13:30" onChange={this.update('eventTime')}></input>
+                        </div>
+                        <div className="modal-input">
                             <label>Size</label>
                             <input type="number" value={this.state.eventSize} onChange={this.update('eventSize')} min={2} max={4} />
                         </div>

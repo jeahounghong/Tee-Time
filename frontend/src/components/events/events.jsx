@@ -24,6 +24,7 @@ class Events extends React.Component {
         document.querySelector('body').style.backgroundColor = '#f3f2ee';
         this.props.fetchEvents();
         this.props.fetchCourses();
+        this.props.fetchUsers();
     }
 
     componentDidUpdate(prevProps) {
@@ -46,20 +47,10 @@ class Events extends React.Component {
                             </div>
                         </div>
                         <ul>
-                            {Object.values(this.props.events).map((event, i) => {
-                                return <EventItemContainer event={event} />
-                            })}
+                            {Object.values(this.props.events).map((event, i) => (
+                                <EventItemContainer event={event} key={event+i}/>
+                            ))}
                         </ul>
-                        {/* <ul>
-                            <EventItemContainer />
-                            <EventItemContainer />
-                            <EventItemContainer />
-                            <EventItemContainer />
-                            <EventItemContainer />
-                            <EventItemContainer />
-                            <EventItemContainer />
-                        </ul> */}
-
                     </div>
 
                     <div id="map">

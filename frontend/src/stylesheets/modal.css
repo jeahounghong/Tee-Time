@@ -78,7 +78,7 @@
     margin-right: 20px;
 }
 
-.modal-input > input {
+.modal-input > input, .modal-input > select {
     height: 30px;
     width: 320px;
     border: 1px solid black;
@@ -87,7 +87,7 @@
 
 .modal-text {
     width: 100%;
-    height: 200px;
+    height: 100px;
 }
 
 #modal-text-input {
@@ -123,4 +123,29 @@
     margin-top: 15px;
     cursor: pointer;
     align-self: flex-start;
+}
+
+.modal-submit {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.modal-submit > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-size: 14px;
+    border-radius: 28px;
+    background-color: rgb(141,199,64);
+    margin-top: 5px;
+    border-style: none;
+}
+
+.modal-submit > button:hover {
+    cursor: pointer;
 }
