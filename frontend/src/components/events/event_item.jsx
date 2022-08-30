@@ -20,10 +20,25 @@ class EventItem extends React.Component {
 
     getDate() {
         let date = new Date(this.props.event.eventTime);
-        return 'foo';
+        const months = [
+            'January','February','March','April','May',
+            'June','July','August','September','October',
+            'November','December'
+        ];
+
+        let month = date.getMonth();
+        let day = date.getDay();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        if (hours === 0) hours = '00';
+        if (minutes === 0) minutes = '00';
+        let timeSuffix = "AM";
+        if (hours >= 12) timeSuffix = "PM"; 
+        return `${months[month]} ${day}, ${hours}:${minutes}${timeSuffix}`;
     }
 
     render() {
+        // debugger;
         return (
             <div>
                 <div className="event-item-container">
@@ -32,7 +47,7 @@ class EventItem extends React.Component {
                             <img src="" alt="event-img" />
                         </div>
                         <div className="event-item-info">
-                            <div className="event-date">{this.props.event.eventTime}</div>
+                            <div className="event-date">{this.getDate()}</div>
                             <div className="event-name">{this.props.event.name ? this.props.event.name : "Event Name"}</div>
                             <div className="event-description">{this.props.event.description ? this.props.event.description : "Event Description"}</div>
                             <div className="attendee-count">Number of attendees</div>

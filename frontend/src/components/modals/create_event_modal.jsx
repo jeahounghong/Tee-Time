@@ -17,8 +17,18 @@ class CreateEventModal extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleTime = this.handleTime.bind(this);
+        this.handleDate = this.handleDate.bind(this);
         this.renderModal = this.renderModal.bind(this);
         this.update = this.update.bind(this);
+    }
+
+    handleTime() {
+        let date = this.props.event.eventTime.split("-");
+    }
+
+    handleDate() {
+        let date = this.props.event.eventTime.split("-");
     }
 
     update(field) {
