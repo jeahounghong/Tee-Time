@@ -71,7 +71,7 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
     const newEvent = new Event({
         courseId: req.body.courseId,
         ownerId: req.user.id,
-        users: [req.user.id],
+        users: [req.user],
         eventTime: new Date(req.body.eventTime),
         eventSize: req.body.eventSize,
         name: req.body.name ? req.body.name : "New event",
@@ -80,7 +80,11 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
         groupId: req.body.groupId ? req.body.groupId : null
     })
 
-    newEvent.save().then( event => res.json(event))
+    newEvent.save().then( event => {
+        req.user.events.createdEvents.push(event.id)
+        req.user.events.joinedEvents.push(event.id)
+        res.json(event)
+    })
 
 });
 
