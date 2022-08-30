@@ -1,0 +1,24 @@
+.groups-page {
+    display: grid;
+    grid-template-columns: 520px 960px;
+    height: 100vh;
+}
+
+.groups-container, .modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: white;
+}
+
+.groups-heading {
+    font-size: 28px;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}

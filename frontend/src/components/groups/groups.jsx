@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
 import GroupItemContainer from './group_item_container';
+import '../../stylesheets/groups.css';
 
 class Groups extends React.Component {
     constructor(props){
@@ -8,6 +9,7 @@ class Groups extends React.Component {
     }
 
     componentDidMount() {
+        document.querySelector('body').style.backgroundColor = '#f3f2ee';
         this.props.fetchUserGroups(this.props.currentUser.id);
     }
 
@@ -24,6 +26,10 @@ class Groups extends React.Component {
                             <GroupItemContainer />
                             <GroupItemContainer />
                         </ul>
+                    </div>
+
+                    <div className="modal">
+                        Modal goes here
                     </div>
                 </div>
             </div>
