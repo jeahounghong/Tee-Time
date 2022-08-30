@@ -2,7 +2,7 @@ import NavbarContainer from '../navbar/navbar_container';
 import EventItemContainer from './event_item_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import CreateEventModal from '../modals/create_event_modal';
+import CreateEventModalContainer from '../modals/create_event_modal_container';
 import '../../stylesheets/events.css';
 import MapContainer from '../map/map_container';
 import React from 'react';
@@ -45,20 +45,20 @@ class Events extends React.Component {
                                 <p>Create Event</p>
                             </div>
                         </div>
-                        {/* <ul>
-                            {Object.values(this.props.events).map((event, i) => {
-                                return <EventItem event={event} />
-                            })}
-                        </ul> */}
                         <ul>
-                            <EventItemContainer />
-                            <EventItemContainer />
-                            <EventItemContainer />
-                            <EventItemContainer />
-                            <EventItemContainer />
-                            <EventItemContainer />
-                            <EventItemContainer />
+                            {Object.values(this.props.events).map((event, i) => {
+                                return <EventItemContainer event={event} />
+                            })}
                         </ul>
+                        {/* <ul>
+                            <EventItemContainer />
+                            <EventItemContainer />
+                            <EventItemContainer />
+                            <EventItemContainer />
+                            <EventItemContainer />
+                            <EventItemContainer />
+                            <EventItemContainer />
+                        </ul> */}
 
                     </div>
 
@@ -67,7 +67,8 @@ class Events extends React.Component {
                     </div>
                 </div>
                 {this.state.createEventModalHidden ? "" : 
-                <CreateEventModal toggleModal={() => this.toggleCreateEventModal()} action={this.state.createEventModalHidden} /> }
+                <CreateEventModalContainer toggleModal={() => this.toggleCreateEventModal()} 
+                action={this.state.createEventModalHidden} courses={this.props.courses} /> }
             </div>
         )
     }

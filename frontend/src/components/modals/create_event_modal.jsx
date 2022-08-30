@@ -8,8 +8,8 @@ class CreateEventModal extends React.Component {
         super(props);
         this.state = {
             name: '',
-            ownerId: '',
-            courseId: '',
+            ownerId: this.props.currentUser.id,
+            courseId: "630d29898d64f824bb700abe",
             groupId: '',
             eventTime: '',
             eventSize: '',
@@ -27,9 +27,7 @@ class CreateEventModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // create event here with this.state 
-
-        // close modal after submitting form 
+        this.props.createEvent(this.state); 
         this.props.toggleModal();
     }
 
@@ -58,9 +56,20 @@ class CreateEventModal extends React.Component {
                             <label>Size</label>
                             <input type="number" value={this.state.eventSize} onChange={this.update('eventSize')} min={2} max={4} />
                         </div>
+                        <div className="modal-input">
+                            <label>Course</label>
+                            <select value={this.state.courseId} onChange={this.update('courseId')}>
+                                {Object.values(this.props.courses).map((course, i) => (
+                                    <option value={course.id} key={course+i}>{course.name}</option>
+                                ))}
+                            </select>
+                        </div>
                         <div className="modal-input" id="modal-text-input">
                             <label>Description</label>
-                            <textarea className="modal-text"></textarea>
+                            <textarea value={this.state.description} onChange={this.update('description')} className="modal-text"></textarea>
+                        </div>
+                        <div className="modal-submit">
+                            <button type="submit">Create</button>
                         </div>
                     </form>
                 </div>

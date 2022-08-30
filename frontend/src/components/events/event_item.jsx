@@ -17,9 +17,9 @@ class EventItem extends React.Component {
                             <img src="" alt="event-img" />
                         </div>
                         <div className="event-item-info">
-                            <div className="event-date">Aug 20, 6:00pm EST</div>
-                            <div className="event-name">Independence Day</div>
-                            <div className="event-description">Fiyah Works</div>
+                            <div className="event-date">{this.props.event.eventTime}</div>
+                            <div className="event-name">{this.props.event.name}</div>
+                            <div className="event-description">{this.props.event.description ? this.props.event.description : ""}</div>
                             <div className="attendee-count">Number of attendees</div>
                         </div>
                     </div>
