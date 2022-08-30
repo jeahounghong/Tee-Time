@@ -1,12 +1,15 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import '../../stylesheets/profile.css'
+import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
 
     constructor(props){
         super(props)
-        this.userId = this.props.location.pathname.substring(7)
+        this.state = {
+            userId: this.props.location.pathname.substring(7)
+        }
         this.userEvents = this.userEvents.bind(this);
         this.frequentlyPlayedWith = this.frequentlyPlayedWith.bind(this)
         this.MONTH = {
@@ -27,10 +30,18 @@ class Profile extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchUserEvents(this.userId)
+        this.props.fetchUserEvents(this.state.userId)
         this.props.fetchCourses()
         this.props.fetchUsers()
         // debugger
+    }
+
+    componentDidUpdate(){
+        if (this.state.userId !== this.props.location.pathname.substring(7)){
+            // debugger;
+            this.setState({userId: this.props.location.pathname.substring(7)})
+            this.props.fetchUserEvents(this.state.userId)
+        }
     }
 
     dateToString(date){
@@ -44,7 +55,7 @@ class Profile extends React.Component {
             Object.values(this.props.users)[0]){
 
             let userJoinedPreviousEvents = Object.values(this.props.events).filter(event => (
-                event.users.indexOf(this.userId) >= 0 && !this.isAfterToday(event.eventTime)
+                event.users.indexOf(this.state.userId) >= 0 && !this.isAfterToday(event.eventTime)
             ))
 
             // debugger;
@@ -52,7 +63,7 @@ class Profile extends React.Component {
             const playedWithCount = {}
             userJoinedPreviousEvents.forEach(event => {
                 event.users.forEach(userId => {
-                    if (userId !== this.userId){
+                    if (userId !== this.state.userId){
                         playedWithCount[userId] = playedWithCount[userId] || 0;
                         playedWithCount[userId] += 1
                     }
@@ -65,9 +76,10 @@ class Profile extends React.Component {
             })
             return <ul>    
                 {keys.map((key) => <li>
-                    <div>
+                    <Link to={`/users/${this.props.users[key]._id}`} onMouseDown={() => this.setState({userId: key})}>
                         {this.props.users[key].firstName + " " + this.props.users[key].lastName}
-                    </div>
+                    </Link>
+                    
                     Played with: {playedWithCount[key]} times
                 </li>)}
             </ul>
@@ -88,13 +100,11 @@ class Profile extends React.Component {
             Object.values(this.props.courses)[0] &&
             Object.values(this.props.users)[0]){
 
-            const current = new Date();
-
             // This filters for user events. This may be unnecessary but the state could have already prefetched
             // events that the user is not a part of
             let userJoinedEvents = Object.values(this.props.events).filter(event => (
-                event.users.indexOf(this.userId) >= 0 && this.isAfterToday(event.eventTime)
-            ))
+                event.users.indexOf(this.state.userId) >= 0 && this.isAfterToday(event.eventTime)
+            ))  
             // debugger;
             
             return (<ul className='profile-event-list'>
@@ -127,7 +137,7 @@ class Profile extends React.Component {
         <NavbarContainer {...this.props}/>
         <div className='left-right'>
             <div className='user-events left'>
-                <h1>My Upcoming Events</h1>
+                <h1>{this.props.users[this.state.userId] ? this.props.users[this.state.userId].firstName + "'s" : ""} Upcoming Events</h1>
                 {this.userEvents()}
             </div>
             <div className='right'>
