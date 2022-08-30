@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-#modal {
+#modal{
     display: flex;
     justify-content: center;
     width: 100vw;
@@ -20,7 +20,6 @@
     z-index: 10000;
 }
 
-
 .modal {
     background-color: white;
     padding: 20px;
@@ -28,7 +27,6 @@
     width: 400px;
     height: 500px;
     z-index: 10;
-    
 }
 
 .modal-header {
@@ -88,7 +86,11 @@
 
 .modal-text {
     width: 100%;
+<<<<<<< HEAD
     height: 100px;
+=======
+    height: 150px;
+>>>>>>> ae20b5e (modal changes)
 }
 
 #modal-text-input {
@@ -103,20 +105,19 @@
     padding-bottom: 10px;
     justify-content: flex-start;
 }
-
 .users-search-results {
     width: 280px;
     height: 80px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 5px;
     background-color: gray;
     min-height: 60px;
     overflow: hidden;
     overflow-y: auto;
     padding: 15px auto;
-    margin-left: 120px;
+    margin-left: 130px;
+    position: absolute;
 }
 
 .users-item {
@@ -149,4 +150,50 @@
 
 .modal-submit > button:hover {
     cursor: pointer;
+.search-results-container {
+    display: flex;
+}
+
+.selected-users {
+    min-height: 90px;
+}
+
+.selected-users h1 {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.added-users-container {
+    display: flex;
+}
+
+.added-user {
+    margin-left: 10px;
+    margin-top: 10px;
+    border: 1px solid black;
+    padding: 5px 15px;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 12px;
+    background-color: rgb(0,128,64);
+}
+
+.modal-group {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 550px;
+    min-height: 500px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-group form {
+    padding: 20px auto;
 }
