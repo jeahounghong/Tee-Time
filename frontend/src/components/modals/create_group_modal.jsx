@@ -9,26 +9,76 @@ class CreateGroupModal extends React.Component {
         this.state = {
             name: '',
             ownerId: '',
-            courseId: '',
-            groupId: '',
-            eventTime: '',
-            eventSize: '',
+            users: [],
+            events: [],
             description: '',
+            location: {city: '', state: ''},
+            filteredData: [],
+            allUsers: []
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderModal = this.renderModal.bind(this);
         this.update = this.update.bind(this);
+        this.updateLocation = this.updateLocation.bind(this);
+        this.updateUsers = this.updateUsers.bind(this);
+        this.handleFilter = this.handleFilter.bind(this);
     }
 
     update(field) {
         return e => this.setState({[field]: e.target.value});
     }
 
+    updateLocation(field) {
+        return e => this.setState({ location: { ...this.state.location, [field]: e.target.value}});
+    }
+
+    // need an updateUsers function
+    updateUsers(user) {
+        // somehow push into users
+        return () => {
+            this.setState({users: this.state.users.concat([user])});
+            this.setState({filteredData: []});
+        }
+    }
+
+    // displaying data when user searches
+    handleFilter(e) {
+        const searchWord = e.target.value;
+
+        const newFilter = this.props.allUsers.filter((user) => {
+            return user.firstName.toLowerCase().includes(searchWord)
+        });
+
+        if (searchWord === "") {
+            this.setState({filteredData: []})
+        } else {
+            this.setState({filteredData: newFilter})
+        }
+    }
+    // create componentDidMount to fetch all users in our database
+    componentDidMount() {
+        this.props.fetchUsers();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.allUsers.length === 0) {
+            this.setState({allUsers: this.state.allUsers })
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         // create event here with this.state 
-
+        this.setState({
+            name: '',
+            ownerId: '',
+            users: [],
+            events: [],
+            description: '',
+            location: {city: '', state: ''}
+        })
+        // need to use an event we pass down via props
         // close modal after submitting form 
         this.props.toggleModal();
     }
@@ -50,18 +100,35 @@ class CreateGroupModal extends React.Component {
                             <label>Name</label>
                             <input type="text" value={this.state.name} onChange={this.update('name')} />
                         </div>
-                        <div className="modal-input">
-                            <label>Date</label>
-                            <input type="date" value={this.state.eventTime} onChange={this.update('eventTime')} />
+                        <div className="users-search-container">
+                            <div className="modal-input">
+                                <label>Members</label>
+                                {/* change this to this.updateUsers */}
+                                <input type="text" onChange={this.handleFilter}/>
+                                {/* render div of users here */}
+                            </div>
+                            { this.state.filteredData.length != 0 && (
+                                <div className="users-search-results">
+                                    {this.state.filteredData.slice(0,10).map((user => {
+                                        return <p onClick={this.updateUsers(user)} className="users-item">{user.firstName}</p>
+                                    }))}
+                                </div>
+                                )
+                            }
                         </div>
                         <div className="modal-input">
-                            <label>Size</label>
-                            <input type="number" value={this.state.eventSize} onChange={this.update('eventSize')} min={2} max={4} />
+                            <label>City</label>
+                            <input type="text" onChange={this.updateLocation('city')}/>
+                        </div>
+                        <div className="modal-input">
+                            <label>State</label>
+                            <input type="text" onChange={this.updateLocation('state')}/>
                         </div>
                         <div className="modal-input" id="modal-text-input">
                             <label>Description</label>
-                            <textarea className="modal-text"></textarea>
+                            <textarea className="modal-text" value={this.state.description} onChange={this.update('description')}></textarea>
                         </div>
+                        <input type="submit" className="group-modal-submi" />
                     </form>
                 </div>
             </div>
