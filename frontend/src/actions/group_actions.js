@@ -20,10 +20,10 @@ export const removeGroup = (groupId) => ({
 })
 
 export const fetchGroup = (groupId) => dispatch =>  GroupApiUtil.getGroup(groupId)
-    .then(group => dispatch(receiveGroup(group)))
+    .then(group => dispatch(receiveGroup(group.data)))
 
 export const fetchUserGroups = (userId) => dispatch => GroupApiUtil.getUserGroups(userId)
-    .then(groups => dispatch(receiveGroups(groups)))
+    .then(groups => dispatch(receiveGroups(groups.data)))
 
 export const deleteGroup = (groupId) => dispatch => GroupApiUtil.deleteGroup(groupId)
     .then(() => dispatch(removeGroup(groupId)))
