@@ -7,7 +7,7 @@
     border-bottom: 1px solid lightgray;
     background-color: white;
     padding: 15px;
-    width: 1450px;
+    width: 100%;
     z-index: 10000000;
 }
 
@@ -20,6 +20,7 @@
 #navbar-right, #navbar-welcome {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 #navbar-welcome {

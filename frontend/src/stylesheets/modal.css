@@ -146,6 +146,8 @@
 
 .modal-submit > button:hover {
     cursor: pointer;
+}
+
 .search-results-container {
     display: flex;
 }
