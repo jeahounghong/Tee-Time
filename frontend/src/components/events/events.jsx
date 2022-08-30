@@ -10,7 +10,7 @@ class Events extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            createEventModalHidden: false,
+            createEventModalHidden: true,
         }
         this.toggleCreateEventModal = this.toggleCreateEventModal.bind(this);
     }
@@ -22,7 +22,7 @@ class Events extends React.Component {
     componentDidMount() {
         // document.querySelector('body').style.backgroundColor = '#f3f2ee';
     }
-    
+
     render() {
         return (
             <div>
