@@ -2,7 +2,7 @@
 
 .left-right{
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     /* background: red; */
 }
 
@@ -10,4 +10,16 @@
     border: solid 1px black;
     width: 300px;
     margin: 5px;
+}
+
+.profile-page .left{
+    padding: 10px;
+    background-color: lightgreen;
+    border-radius: 10px;
+}
+
+.user-events h1{
+    color: white;
+    font-weight: bold;
+    text-align: center;
 }
