@@ -28,7 +28,6 @@ export const fetchGroup = (groupId) => dispatch =>  GroupApiUtil.getGroup(groupI
 export const fetchGroups = () => dispatch =>  GroupApiUtil.getGroups()
     .then(groups => dispatch(receiveGroups(groups.data)));
 
-
 export const fetchUserGroups = (userId) => dispatch => GroupApiUtil.getUserGroups(userId)
     .then(groups => dispatch(receiveGroups(groups.data)))
 
