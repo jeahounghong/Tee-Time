@@ -5,17 +5,10 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import {logout} from './actions/session_actions';
-<<<<<<< HEAD
 import {fetchCourse} from './actions/course_actions'
-import {fetchGroup, fetchUserGroups} from './actions/group_actions'
 import {fetchEvents, fetchEvent, deleteEvent, createEvent, updateEvent, fetchUserEvents} from './actions/event_actions'
 import {fetchGroups, fetchGroup, deleteGroup, createGroup, updateGroup, fetchUserGroups} from './actions/group_actions'
 
-=======
-import {fetchEvents, fetchEvent, deleteEvent, createEvent, updateEvent, fetchUserEvents} from './actions/event_actions'
-import {fetchGroups, fetchGroup, deleteGroup, createGroup, updateGroup, fetchUserGroups} from './actions/group_actions'
-import {fetchUsers} from './actions/user_actions'
->>>>>>> courseBackend
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -49,12 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.fetchGroups = fetchGroups;
   window.fetchGroup = fetchGroup;
-<<<<<<< HEAD
 
-  window.fetchUserGroups = fetchUserGroups;
-
-=======
->>>>>>> courseBackend
   window.createGroup = createGroup;
   window.updateGroup = updateGroup;
   window.deleteGroup = deleteGroup;
@@ -63,10 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchUsers = fetchUsers;
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> courseBackend
 
   const root = document.getElementById('root');
   window.store = store;
