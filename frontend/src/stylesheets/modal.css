@@ -29,6 +29,15 @@
     z-index: 10;
 }
 
+.modal-group {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    height: 500px;
+    z-index: 10;
+}
+
 .modal-header {
     width: 100%;
     display: flex;
