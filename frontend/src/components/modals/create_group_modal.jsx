@@ -8,7 +8,7 @@ class CreateGroupModal extends React.Component {
         super(props);
         this.state = {
             name: '',
-            ownerId: '',
+            ownerId: this.props.currentUser.id,
             users: [],
             events: [],
             description: '',
@@ -100,17 +100,13 @@ class CreateGroupModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // create event here with this.state 
-        this.setState({
-            name: '',
-            ownerId: '',
-            users: [],
-            events: [],
-            description: '',
-            location: {city: '', state: ''}
-        })
+    
+        delete this.state.filteredData;
+        delete this.state.allUsers;
+        console.log(this.state)
         // need to use an event we pass down via props
         // close modal after submitting form 
+        this.props.createGroup(this.state);
         this.props.toggleModal();
     }
 
