@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import '../../stylesheets/map.css';
 import '../../stylesheets/course.css';
 import React from 'react';
-import keys from '../../private/keys';
+// import keys from '../../private/keys';
 
 export default function Map(props) {
     const { isLoaded } = useLoadScript({

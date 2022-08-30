@@ -23,6 +23,7 @@ class CreateGroupModal extends React.Component {
         this.updateLocation = this.updateLocation.bind(this);
         this.updateUsers = this.updateUsers.bind(this);
         this.handleFilter = this.handleFilter.bind(this);
+        this.populateGroupMembers = this.populateGroupMembers.bind(this);
     }
 
     update(field) {
@@ -40,6 +41,22 @@ class CreateGroupModal extends React.Component {
             this.setState({users: this.state.users.concat([user])});
             this.setState({filteredData: []});
         }
+    }
+
+    deleteGroupMember(user) {
+        const item = document.getElementById(user._id)
+        return () => {
+            
+            
+        }
+    }
+
+    populateGroupMembers() {
+        return this.state.users.map((user) => {
+            return (
+                <div className='added-user' id={`${user._id}`}>{user.firstName} <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon></div>
+            )
+        })
     }
 
     // displaying data when user searches
@@ -87,7 +104,7 @@ class CreateGroupModal extends React.Component {
         return (
             <div id="modal">
                 <div id="overlay" onClick={this.props.toggleModal}></div>
-                <div className="modal">
+                <div className="modal-group">
                     <div className="modal-header">
                         <p className="modal-header-info">Create Group</p>
                         <div className="modal-close" onClick={this.props.toggleModal} >
@@ -107,14 +124,22 @@ class CreateGroupModal extends React.Component {
                                 <input type="text" onChange={this.handleFilter}/>
                                 {/* render div of users here */}
                             </div>
-                            { this.state.filteredData.length != 0 && (
-                                <div className="users-search-results">
-                                    {this.state.filteredData.slice(0,10).map((user => {
-                                        return <p onClick={this.updateUsers(user)} className="users-item">{user.firstName}</p>
-                                    }))}
+                            <div className="search-results-container">
+                                <div className="selected-users">
+                                    <h1>Added Users</h1>
+                                    <div className="added-users-container">
+                                        {this.populateGroupMembers()}
+                                    </div>
                                 </div>
-                                )
-                            }
+                                { this.state.filteredData.length != 0 && (
+                                    <div className="users-search-results">
+                                        {this.state.filteredData.slice(0,10).map((user => {
+                                            return <p onClick={this.updateUsers(user)} className="users-item">{user.firstName}</p>
+                                        }))}
+                                    </div>
+                                    )
+                                }
+                            </div>
                         </div>
                         <div className="modal-input">
                             <label>City</label>
@@ -128,7 +153,7 @@ class CreateGroupModal extends React.Component {
                             <label>Description</label>
                             <textarea className="modal-text" value={this.state.description} onChange={this.update('description')}></textarea>
                         </div>
-                        <input type="submit" className="group-modal-submi" />
+                        <input type="submit" className="group-modal-submit" />
                     </form>
                 </div>
             </div>
