@@ -45,10 +45,23 @@ class CreateGroupModal extends React.Component {
     }
 
     deleteGroupMember(e) {
-        console.log(e.target);
-        for (let i = 0; i < this.state.users.length; i++) {
-            let user = this.state.users[i];
+        e.preventDefault();
+
+        let item;
+        let indexOfUser;
+        let newState;
+
+        for (let i = 0; i < this.props.allUsers.length; i++) {
+            let user = this.props.allUsers[i];
+
+            if (user._id === e.target.id) {
+                item = e.target;
+                indexOfUser = this.state.users.indexOf(user);
+                newState = this.state.users.filter(item => item !== user )
+            }
         }
+
+        this.setState({users: newState})
     }
 
     populateGroupMembers() {
