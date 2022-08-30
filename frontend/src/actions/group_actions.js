@@ -20,14 +20,14 @@ export const removeGroup = (groupId) => ({
 })
 
 export const fetchGroup = (groupId) => dispatch =>  GroupApiUtil.getGroup(groupId)
-<<<<<<< HEAD
+
     .then(group => dispatch(receiveGroup(group.data)))
-=======
+
     .then(group => dispatch(receiveGroup(group.data)));
 
 export const fetchGroups = () => dispatch =>  GroupApiUtil.getGroups()
     .then(groups => dispatch(receiveGroups(groups.data)));
->>>>>>> 54ed8768ce3e43c6f14bd2df1b3ebce827b97a66
+
 
 export const fetchUserGroups = (userId) => dispatch => GroupApiUtil.getUserGroups(userId)
     .then(groups => dispatch(receiveGroups(groups.data)))
