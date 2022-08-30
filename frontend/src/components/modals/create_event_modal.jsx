@@ -69,9 +69,9 @@ class CreateEventModal extends React.Component {
                                 ))}
                             </select>
                         </div>
-                        <div className="modal-input" id="modal-text-input">
+                        <div className="modal-input" id="create-event-modal-text-input">
                             <label>Description</label>
-                            <textarea value={this.state.description} onChange={this.update('description')} className="modal-text"></textarea>
+                            <textarea value={this.state.description} onChange={this.update('description')} className="create-event-modal-text"></textarea>
                         </div>
                         <div className="modal-submit">
                             <button type="submit">Create</button>

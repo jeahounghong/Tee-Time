@@ -11,8 +11,10 @@ class EventItem extends React.Component {
     }
 
     attendEvent() {
-        this.props.currentUser.events.joinedEvents.push(this.props.event.id);
-        this.props.event.users.push(this.props.currentUser._id);
+        if (this.props.event.users.length < this.props.event.eventSize) {
+            this.props.currentUser.events.joinedEvents.push(this.props.event);
+            this.props.event.users.push(this.props.currentUser);
+        }
         console.log("attending event");
     }
 
@@ -31,8 +33,8 @@ class EventItem extends React.Component {
                         </div>
                         <div className="event-item-info">
                             <div className="event-date">{this.props.event.eventTime}</div>
-                            <div className="event-name">{this.props.event.name}</div>
-                            <div className="event-description">{this.props.event.description ? this.props.event.description : "Event Name"}</div>
+                            <div className="event-name">{this.props.event.name ? this.props.event.name : "Event Name"}</div>
+                            <div className="event-description">{this.props.event.description ? this.props.event.description : "Event Description"}</div>
                             <div className="attendee-count">Number of attendees</div>
                         </div>
                     </div>
