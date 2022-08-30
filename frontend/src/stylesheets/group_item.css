@@ -6,12 +6,14 @@
     height: 150px;
     justify-content: space-between;
     margin-bottom: 30px;
+    border-radius: 14px;
 }
 
 .group-item-top-container {
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    margin-top: 10px;
 }
 
 .group-name {
@@ -26,9 +28,11 @@
     margin-right: 20px;
     margin-bottom: 30px;
     border: 1px solid black;
+    border-radius: 12px;
 }
 
 .group-members-container {
+    margin-top: 5px;
     max-width: 100px;
     display: flex;
     flex-wrap: wrap;

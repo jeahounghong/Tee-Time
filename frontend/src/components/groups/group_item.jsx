@@ -13,10 +13,11 @@ class Group extends React.Component {
                 <div className="group-item-top-container">
                     <h1 className="group-name">Sample Group Name</h1>
                     {/* popup modal button */}
-                    <h3 className="group-events-modal-link">Events</h3>
+                    <h3 className="group-events-modal-link">More Info</h3>
                 </div>
                 <div className="group-item-content-container">
                     <div className="group-members-container">
+                        {/* going to be replace with profile images */}
                         <p>User</p>
                         <p>User</p>
                         <p>User</p>
