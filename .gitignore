@@ -4,5 +4,10 @@
 /config/keys_dev.js
 /config/keys.js
 .DS_Store
+<<<<<<< HEAD
 /frontend/src/private
 /frontend/src/private/keys.js
+=======
+/frontend/src/private/keys.js 
+/frontend/src/private/
+>>>>>>> main

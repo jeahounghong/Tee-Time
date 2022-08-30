@@ -1,0 +1,56 @@
+#navbar {
+    top: 0;
+    left: 0;
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    background-color: white;
+    padding: 15px;
+    width: 100%;
+    z-index: 10000000;
+}
+
+#navbar-left {
+    display: flex;
+    column-gap: 10px;
+    color: rgb(0,128,64);
+}
+
+#navbar-right, #navbar-welcome {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+#navbar-welcome {
+    font-size: 20px;
+}
+
+#navbar-logo {
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+#navbar-slogan {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.session-link {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+}
+
+#session-links {
+    display: flex;
+}
+
+.session-link-icon {
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+}

@@ -1,7 +1,9 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const users = require("./routes/api/users");
-// const tweets = require("./routes/api/tweets");
+const groups = require("./routes/api/groups");
+const courses = require("./routes/api/courses")
+const events = require("./routes/api/events");
 const passport = require('passport');
 
 
@@ -33,3 +35,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
+app.use("/api/groups", groups);
+app.use("/api/courses", courses);
+app.use("/api/events", events);

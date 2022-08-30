@@ -5,6 +5,11 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import {logout} from './actions/session_actions';
+import {fetchCourse, fetchCourses} from './actions/course_actions'
+
+import {fetchEvents, fetchEvent, deleteEvent, createEvent, updateEvent, fetchUserEvents} from './actions/event_actions'
+import {fetchGroups, fetchGroup, deleteGroup, createGroup, updateGroup, fetchUserGroups} from './actions/group_actions'
+import {fetchUsers} from './actions/user_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -29,6 +34,24 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({});
   }
 
+  window.fetchEvents = fetchEvents;
+  window.fetchEvent = fetchEvent;
+  window.createEvent = createEvent;
+  window.updateEvent = updateEvent;
+  window.deleteEvent = deleteEvent;
+  window.fetchUserEvents = fetchUserEvents;
+
+  window.fetchGroups = fetchGroups;
+  window.fetchGroup = fetchGroup;
+
+  window.createGroup = createGroup;
+  window.updateGroup = updateGroup;
+  window.deleteGroup = deleteGroup;
+  window.fetchUserGroups = fetchUserGroups;
+
+  window.fetchCourses = fetchCourses;
+
   const root = document.getElementById('root');
+  window.store = store;
   ReactDOM.render(<Root store={store} />, root);
 });

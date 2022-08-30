@@ -1,0 +1,196 @@
+.session-form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+#login-form-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    padding: 30px;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 10px;
+    width: 500px;
+}
+
+#signup-form-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 30px;
+    width: 500px;
+}
+
+.login-header-container {
+    margin-bottom: 20px;
+}
+
+#login-header {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+#login-header-info {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.login-form-input {
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+input[type=text] {
+   padding-left: 10px;
+   font-family: 'Roboto Slab', serif;
+}
+
+input[type=password] {
+    padding-left: 10px;
+}
+
+.signup-form-input {
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.signup-form-input > label {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 500;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+
+.signup-form-input > input {
+    width: 140px;
+    height: 35px;
+    border-radius: 12px;
+    border: 1.5px solid black;
+    padding: auto 10px;
+}
+
+#login-form-input-email {
+    margin-right: 75px;
+}
+
+.login-form-input > label {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+
+.signup-form-input > label {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+
+.login-form-input > input {
+    width: 100%;
+    height: 40px;
+    border-radius: 12px;
+    border: 1.5px solid black;
+    padding: auto 10px;
+}
+
+#login-btn {
+    color: white;
+    margin-bottom: 30px;
+    width: 140px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(0,128,64);
+    margin-top: 20px;
+    padding: 20px auto;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Roboto Slab', serif;
+}
+
+#login-btn:hover {
+    transform: scale(1.1);
+}
+
+#signup-button {
+    color: white;
+    margin-bottom: 30px;
+    width: 140px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(0,128,64);
+    margin-top: 20px;
+    padding: 20px auto;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Roboto Slab', serif;
+}
+
+#signup-button:hover {
+    transform: scale(1.1);
+}
+
+
+#login-btn:hover {
+    cursor: pointer;
+}
+
+.login-form-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.login-form-footer p {
+    margin-left: 20px;
+}
+
+#signup-link {
+    text-decoration: underline;
+    color: rgb(142,200,64);
+    font-weight: 600;
+}
+
+.session-form-image img {
+    min-height: 700px;
+    max-width: 750px;
+    top: -100px;
+}
+
+#session-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 20px;
+    padding-top: 20px;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-bottom: 25px;
+    color: black;
+}

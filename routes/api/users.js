@@ -19,6 +19,22 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
     })
 });
 
+router.get('/', (req,res) => {
+    User.find()
+        .sort({lastName: -1})
+        .then(users => {
+            res.json(users.map(user => {return {
+                _id: user._id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                groups: user.groups,
+                events: user.events
+            }}))
+        })
+        .catch(err => res.status(404).json({noUsersFound: "Users were not found"}))
+})
+
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -48,7 +64,7 @@ router.post('/register', (req, res) => {
               newUser.password = hash;
               newUser.save()
                 .then(user => {
-                    const payload = { id: user.id, email: user.email };
+                    const payload = { id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName };
 
                     jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                         res.json({
@@ -85,7 +101,7 @@ router.post('/register', (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        const payload = {id: user.id, email: user.email}; // payload should have all of the user info that we might want to access later on in the frontend
+                        const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName}; // payload should have all of the user info that we might want to access later on in the frontend
 
                         jwt.sign(
                             payload,
