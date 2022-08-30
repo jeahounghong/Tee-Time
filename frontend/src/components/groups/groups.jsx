@@ -5,6 +5,7 @@ import '../../stylesheets/groups.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import CreateGroupModal from '../modals/create_group_modal';
+import Create_group_modal_container from '../modals/create_group_modal_container';
 
 class Groups extends React.Component {
     constructor(props){
@@ -52,7 +53,7 @@ class Groups extends React.Component {
                     </div>
                 </div>
                 {this.state.createGroupModalHidden ? "" : 
-                <CreateGroupModal toggleModal={() => this.toggleCreateGroupModal()} action={this.state.createGroupModalHidden} /> }
+                <Create_group_modal_container toggleModal={() => this.toggleCreateGroupModal()} action={this.state.createGroupModalHidden} /> }
             </div>
         )
     }
