@@ -8,7 +8,7 @@ const EventsReducer = (state = {}, action) => {
             nextState[action.event.id] = event;
             return nextState;
 
-        case RECEIVE_EVENT:
+        case RECEIVE_EVENTS:
             Object.values(action.events).forEach(event => {
                 nextState[event.id] = event;
             })
