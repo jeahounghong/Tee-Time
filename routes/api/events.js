@@ -51,9 +51,10 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
                 event.groupId = req.body.groupId;
                 event.public = req.body.public;
                 event.eventSize = req.body.eventSize;
-                event.eventTime = new Date(req.body.eventTime);
+                event.eventTime = new Date(req.body.eventTime); //how does this translate to frontend?
                 event.users = req.body.users;
                 event.description = req.body.description;
+                event.name = req.body.name ? req.body.name : "New Event"; // come back here to set up default naming logic
                 return event.save().then(event => res.json(event))
             }
         })
@@ -72,7 +73,11 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
         ownerId: req.user.id,
         users: [req.user.id],
         eventTime: new Date(req.body.eventTime),
-        eventSize: req.body.eventSize
+        eventSize: req.body.eventSize,
+        name: req.body.name ? req.body.name : "New event",
+        description: req.body.description ? req.body.description : "",
+        public: req.body.public ? req.body.public : true,
+        groupId: req.body.groupId ? req.body.groupId : null
     })
 
     newEvent.save().then( event => res.json(event))
