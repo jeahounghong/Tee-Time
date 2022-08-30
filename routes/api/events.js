@@ -75,7 +75,11 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
         eventSize: req.body.eventSize
     })
 
-    newEvent.save().then( event => res.json(event))
+    newEvent.save().then( event => {
+        req.user.events.createdEvents.push(event.id)
+        req.user.events.joinedEvents.push(event.id)
+        res.json(event)
+    })
 
 });
 
