@@ -67,7 +67,7 @@
 .modal-input {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 400px;
     padding: 10px;
 }
@@ -79,7 +79,7 @@
 
 .modal-input > input {
     height: 30px;
-    width: 270px;
+    width: 320px;
     border: 1px solid black;
     border-radius: 10px;
 }
