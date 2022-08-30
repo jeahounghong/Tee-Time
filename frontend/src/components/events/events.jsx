@@ -2,8 +2,8 @@ import NavbarContainer from '../navbar/navbar_container';
 import EventItemContainer from './event_item_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import '../../stylesheets/events.css';
 import CreateEventModal from '../modals/create_event_modal';
+import '../../stylesheets/events.css';
 import React from 'react';
 
 class Events extends React.Component {
