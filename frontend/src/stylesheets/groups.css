@@ -14,7 +14,7 @@
     z-index: 1;
 }
 
-.groups-heading {
+#groups-title {
     font-size: 28px;
     font-weight: 600;
     width: 100%;
@@ -22,4 +22,27 @@
     justify-content: center;
     margin-top: 10px;
     margin-bottom: 15px;
+}
+
+#groups-header {
+    display: flex;
+    align-items: center;
+}
+
+#create-group-btn {
+    margin-left: 110px;
+    margin-right: 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 16px;
+    border-radius: 28px;
+    column-gap: 8px;
+    color: gray;
+}
+
+#create-group-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
 }
