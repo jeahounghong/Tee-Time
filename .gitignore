@@ -4,3 +4,5 @@
 /config/keys_dev.js
 /config/keys.js
 .DS_Store
+/frontend/src/private
+/frontend/src/private/keys.js
