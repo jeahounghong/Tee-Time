@@ -19,3 +19,5 @@ const CourseReducer = (state = {}, action) => {
             return state;
     }
 }
+
+export default CourseReducer;
