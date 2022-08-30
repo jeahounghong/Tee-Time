@@ -10,6 +10,7 @@ const Event = require('../../models/Event');
 
 router.get('/test', (req, res) => res.json({msg: "This is the events route"}));
 
+// INDEX action
 router.get('/', (req, res) => {
     Event.find()
         // .sort({ date: -1 })
@@ -17,12 +18,14 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ noEventsFound: 'No events found' }))
 });
 
+// SHOW action
 router.get('/:id', (req, res) => {
     Event.findById(req.params.id)
         .then(event => res.json(event))
         .catch(err => res.status(404).json( { noEventFound: 'No event found with that ID' } ))
 });
 
+// USERS INDEX action
 router.get('/users/:user_id', (req, res) => {
     // maybe want to restrict to logged in only?
     Event.find( {users: req.params.id} )

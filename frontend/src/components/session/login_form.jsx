@@ -22,6 +22,7 @@ class LoginForm extends React.Component {
             email: '',
             password: '',
         });
+        this.props.history.push('/groups');
     }
 
     update(field) {
@@ -31,10 +32,12 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="session-form-container">
-                <div id="session-logo">
-                        <FontAwesomeIcon icon={faGolfBallTee}></FontAwesomeIcon>
-                        <p id="navbar-slogan-splash">Tee Times</p>
-                </div>
+                <Link to={'/'}>
+                    <div id="session-logo">
+                            <FontAwesomeIcon icon={faGolfBallTee}></FontAwesomeIcon>
+                            <p id="navbar-slogan-splash">Tee Times</p>
+                    </div>
+                </Link>
                 <div id="login-form-container">
                     <div className="login-header-container">
                         <p id="login-header">Log In</p>

@@ -7,6 +7,8 @@
     border-bottom: 1px solid lightgray;
     background-color: rgb(142,200,64);
     padding: 15px;
+    width: 1450px;
+    z-index: 10;
 }
 
 #navbar-left {
@@ -31,7 +33,8 @@
 }
 
 #navbar-slogan {
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: 500;
 }
 
 .session-link {

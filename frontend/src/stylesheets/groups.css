@@ -1,19 +1,20 @@
-#events-page {
+.groups-page {
     display: grid;
     grid-template-columns: 520px 930px;
     height: 100vh;
 }
 
-#events-container, #map {
+.groups-container, .modal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
     border-radius: 10px;
     margin: 20px;
+    background-color: white;
+    z-index: 1;
 }
 
-#events-slogan {
+#groups-title {
     font-size: 28px;
     font-weight: 600;
     width: 100%;
@@ -23,12 +24,12 @@
     margin-bottom: 15px;
 }
 
-#events-header {
+#groups-header {
     display: flex;
     align-items: center;
 }
 
-#create-event-btn {
+#create-group-btn {
     margin-left: 110px;
     margin-right: 10px;
     font-size: 14px;
@@ -41,7 +42,7 @@
     color: gray;
 }
 
-#create-event-btn:hover {
+#create-group-btn:hover {
     background-color: rgba(0, 0, 0, 0.05);
     cursor: pointer;
 }

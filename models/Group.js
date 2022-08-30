@@ -23,7 +23,7 @@ const GroupSchema = new Schema({
     },
     location: {
         city: {
-            type: String
+            type: String 
         },
         state: {
             type: String

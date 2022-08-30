@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGolfBallTee} from '@fortawesome/free-solid-svg-icons';
 
 class SignUpForm extends React.Component {
     constructor(props) {
@@ -25,6 +27,7 @@ class SignUpForm extends React.Component {
             password2: ''
         });
         this.props.signup(this.state);
+        this.props.history.push('/groups');
     }
 
     update(field) {
@@ -34,39 +37,42 @@ class SignUpForm extends React.Component {
     render() {
         return (
             <div className="session-form-container">
-                <div id="login-form-container">
+                <Link to={'/'}>
+                    <div id="session-logo">
+                            <FontAwesomeIcon icon={faGolfBallTee}></FontAwesomeIcon>
+                            <p id="navbar-slogan-splash">Tee Times</p>
+                    </div>
+                </Link>
+                <div id="signup-form-container">
                     <div className="login-header-container">
                         <p id="login-header">Sign Up</p>
                         <p id="login-header-info">Connect with other players with a passion for the lovely sport of golf. Play anywhere and anytime.</p>
                     </div>
                     <form onSubmit={this.handleSubmit}>
-                        <div className="login-form-input">
+                        <div className="signup-form-input">
                             <label>First Name:</label>
                             <input type="text" value={this.state.firstName} onChange={this.update('firstName')}/>
                         </div>
-                        <div className="login-form-input">
+                        <div className="signup-form-input">
                             <label>Last Name:</label>
                             <input type="text" value={this.state.lastName} onChange={this.update('lastName')}/>
                         </div>
-                        <div className="login-form-input">
+                        <div className="signup-form-input">
                             <label>Email:</label>
                             <input type="text" value={this.state.email} onChange={this.update('email')}/>
                         </div>
-                        <div className="login-form-input">
+                        <div className="signup-form-input">
                             <label>Password:</label>
                             <input type="password" value={this.state.password} onChange={this.update('password')}/>
                         </div>
-                        <div className="login-form-input">
+                        <div className="signup-form-input">
                             <label>Confirm Password:</label>
                             <input type="password" value={this.state.password2} onChange={this.update('password2')}/>
                         </div>
                         <div className="login-form-footer">
-                            <button type="login">Sign up</button>
+                            <button id="signup-button" type="login">Sign up</button>
                             <div className="splash-login-container">
-                                <p className="splash-login-redirect-text">Already have an account?</p>
-                                <Link to={'/login'}>
-                                    <p className="splash-login-redirect-link">Log in instead.</p>
-                                </Link>
+                            <p id="login-footer-info">Already have an account? <Link id="signup-link" to="/login">Login</Link></p>
                             </div>
                         </div>
                     </form>
