@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGolfBallTee, faCalendar, faUsers, faCircleUser } from '@fortawesome/free-solid-svg-icons'
+import { faGolfBallTee, faCalendar, faUsers, faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import '../../stylesheets/nav.css';
 import React from 'react';
 
@@ -21,6 +21,9 @@ class Navbar extends React.Component {
                 </Link>
                 <Link className="session-link" to={`/users/${this.props.currentUser.id}`}>
                     <div className="session-link-icon"><FontAwesomeIcon icon={faCircleUser}></FontAwesomeIcon></div>
+                </Link>
+                <Link className="session-link" to="/">
+                    <div onClick={this.props.logout} className="session-link-icon"><FontAwesomeIcon icon={faRightFromBracket}></FontAwesomeIcon></div>
                 </Link>
             </div>
         )

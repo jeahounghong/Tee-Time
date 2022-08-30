@@ -11,24 +11,14 @@ class CreateEventModal extends React.Component {
             ownerId: this.props.currentUser.id,
             courseId: "630d29898d64f824bb700abe",
             groupId: '',
-            eventTime: '',
+            eventTime: '2022-08-31',
             eventSize: '',
             description: '',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleTime = this.handleTime.bind(this);
-        this.handleDate = this.handleDate.bind(this);
         this.renderModal = this.renderModal.bind(this);
         this.update = this.update.bind(this);
-    }
-
-    handleTime() {
-        let date = this.props.event.eventTime.split("-");
-    }
-
-    handleDate() {
-        let date = this.props.event.eventTime.split("-");
     }
 
     update(field) {
@@ -36,6 +26,7 @@ class CreateEventModal extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger;
         e.preventDefault();
         this.props.createEvent(this.state); 
         this.props.toggleModal();

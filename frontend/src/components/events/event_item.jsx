@@ -11,7 +11,7 @@ class EventItem extends React.Component {
     }
 
     attendEvent() {
-        if (this.props.event.users.length < this.props.event.eventSize) {
+        if (Object.values(this.props.event.users.length) < this.props.event.eventSize) {
             this.props.currentUser.events.joinedEvents.push(this.props.event);
             this.props.event.users.push(this.props.currentUser);
         }
@@ -38,7 +38,6 @@ class EventItem extends React.Component {
     }
 
     render() {
-        // debugger;
         return (
             <div>
                 <div className="event-item-container">
