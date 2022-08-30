@@ -1,8 +1,11 @@
-import {GoogleMap, useLoadScript, Marker} from '@react-google-maps/api';
+import {GoogleMap, useLoadScript, Marker, InfoWindow} from '@react-google-maps/api';
 import { useMemo } from 'react';
 import '../../stylesheets/map.css';
 import React from 'react';
 import keys from '../../private/keys';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGolfBallTee } from '@fortawesome/free-solid-svg-icons';
 
 export default function Map() {
     const { isLoaded } = useLoadScript({
@@ -12,24 +15,32 @@ export default function Map() {
     return <Map />;
 
     function Map() {
-        const center = useMemo(() => ({ lat: 44, lng: -80.1 }), []);
-        const [markers, setMarkers] = React.useState([]);
+        const center = useMemo(() => ({ lat: 40.7831, lng: -73.9712 }), []);
+        // const mapRef = React.useRef();
+        // const onMapLoad = React.useCallback((map) => {
+        //     mapRef.current = map
+        // }, [])
+        const [markers, setMarkers] = React.useState([
+            {lat: 40.7831, lng: -73.9712}, {lat: 41, lng: -75}, {lat: 42, lng: -74.5}
+        ]);
         const [selected, setSelected] = React.useState(null);
+        
         return (
-            <GoogleMap zoom={10} 
+            <GoogleMap zoom={12} 
                 center={center} 
-                onClick={event => console.log(event)}
+                // onLoad={onMapLoad}
                 mapContainerClassName="map-container">
-                <Marker position={{lat: 44.3, lng:-80.1}} />
-                {markers.map((marker) => (
-                    <Marker key={Math.random() * 1000000000} 
+                {markers.map((marker) => {
+                    return <Marker key={Math.random() * 1000000000} 
                     position={{lat: marker.lat, lng: marker.lng}}
-                    icon={{}} onClick={() => {setSelected(marker)}}/>
-                ))}
+                    onClick={() => {setSelected(marker)}}/>
+                })}
 
-                {/* {selected ? <InfoWindow>
-                    <div></div>
-                </InfoWindow> : null} */}
+                {selected ? <InfoWindow position={{lat: selected.lat, lng: selected.lng}} onCloseClick={() => setSelected(null)}>
+                    <div className="course-info">
+                        COURSE INFO GOES HERE
+                    </div>
+                </InfoWindow> : null}
             </GoogleMap>
         )
     }
