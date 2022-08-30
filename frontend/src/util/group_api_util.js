@@ -4,6 +4,10 @@ export const getGroup = (groupId) => {
     return axios.get(`/api/groups/${groupId}`)
 }
 
+export const getGroups = () => {
+    return axios.get('/api/groups')
+}
+
 export const getUserGroups = (userId) => {
     return axios.get(`/api/groups/users/${userId}`)
 }

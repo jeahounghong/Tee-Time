@@ -28,8 +28,7 @@ router.get('/:id', (req, res) => {
 // USERS INDEX action
 router.get('/users/:user_id', (req, res) => {
     // maybe want to restrict to logged in only?
-    Event.find( {users: req.params.id} )
-        .sort({ name: 1 })
+    Event.find( {users: req.params.user_id} )
         .then(events => res.json(events))
         .catch(err => 
             res.status(404).json({ noEventsFound: 'This user does not have any events' })
