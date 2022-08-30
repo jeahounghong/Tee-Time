@@ -58,7 +58,8 @@ class CreateEventModal extends React.Component {
                         </div>
                         <div className="modal-input">
                             <label>Size</label>
-                            <input type="number" value={this.state.eventSize} onChange={this.update('eventSize')} min={2} max={4} />
+                            <input id="event-size" type="number" value={this.state.eventSize} onChange={this.update('eventSize')} 
+                            placeholder="Enter a number between 1 and 4" min={2} max={4} />
                         </div>
                         <div className="modal-input">
                             <label>Course</label>

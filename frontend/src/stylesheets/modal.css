@@ -80,9 +80,10 @@
 
 .modal-input > input, .modal-input > select {
     height: 30px;
-    width: 320px;
+    width: 310px;
     border: 1px solid black;
     border-radius: 10px;
+    padding-left: 10px;
 }
 
 .modal-text {
@@ -142,7 +143,7 @@
     font-size: 14px;
     border-radius: 28px;
     background-color: rgb(141,199,64);
-    margin-top: 5px;
+    margin-top: 2.5px;
     border-style: none;
 }
 
