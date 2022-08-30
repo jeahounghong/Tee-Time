@@ -8,7 +8,7 @@ import {logout} from './actions/session_actions';
 import {fetchCourse} from './actions/course_actions'
 import {fetchEvents, fetchEvent, deleteEvent, createEvent, updateEvent, fetchUserEvents} from './actions/event_actions'
 import {fetchGroups, fetchGroup, deleteGroup, createGroup, updateGroup, fetchUserGroups} from './actions/group_actions'
-
+import {fetchUsers} from './actions/user_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
