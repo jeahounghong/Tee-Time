@@ -1,0 +1,31 @@
+.group-item-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    max-width: 600px;
+    height: 100px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.group-item-top-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.group-name {
+    margin-left: 20px;
+}
+
+.group-item-content-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.group-members-container {
+    max-width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}

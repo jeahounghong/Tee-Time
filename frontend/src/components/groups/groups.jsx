@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
+import GroupItemContainer from './group_item_container';
 
 class Groups extends React.Component {
     constructor(props){
@@ -12,9 +13,19 @@ class Groups extends React.Component {
 
     render() {
         return (
-            <div >
+            <div>
                 <NavBarContainer />
-                <h1>this component is working</h1>
+                <div className='groups-page' >
+                    <div className="groups-container">
+                        <h1 className='groups-heading'>My Groups</h1>
+                        <ul>
+                            <GroupItemContainer />
+                            <GroupItemContainer />
+                            <GroupItemContainer />
+                            <GroupItemContainer />
+                        </ul>
+                    </div>
+                </div>
             </div>
         )
     }
