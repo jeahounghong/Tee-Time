@@ -1,12 +1,13 @@
 .group-item-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     max-width: 600px;
     height: 150px;
     justify-content: space-between;
     margin-bottom: 30px;
     border-radius: 14px;
+    background-color: rgb(142,200,64);
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 }
 
 .group-item-top-container {
@@ -18,6 +19,11 @@
 
 .group-name {
     margin-left: 20px;
+    font-weight: bold;
+}
+
+.group-events-modal-link {
+    cursor: pointer;
 }
 
 .group-item-content-container {
@@ -27,8 +33,8 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 30px;
-    border: 1px solid black;
     border-radius: 12px;
+    background-color: white;
 }
 
 .group-members-container {
