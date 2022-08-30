@@ -5,12 +5,12 @@ const EventsReducer = (state = {}, action) => {
     let nextState = Object.assign({}, state);
     switch(action.type){
         case RECEIVE_EVENT:
-            nextState[action.event.id] = action.event;
+            nextState[action.event._id] = action.event;
             return nextState;
 
         case RECEIVE_EVENTS:
             Object.values(action.events).forEach(event => {
-                nextState[event.id] = event;
+                nextState[event._id] = event;
             })
             return nextState;
 
