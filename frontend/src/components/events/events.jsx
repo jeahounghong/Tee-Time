@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import CreateEventModal from '../modals/create_event_modal';
 import '../../stylesheets/events.css';
-import Map from '../map/map';
+import MapContainer from '../map/map_container';
 import React from 'react';
 
 class Events extends React.Component {
@@ -27,7 +27,6 @@ class Events extends React.Component {
     render() {
         return (
             <div>
-                {/* {Home()} */}
                 <NavbarContainer />
                 <div id="events-page">
                     <div id="events-container">
@@ -56,7 +55,7 @@ class Events extends React.Component {
                     </div>
 
                     <div id="map">
-                        <Map />
+                        <MapContainer />
                     </div>
                 </div>
                 {this.state.createEventModalHidden ? "" : 

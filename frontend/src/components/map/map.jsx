@@ -17,7 +17,7 @@ export default function Map() {
             {lat: 40.7831, lng: -73.9712}, {lat: 41, lng: -75}, {lat: 42, lng: -74.5}
         ]);
         const [selected, setSelected] = React.useState(null);
-        
+        debugger;
         return (
             <GoogleMap zoom={12} 
                 center={center} 
