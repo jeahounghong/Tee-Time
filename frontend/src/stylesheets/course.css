@@ -11,7 +11,7 @@
 } */
 
 .course-image{
-    width: 300px;
+    width: 400px;
     height: 300px;
     object-fit: cover;
     object-position: 100% 0;
