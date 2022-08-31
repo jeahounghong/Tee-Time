@@ -12,20 +12,15 @@ class Group extends React.Component {
             <div className='group-item-container'>
                 <div className="group-item-top-container">
                     <h1 className="group-name">Sample Group Name</h1>
-                    {/* popup modal button */}
-                    <h3 className="group-events-modal-link">More Info</h3>
+                    {/* replace this with number of events */}
+                    <h3 className='group-events-number'>3 events this week</h3>
                 </div>
                 <div className="group-item-content-container">
-                    <div className="group-members-container">
-                        {/* going to be replace with profile images */}
-                        <p>User</p>
-                        <p>User</p>
-                        <p>User</p>
-                        <p>User</p>
-                    </div>
                     <div className="group-information-container">
-                        <p className="group-location">Location</p>
-                        <p className="group-description">Description about group goes here</p>
+                        <p className="group-description">Description about group goes here more descriptions keep going just keep going this looks fire</p>
+                    </div>
+                    <div className="group-members-container">
+                        <p className="group-members-number">18 members</p>
                     </div>
                 </div>
             </div>

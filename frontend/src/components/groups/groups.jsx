@@ -4,8 +4,8 @@ import GroupItemContainer from './group_item_container';
 import '../../stylesheets/groups.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import CreateGroupModal from '../modals/create_group_modal';
 import Create_group_modal_container from '../modals/create_group_modal_container';
+import GroupShowContainer from './group_show_container';
 
 class Groups extends React.Component {
     constructor(props){
@@ -21,6 +21,7 @@ class Groups extends React.Component {
     componentDidMount() {
         document.querySelector('body').style.backgroundColor = '#f3f2ee';
         this.props.fetchUserGroups(this.props.currentUser.id);
+        this.props.fetchEvents();
     }
 
     toggleCreateGroupModal() {
@@ -31,15 +32,14 @@ class Groups extends React.Component {
         return (
             <div>
                 <NavBarContainer />
+                <h1 id="groups-title">My Groups</h1>
+                <div id="create-group-btn" onClick={this.toggleCreateGroupModal}>
+                    <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+                    <p>Create a Group</p>
+                </div>
+                <div id='line'></div>
                 <div className='groups-page' >
                     <div className="groups-container">
-                        <div id="groups-header">
-                            <p id="groups-title">My Groups</p>
-                            <div id="create-group-btn" onClick={this.toggleCreateGroupModal}>
-                                <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-                                <p>Create Group</p>
-                            </div>
-                        </div>
                         <ul>
                             <GroupItemContainer />
                             <GroupItemContainer />
@@ -47,9 +47,8 @@ class Groups extends React.Component {
                             <GroupItemContainer />
                         </ul>
                     </div>
-
-                    <div className="modal">
-                        Modal goes here
+                    <div className="group-show">
+                        <GroupShowContainer events={this.props.events}/>
                     </div>
                 </div>
                 {this.state.createGroupModalHidden ? "" : 
