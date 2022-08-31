@@ -44,18 +44,13 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
         return res.status(400).json(errors)
     }
 
-    console.log(req.body)
     console.log(mongoose.isValidObjectId(req.user.id))
 
     // Event.findById(req.body.id).then(even => console.log)
 
     Event.findById(req.body.id)
         .then(event => {
-            console.log("HERE")
-            console.log(req.user.id)
-            console.log(event)
             event = event || req.body
-            console.log(event)
             // if (event.ownerId.toString() !== req.user.id) {
             //     console.log("401 error")
             //     return res.status(401).json( {unauthorized: 'Only the owner can update this event.' })
@@ -72,7 +67,6 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
                 event.users = req.body.users;
                 event.description = req.body.description;
                 event.name = req.body.name ? req.body.name : "New Event"; // come back here to set up default naming logic
-                console.log(event)
                 
                 return event.save().then(event => res.json(event)).catch(err => console.log(err))
             // }
