@@ -19,10 +19,22 @@ class EditEventModal extends React.Component {
             users: this.props.event.users || [], 
         };
 
+        this.getDateFormat = this.getDateFormat.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.renderModal = this.renderModal.bind(this);
         this.update = this.update.bind(this);
+    }
+
+    getDateFormat() {
+        let date = new Date(this.state.eventTime);
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let day = date.getDate()+1;
+
+        if (month < 10) month = `0${month}`;
+        if (day < 10) day = `0${day}`;
+        return `${year}-${month}-${day}`
     }
 
     update(field) {
@@ -70,7 +82,7 @@ class EditEventModal extends React.Component {
                         </div>
                         <div className="modal-input">
                             <label>Date</label>
-                            <input type="date" value={this.state.eventTime.slice(0, 10)} onChange={this.update('eventTime')} />
+                            <input type="date" value={this.getDateFormat()} onChange={this.update('eventTime')} />
                         </div>
                         {/* <div className="modal-input">
                             <label>Time</label>

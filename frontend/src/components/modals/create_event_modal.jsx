@@ -11,12 +11,12 @@ class CreateEventModal extends React.Component {
             ownerId: this.props.currentUser.id,
             courseId: "630d29898d64f824bb700abe",
             groupId: '',
-            eventTime: '',
+            eventTime: new Date().toString(),
             eventSize: '',
             description: '',
             users: [this.props.currentUser],
         };
-
+        this.getDateFormat = this.getDateFormat.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDate = this.handleDate.bind(this);
         this.handleTime = this.handleTime.bind(this);
@@ -24,13 +24,36 @@ class CreateEventModal extends React.Component {
         this.update = this.update.bind(this);
     }
 
+    getDateFormat() {
+        let date = new Date(this.state.eventTime);
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let day = date.getDate();
+
+        if (month < 10) month = `0${month}`;
+        if (day < 10) day = `0${day}`;
+        return `${year}-${month}-${day}`
+    }
+
     handleDate() {
-        let date = this.state.eventTime;
-        date.setHours(Math.abs(date.getHours()-4) % 12, 19, 24);
+        // debugger;
+        let date = new Date(this.state.eventTime);
+        return e => {
+            // debugger;
+            let dateInput = e.target.value.split('-');
+            date.setFullYear(parseInt(dateInput[0]));
+            date.setMonth(parseInt(dateInput[1])-1);
+            date.setDate(parseInt(dateInput[2]));
+            this.setState({eventTime: date.toString()});
+            // debugger;
+        }
     }
 
     handleTime() {
-
+        let date = new Date(this.state.eventTime);
+        return e => {
+            let timeInput = e.target.value.split(":");
+        }
     }
 
     update(field) {
@@ -62,7 +85,7 @@ class CreateEventModal extends React.Component {
                         </div>
                         <div className="modal-input">
                             <label>Date</label>
-                            <input type="date" value={this.state.eventTime.slice(0, 10)} onChange={this.update('eventTime')} required />
+                            <input type="date" value={this.getDateFormat()} onChange={this.handleDate()} required />
                         </div>
                         <div className="modal-input">
                             <label>Time</label>

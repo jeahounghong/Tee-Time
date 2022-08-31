@@ -81,7 +81,7 @@ class EventItem extends React.Component {
                                         {this.props.users[member] ? this.props.users[member].firstName.slice(0,1) : ""}
                                     </div>
                                 })}
-                                <div className="member-count">{this.props.event.users.length} attendees</div>
+                                <div className="member-count">{this.props.event.users.length} / {this.props.event.eventSize} attendees</div>
                             </div>
                         </div>
                     </div>
