@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     /* background: red; */
+    padding-top: 30px;
 }
 
 .profile-event-list > li {
@@ -16,8 +17,16 @@
     padding: 10px;
     background-color: lightgreen;
     border-radius: 10px;
+    margin-right: 10px;
 }
 
+.right{
+    margin-left: 10px;
+}
+.frequently-played-with-list-item{
+    padding: 10px;
+    border: solid 1px black;
+}
 .user-events h1{
     color: white;
     font-weight: bold;

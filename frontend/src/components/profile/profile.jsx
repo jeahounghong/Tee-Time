@@ -75,7 +75,7 @@ class Profile extends React.Component {
                 return playedWithCount[b] - playedWithCount[a]
             })
             return <ul>    
-                {keys.map((key) => <li>
+                {keys.map((key) => <li key={key} className={"frequently-played-with-list-item"}>
                     <Link to={`/users/${key}`} onMouseDown={() => this.setState({userId: key})}>
                         {this.props.users[key].firstName + " " + this.props.users[key].lastName}
                     </Link>
