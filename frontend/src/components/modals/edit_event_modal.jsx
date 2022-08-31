@@ -33,7 +33,7 @@ class EditEventModal extends React.Component {
         let date = new Date(this.state.eventTime);
         let year = date.getFullYear();
         let month = date.getMonth()+1;
-        let day = date.getDate()+1;
+        let day = date.getDate();
 
         if (month < 10) month = `0${month}`;
         if (day < 10) day = `0${day}`;
@@ -55,7 +55,7 @@ class EditEventModal extends React.Component {
             let dateInput = e.target.value.split('-');
             date.setFullYear(parseInt(dateInput[0]));
             date.setMonth(parseInt(dateInput[1])-1);
-            date.setDate(parseInt(dateInput[2])-1);
+            date.setDate(parseInt(dateInput[2]));
             this.setState({eventTime: date.toString()});
         }
     }
