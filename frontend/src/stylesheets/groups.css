@@ -41,7 +41,7 @@
     margin: 20px;
     background-color: white;
     width: 50%;
-    min-height: min-content;
+    height: min-content;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 }
 
@@ -84,6 +84,7 @@
     border-radius: 28px;
     column-gap: 8px;
     color: black;
+    background-color: white;
 }
 
 #create-group-btn:hover {
@@ -96,15 +97,23 @@
     margin-right: 10px;
     font-size: 14px;
     display: flex;
-    padding: 6px 12px;
+    padding: 6px 8px;
     width: 140px;
     border-radius: 28px;
-    column-gap: 8px;
     color: black;
     text-align: center;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
 }
 
 #edit-group-btn:hover {
     background-color: rgba(0, 0, 0, 0.05);
     cursor: pointer;
+}
+
+.select-a-group {
+    margin-left: 45px;
+    text-decoration: underline;
+    margin-bottom: 10px;
 }
