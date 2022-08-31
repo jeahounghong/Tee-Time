@@ -44,6 +44,9 @@ const UserSchema = new Schema({
       joinedEvents: {
         type: Array
       }
+    },
+    imageUrl: {
+      type: String
     }
     // might want to add image down the line, will depend on AWS configuration
   }, {
