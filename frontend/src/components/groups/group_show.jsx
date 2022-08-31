@@ -29,7 +29,7 @@ class GroupShow extends React.Component {
                     <div className="group-show-top-right">
                         <p className="group-show-location"><FontAwesomeIcon className="group-show-top-icon" icon={faLocationDot}></FontAwesomeIcon>Los Angeles, CA</p>
                         <p className="group-show-members"><FontAwesomeIcon className="group-show-top-icon" icon={faUserGroup}></FontAwesomeIcon>{this.props.group.users.length} Members</p>
-                        <p className="group-show-owner"><FontAwesomeIcon className="group-show-top-icon" icon={faUser}></FontAwesomeIcon>Owner: {this.props.currentUser.firstName}</p>
+                        <p className="group-show-owner"><FontAwesomeIcon className="group-show-top-icon" icon={faUser}></FontAwesomeIcon>Owner: {this.props.currentUser.firstName} {this.props.currentUser.lastName}</p>
                     </div>
                 </div>
                 <div id="group-show-line"></div>
