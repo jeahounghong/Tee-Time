@@ -39,7 +39,7 @@ class CreateEventModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createEvent(this.state); 
+        this.props.createEvent(this.state);
         this.props.toggleModal();
     }
 

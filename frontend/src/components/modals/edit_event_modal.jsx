@@ -42,6 +42,7 @@ class EditEventModal extends React.Component {
         let updatedUser = Object.assign({}, currentUser);
         delete updatedUser._id;
         updatedUser.id = currentUser._id;
+        // debugger;
         let newJoinedEvents = updatedUser.events.joinedEvents.splice(0, idx).concat(updatedUser.events.joinedEvents.splice(idx));
         let newCreatedEvents = updatedUser.events.createdEvents.splice(0, idx).concat(updatedUser.events.createdEvents.splice(idx));
         updatedUser.events.joinedEvents = newJoinedEvents;
