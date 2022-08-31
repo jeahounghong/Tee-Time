@@ -11,22 +11,24 @@ class Navbar extends React.Component {
     }
 
     sessionLinks() {
-        return (
-            <div id="session-links">
-                <Link className="session-link" to="/events">
-                    <div className="session-link-icon"><FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon></div>
-                </Link>
-                <Link className="session-link" to="/groups">
-                    <div className="session-link-icon"><FontAwesomeIcon icon={faUsers}></FontAwesomeIcon></div>
-                </Link>
-                <Link className="session-link" to={`/users/${this.props.currentUser.id}`}>
-                    <div className="session-link-icon"><FontAwesomeIcon icon={faCircleUser}></FontAwesomeIcon></div>
-                </Link>
-                <Link className="session-link" to="/">
-                    <div onClick={this.props.logout} className="session-link-icon"><FontAwesomeIcon icon={faRightFromBracket}></FontAwesomeIcon></div>
-                </Link>
-            </div>
-        )
+        if (this.props.currentUser){
+            return (
+                <div id="session-links">
+                    <Link className="session-link" to="/events">
+                        <div className="session-link-icon"><FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon></div>
+                    </Link>
+                    <Link className="session-link" to="/groups">
+                        <div className="session-link-icon"><FontAwesomeIcon icon={faUsers}></FontAwesomeIcon></div>
+                    </Link>
+                    <Link className="session-link" to={`/users/${this.props.currentUser.id}`}>
+                        <div className="session-link-icon"><FontAwesomeIcon icon={faCircleUser}></FontAwesomeIcon></div>
+                    </Link>
+                    <Link className="session-link" to="/">
+                        <div onClick={this.props.logout} className="session-link-icon"><FontAwesomeIcon icon={faRightFromBracket}></FontAwesomeIcon></div>
+                    </Link>
+                </div>
+            )
+        }
     }
 
     render() {
