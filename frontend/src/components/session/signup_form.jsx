@@ -46,7 +46,7 @@ class SignUpForm extends React.Component {
                 <div id="signup-form-container">
                     <div className="login-header-container">
                         <p id="login-header">Sign Up</p>
-                        <p id="login-header-info">Connect with other players with a passion for the lovely sport of golf. Play anywhere and anytime.</p>
+                        <p id="signin-header-info">Connect with other players with a passion for the lovely sport of golf. Play anywhere and anytime.</p>
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <div className="signup-form-input">
@@ -70,10 +70,8 @@ class SignUpForm extends React.Component {
                             <input type="password" value={this.state.password2} onChange={this.update('password2')}/>
                         </div>
                         <div className="login-form-footer">
-                            <button id="signup-button" type="login">Sign up</button>
-                            <div className="splash-login-container">
-                            <p id="login-footer-info">Already have an account? <Link id="signup-link" to="/login">Login</Link></p>
-                            </div>
+                        <p id="signin-footer-info">Already have an account? <Link id="signup-link" to="/login">Login</Link></p>
+                            <button id="signup-btn" type="login">Sign up</button>
                         </div>
                     </form>
                 </div>

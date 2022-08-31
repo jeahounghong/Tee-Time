@@ -52,10 +52,8 @@ class LoginForm extends React.Component {
                             <label>Password</label>
                             <input type="password" value={this.state.password} onChange={this.update('password')}/>
                         </div>
-                        <div className="login-form-footer">
-                            <button id="login-btn" type="login">Sign in</button>
-                            <p id="login-footer-info">Don't have an account? <Link id="signup-link" to="/signup">Sign up</Link></p>
-                        </div>
+                        <button id="login-btn" type="login">Login</button>
+                        <p id="login-footer-info">Don't have an account? <Link id="signup-link" to="/signup">Sign up</Link></p>
                     </form>
                 </div>
                 <div className="session-form-image" id="splash-img">

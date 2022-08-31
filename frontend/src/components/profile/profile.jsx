@@ -129,6 +129,11 @@ class Profile extends React.Component {
         }
     }
 
+    // relevant Groups
+    suggestedGroups() {
+        
+    }
+
     isAfterToday(date){
         let day = new Date()
         day = day.getFullYear() + "-" + ((day.getMonth() + 1) < 10 ? "0" + (day.getMonth() + 1) : (day.getMonth() + 1)) + "-" + 
