@@ -35,4 +35,4 @@ export const updateGroup = (group) => dispatch => GroupApiUtil.updateGroup(group
     .then((group) => receiveGroup(group.data))
 
 export const createGroup = (group) => dispatch => GroupApiUtil.createGroup(group)
-    .then((group) => dispatch(receiveGroup(group.data)))
+    .then(group => dispatch(receiveGroup(group.data)))
