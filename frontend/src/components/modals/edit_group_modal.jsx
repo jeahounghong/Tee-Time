@@ -7,12 +7,12 @@ class EditGroupModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            name: this.props.group.name,
             ownerId: this.props.currentUser.id,
-            users: [this.props.currentUser.id],
-            events: [],
-            description: '',
-            location: {city: '', state: ''},
+            users: [...this.props.group.users],
+            events: this.props.group.events,
+            description: this.props.group.description,
+            location: this.props.group.location,
             filteredData: [],
             allUsers: []
         };
@@ -25,6 +25,7 @@ class EditGroupModal extends React.Component {
         this.handleFilter = this.handleFilter.bind(this);
         this.populateGroupMembers = this.populateGroupMembers.bind(this);
         this.deleteGroupMember = this.deleteGroupMember.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     update(field) {
@@ -106,7 +107,19 @@ class EditGroupModal extends React.Component {
         console.log(this.state)
         // need to use an event we pass down via props
         // close modal after submitting form 
-        this.props.createGroup(this.state);
+        this.props.updateGroup(this.state);
+        this.props.toggleModal();
+    }
+
+    handleDelete(e) {
+        e.preventDefault();
+    
+        delete this.state.filteredData;
+        delete this.state.allUsers;
+        console.log(this.state)
+        // need to use an event we pass down via props
+        // close modal after submitting form 
+        this.props.deleteGroup(this.state);
         this.props.toggleModal();
     }
 
@@ -163,7 +176,10 @@ class EditGroupModal extends React.Component {
                             <label>Description</label>
                             <textarea className="modal-text" value={this.state.description} onChange={this.update('description')}></textarea>
                         </div>
-                        <input type="submit" className="group-modal-submit" />
+                        <div className="edit-group-modal-button-container">
+                            <input type="submit" className="group-modal-submit-edit" />
+                            <button onClick={this.handleDelete} className='group-modal-submit-edit'>Delete</button>
+                        </div>
                     </form>
                 </div>
             </div>
