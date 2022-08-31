@@ -60,7 +60,6 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
         return res.status(400).json(errors)
     }
 
-    console.log(req.body.users)
     const newGroup = new Group({
         name: req.body.name,
         description: req.body.description,
@@ -78,6 +77,8 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
 });
 
 router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
+    
+    console.log(req.params.id)
     Group.findById(req.params.id)
         .then(group => {
 
@@ -85,7 +86,7 @@ router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res)
                 return res.status(401).json( {unauthorized: 'Only the owner can delete this group.' })
             } 
 
-            console.log(`GROUP ID: ${group.id}`)
+            
             Group.findByIdAndDelete(group.id, function(err){
                 if (err) console.log(err);
                 console.log("Successful deletion.")

@@ -9,9 +9,20 @@ import EventItemContainer from '../events/event_item_container'
 class GroupShow extends React.Component {
     constructor(props){
         super(props)
+
+        this.showGroupEvents = this.showGroupEvents.bind(this);
     };
 
     // need to create a method where we not only map through the user Events but match the groupId to the groupId on the show page
+    showGroupEvents() {
+        return this.props.events.map((event, i) => {
+            if (event.groupId === this.props.group._id) {
+                return (
+                    <EventItemContainer event={event} key={event+i} courses={this.props.courses} />
+                )
+            }
+        })
+    }
 
     render() {
         if (this.props.group){
@@ -41,6 +52,7 @@ class GroupShow extends React.Component {
                         <div className="group-show-events-container">
                             {/* include function to show group events */}
                             <ul >
+                                {/* (this.showGroupEvents()) */}
                                 {Object.values(this.props.events).map((event, i) => (
                                     <EventItemContainer event={event} key={event+i} courses={this.props.courses} />
                                 ))}

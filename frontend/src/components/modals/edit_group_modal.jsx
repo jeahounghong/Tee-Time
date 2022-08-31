@@ -109,8 +109,6 @@ class EditGroupModal extends React.Component {
         // need to use an event we pass down via props
         // close modal after submitting form 
 
-
-        // debugger;
         this.props.updateGroup(this.state);
         this.props.toggleModal();
     }
@@ -120,7 +118,6 @@ class EditGroupModal extends React.Component {
     
         delete this.state.filteredData;
         delete this.state.allUsers;
-        console.log(this.state.id)
         // need to use an event we pass down via props
         // close modal after submitting form 
         this.props.deleteGroup(this.state.id);
