@@ -6,7 +6,6 @@ import React from 'react';
 class EditEventModal extends React.Component {
     constructor(props) {
         super(props);
-        debugger;
         this.state = {
             _id: this.props.event._id,
             name: this.props.event.name || '',
