@@ -35,6 +35,23 @@ router.get('/', (req,res) => {
         .catch(err => res.status(404).json({noUsersFound: "Users were not found"}))
 })
 
+router.patch('/:id', (req,res) => {
+
+    console.log("User")
+    console.log(req.body)
+    User.findById(req.body.id)
+        .then(user => {
+            user.groups = req.body.groups;
+            user.events = req.body.events;
+            user.firstName = req.body.firstName;
+            user.lastName = req.body.lastName;
+            user.email = req.body.email;
+
+            return user.save().then(user => res.json(user))
+        })
+        .catch(err => res.status(404).json({noUsersFound: "Users were not found"}))
+})
+
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
 

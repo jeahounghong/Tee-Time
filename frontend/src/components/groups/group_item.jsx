@@ -11,16 +11,16 @@ class Group extends React.Component {
         return (
             <div className='group-item-container'>
                 <div className="group-item-top-container">
-                    <h1 className="group-name">Sample Group Name</h1>
+                    <h1 className="group-name">{this.props.group.name}</h1>
                     {/* replace this with number of events */}
-                    <h3 className='group-events-number'>3 events this week</h3>
+                    <h3 className='group-events-number'>{this.props.group.events.length} events this week</h3>
                 </div>
                 <div className="group-item-content-container">
                     <div className="group-information-container">
-                        <p className="group-description">Description about group goes here more descriptions keep going just keep going this looks fire</p>
+                        <p className="group-description">{this.props.group.description}</p>
                     </div>
                     <div className="group-members-container">
-                        <p className="group-members-number">18 members</p>
+                        <p className="group-members-number">{this.props.group.users.length} members</p>
                     </div>
                 </div>
             </div>

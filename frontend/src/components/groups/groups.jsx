@@ -23,8 +23,6 @@ class Groups extends React.Component {
         document.querySelector('body').style.backgroundColor = '#f3f2ee';
         this.props.fetchUserGroups(this.props.currentUser.id);
         this.props.fetchUserEvents(this.props.currentUser.id);
-        // this.props.fetchGroups();
-        // this.props.fetchEvents();
     }
 
     toggleCreateGroupModal() {
@@ -62,7 +60,7 @@ class Groups extends React.Component {
                         </ul>
                     </div>
                     <div className="group-show">
-                        <GroupShowContainer events={this.props.events}/>
+                        <GroupShowContainer group={this.state.groupShowGroup} events={this.props.events}/>
                     </div>
                 </div>
                 {this.state.createGroupModalHidden ? "" : 
