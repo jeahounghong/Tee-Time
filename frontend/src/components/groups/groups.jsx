@@ -85,7 +85,18 @@ class Groups extends React.Component {
                     <div className="groups-container">
                         <ul>
                         {Object.values(this.props.groups).map((group, i) => (
-                                <GroupItemContainer group={group} key={group+i} />
+                                <div onClick={() => {
+                                    let idx = -1;
+                                    for(let i = 0; i < this.props.groups.length; i++){
+                                        if (this.props.groups[i]._id === group._id){
+                                            idx = i
+                                        }
+                                    }
+                                    console.log(i)
+                                    this.setState({groupShowGroup: this.props.groups[idx]})
+                                }}>
+                                    <GroupItemContainer group={group} key={group+i} />
+                                </div>
                             ))}
                         </ul>
                     </div>
