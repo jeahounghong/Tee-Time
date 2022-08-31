@@ -7,7 +7,7 @@ class EditEventModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: this.props.event._id,
+            _id: this.props.event._id,
             name: this.props.event.name || '',
             ownerId: this.props.currentUser._id,
             courseId: this.props.event.courseId,
@@ -75,7 +75,7 @@ class EditEventModal extends React.Component {
                             <textarea value={this.state.description} onChange={this.update('description')} className="create-event-modal-text"></textarea>
                         </div>
                         <div className="modal-submit">
-                            <button type="submit">Create</button>
+                            <button type="submit">Save</button>
                         </div>
                     </form>
                 </div>
