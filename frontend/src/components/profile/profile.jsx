@@ -39,7 +39,7 @@ class Profile extends React.Component {
     componentDidUpdate(){
         if (this.state.userId !== this.props.location.pathname.substring(7)){
             // debugger;
-            this.setState({userId: this.props.location.pathname.substring(7)})
+            // this.setState({userId: this.props.location.pathname.substring(7)})
             this.props.fetchUserEvents(this.state.userId)
         }
     }
