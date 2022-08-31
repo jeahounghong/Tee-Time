@@ -87,8 +87,11 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
         name: req.body.name ? req.body.name : "New event",
         description: req.body.description ? req.body.description : "",
         public: req.body.public ? req.body.public : true,
-        groupId: req.body.groupId ? req.body.groupId : null
     })
+
+    if (req.body.groupId) {
+        newEvent.groupId = req.body.groupId
+    }
 
     newEvent.save().then( event => {
         req.user.events.createdEvents.push(event.id)
