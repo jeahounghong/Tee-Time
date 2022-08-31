@@ -14,22 +14,43 @@ class EventItem extends React.Component {
     }
 
     attendEvent() {
-        // debugger;
-        if (Object.values(this.props.event.users.length) < this.props.event.eventSize &&
-        this.props.event.users.indexOf(this.props.currentUser.id) === -1) {
-            this.props.users[this.props.currentUser.id].events.joinedEvents.push(this.props.event._id);
-            this.props.event.users.push(this.props.currentUser.id);
-        } else {
+
+        if (this.props.event.users.indexOf(this.props.currentUser.id) >= 0){
             let idx = this.props.event.users.indexOf(this.props.currentUser.id);
             this.props.event.users = this.props.event.users.splice(0, idx).concat(this.props.event.users.splice(idx));
             let newJoinedEvents = this.props.users[this.props.currentUser.id].events.
                 joinedEvents.splice(0, idx).concat(this.props.users[this.props.currentUser.id].events.joinedEvents.splice(idx));
+        } else if (Object.values(this.props.event.users.length) < this.props.event.eventSize) {
+            this.props.users[this.props.currentUser.id].events.joinedEvents.push(this.props.event._id);
+            this.props.event.users.push(this.props.currentUser.id);
+
+            let updatedUser = Object.assign(this.props.users[this.props.currentUser.id])
+            updatedUser.id = updatedUser._id
+            delete updatedUser._id
+            this.props.updateUser(updatedUser)
+
+            let updatedEvent = Object.assign(this.props.event)
+            updatedEvent.id = updatedEvent._id
+            delete updatedEvent._id
+            this.props.updateEvent(updatedEvent)
         }
+
+        // debugger;
+        // if (Object.values(this.props.event.users.length) < this.props.event.eventSize &&
+        // this.props.event.users.indexOf(this.props.currentUser.id) === -1) {
+        //     this.props.users[this.props.currentUser.id].events.joinedEvents.push(this.props.event._id);
+        //     this.props.event.users.push(this.props.currentUser.id);
+        // } else {
+        //     let idx = this.props.event.users.indexOf(this.props.currentUser.id);
+        //     this.props.event.users = this.props.event.users.splice(0, idx).concat(this.props.event.users.splice(idx));
+        //     let newJoinedEvents = this.props.users[this.props.currentUser.id].events.
+        //         joinedEvents.splice(0, idx).concat(this.props.users[this.props.currentUser.id].events.joinedEvents.splice(idx));
+        // }
         
-        let newEvent = Object.assign({}, this.props.event);
-        delete newEvent._id;
-        newEvent.id = this.props.event._id;
-        this.props.updateEvent(newEvent);
+        // let newEvent = Object.assign({}, this.props.event);
+        // delete newEvent._id;
+        // newEvent.id = this.props.event._id;
+        // this.props.updateEvent(newEvent);
     }
 
     getDate() {
