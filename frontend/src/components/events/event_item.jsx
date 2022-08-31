@@ -1,6 +1,7 @@
 import '../../stylesheets/event_item.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPersonWalkingArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faPersonWalkingArrowRight, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import EditEventModalContainer from '../modals/edit_event_modal_container';
 import React from 'react';
 
@@ -14,10 +15,13 @@ class EventItem extends React.Component {
 
     attendEvent() {
         if (Object.values(this.props.event.users.length) < this.props.event.eventSize) {
-            this.props.currentUser.events.joinedEvents.push(this.props.event);
-            this.props.event.users.push(this.props.currentUser);
+            if (this.props.event.users.indexOf(this.props.currentUser) === -1) {
+                this.props.users[this.props.currentUser.id].events.joinedEvents.push(this.props.event);
+                this.props.event.users.push(this.props.currentUser);
+            }
         }
-        console.log("attending event");
+        // force rerender here with setState
+        this.setState({editing: this.state.editing})
     }
 
     getDate() {
@@ -54,11 +58,16 @@ class EventItem extends React.Component {
                                 <div className="event-description">{this.props.event.description ? this.props.event.description : "Event Description"}</div>
                             </div>
                             <div className="event-members">
-                                <div className="member-1">D</div>
-                                <div className="member-2">M</div>
-                                <div className="member-3">T</div>
-                                <div className="member-4">C</div>
+                                {this.props.event.users.map((member, i) => {
+                                    // debugger;
+                                    return <div className={`member-${i+1}`} key={member+i}>
+                                        {this.props.users[member] ? this.props.users[member].firstName.slice(0,1) : ""}
+                                    </div>
+                                })}
                                 <div className="member-count">{this.props.event.users.length} attendees</div>
+                                {/* <div className="event-item-btn">
+                                    <FontAwesomeIcon icon={faCircleArrowRight}></FontAwesomeIcon>
+                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -71,7 +80,7 @@ class EventItem extends React.Component {
                                 <FontAwesomeIcon icon={faPersonWalkingArrowRight}></FontAwesomeIcon>
                             </div>
                             <div onClick={() => this.setState({editing: !this.state.editing})} className="event-actions-toggle">
-                                edit/delete
+                                <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
                             </div>
                         </div>
                     </div>

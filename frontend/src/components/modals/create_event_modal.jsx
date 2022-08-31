@@ -14,7 +14,7 @@ class CreateEventModal extends React.Component {
             eventTime: '2022-08-31',
             eventSize: '',
             description: '',
-            users: [this.props.currentUser._id],
+            users: [this.props.currentUser],
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
