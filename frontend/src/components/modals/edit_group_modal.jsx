@@ -108,9 +108,9 @@ class EditGroupModal extends React.Component {
         console.log(this.state)
         // need to use an event we pass down via props
         // close modal after submitting form 
-        
 
-        debugger;
+
+        // debugger;
         this.props.updateGroup(this.state);
         this.props.toggleModal();
     }
