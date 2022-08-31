@@ -44,14 +44,13 @@ class EventItem extends React.Component {
             <div>
                 <div className="event-item-container">
                     <div className="event-item-left">
-                        <div className="event-img">
+                        {/* <div className="event-img">
                             <img src="" alt="event-img" />
-                        </div>
+                        </div> */}
                         <div className="event-item-info">
-                            <div className="event-date">{this.getDate()}</div>
                             <div className="event-name">{this.props.event.name ? this.props.event.name : "Event Name"}</div>
+                            <div className="event-date">{this.getDate()}</div>
                             <div className="event-description">{this.props.event.description ? this.props.event.description : "Event Description"}</div>
-                            <div className="attendee-count">{`${this.props.event.users.length} attendees`}</div>
                         </div>
                     </div>
                     
@@ -68,9 +67,9 @@ class EventItem extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="event-item-border-container">
+                {/* <div className="event-item-border-container">
                     <div className="event-item-border"></div>
-                </div>
+                </div> */}
                 <div id="edit-event-modal">
                     {this.state.editing ? <EditEventModalContainer className="edit-event-modal" 
                     currentUser={this.props.currentUser} event={this.props.event} 

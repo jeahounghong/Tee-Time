@@ -1,22 +1,24 @@
 .event-item-left {
     display: flex;
-    align-items: center;
-    column-gap: 10px;
 }
 
 .event-item-container {
-    /* background-color: red; */
     margin-left: -12px;
     padding: 10px;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    background-color: white;
+    box-shadow: 0px 3px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    height: 150px;
+    width: 530px;
 }
 
 .event-date {
     color: rgb(0,128,64);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .event-item-border {
@@ -50,11 +52,12 @@
 
 .event-name {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 .event-description {
     font-size: 14px;
+    color: gray;
 }
 
 .event-item-info {

@@ -15,7 +15,7 @@ class EditEventModal extends React.Component {
             eventTime: this.props.event.eventTime,
             eventSize: this.props.event.eventSize,
             description: this.props.event.description || '',
-            users: this.props.event.users, 
+            users: this.props.event.users || [], 
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);

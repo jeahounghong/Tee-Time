@@ -1,6 +1,6 @@
 #events-page {
     display: grid;
-    grid-template-columns: 520px 930px;
+    grid-template-columns: 600px 850px;
     height: 100vh;
 }
 
@@ -8,9 +8,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 10px;
     margin: 20px;
+    overflow: scroll;
 }
 
 #events-slogan {
