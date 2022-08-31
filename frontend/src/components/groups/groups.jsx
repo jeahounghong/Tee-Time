@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Create_group_modal_container from '../modals/create_group_modal_container';
 import GroupShowContainer from './group_show_container';
+import EditGroupModalContainer from '../modals/edit_group_modal_container';
 
 class Groups extends React.Component {
     constructor(props){
@@ -13,10 +14,12 @@ class Groups extends React.Component {
 
         this.state = {
             createGroupModalHidden: true,
+            editGroupModalHidden: true,
             groupShowGroup: this.props.groups[1]
         };
 
         this.toggleCreateGroupModal = this.toggleCreateGroupModal.bind(this)
+        this.toggleEditGroupModal = this.toggleEditGroupModal.bind(this)
     }
 
     componentDidMount() {
@@ -27,6 +30,10 @@ class Groups extends React.Component {
 
     toggleCreateGroupModal() {
         this.setState({createGroupModalHidden: !this.state.createGroupModalHidden})
+    }
+
+    toggleEditGroupModal() {
+        this.setState({editGroupModalHidden: !this.state.editGroupModalHidden})
     }
 
     render() {
@@ -40,7 +47,7 @@ class Groups extends React.Component {
                         <p>Create a Group</p>
                     </div>
                     {/* change this to edit group modal */}
-                    <div id="create-group-btn" onClick={this.toggleCreateGroupModal}>
+                    <div id="create-group-btn" onClick={this.toggleEditGroupModal}>
                         <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
                         <p>Edit this Group</p>
                     </div>
@@ -61,6 +68,8 @@ class Groups extends React.Component {
                 </div>
                 {this.state.createGroupModalHidden ? "" : 
                 <Create_group_modal_container toggleModal={() => this.toggleCreateGroupModal()} action={this.state.createGroupModalHidden} /> }
+                {this.state.editGroupModalHidden ? "" : 
+                <EditGroupModalContainer toggleModal={() => this.toggleEditGroupModal()} action={this.state.EditGroupModalHidden} /> }
             </div>
         )
     }

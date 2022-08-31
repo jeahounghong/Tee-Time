@@ -1,16 +1,21 @@
 import React from 'react';
 import '../../stylesheets/group_item.css'
 import GroupShowContainer from './group_show_container'
+import EditGroupModalContainer from '../modals/edit_group_modal_container'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 class Group extends React.Component {
     constructor(props){
         super(props)
 
         this.state = {
-            showToggle: false
+            showToggle: false,
+            editGroupModalHidden: true,
         }
 
         this.toggleGroupShow = this.toggleGroupShow.bind(this);
+        this.toggleEditGroupModal = this.toggleEditGroupModal.bind(this)
     };
 
     toggleGroupShow(e) {
@@ -20,10 +25,14 @@ class Group extends React.Component {
         this.setState({showToggle: !this.state.showToggle})
     }
 
+    toggleEditGroupModal() {
+        this.setState({editGroupModalHidden: !this.state.editGroupModalHidden})
+    }
+
     render() {
         // replace all of these with group information
         return (
-            <div className='group-item-container' onClick={this.toggleGroupShow}>
+            <div className='group-item-container'>
                 <div className="group-item-top-container">
                     <h1 className="group-name">{this.props.group.name}</h1>
                     {/* replace this with number of events */}
