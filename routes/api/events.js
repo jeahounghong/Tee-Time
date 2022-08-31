@@ -2,6 +2,8 @@ const express = require("express");
 const keys = require('../../config/keys');
 const passport = require('passport');
 const router = express.Router();
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const validateEventInput = require('../../validation/events');
 const User = require("../../models/User");
@@ -43,27 +45,35 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
     }
 
     console.log(req.body)
+    console.log(mongoose.isValidObjectId(req.user.id))
 
     // Event.findById(req.body.id).then(even => console.log)
 
     Event.findById(req.body.id)
         .then(event => {
             console.log("HERE")
+            console.log(req.user.id)
+            console.log(event)
+            event = event || req.body
+            console.log(event)
             if (event.ownerId.toString() !== req.user.id) {
+                console.log("401 error")
                 return res.status(401).json( {unauthorized: 'Only the owner can update this event.' })
             } else {
+                console.log(event)
                 event.courseId = req.body.courseId;
                 if (!event.groupId){
                     delete event.groupId
                 }
                 // event.groupId = req.body.groupId ? req.body.groupId : "0";
-                event.public = req.body.public;
+                event.public = req.body.public ? req.body.public : true;
                 event.eventSize = req.body.eventSize;
                 event.eventTime = new Date(req.body.eventTime); //how does this translate to frontend?
                 event.users = req.body.users;
                 event.description = req.body.description;
                 event.name = req.body.name ? req.body.name : "New Event"; // come back here to set up default naming logic
                 console.log(event)
+                
                 return event.save().then(event => res.json(event)).catch(err => console.log(err))
             }
         })
