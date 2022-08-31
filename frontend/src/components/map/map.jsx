@@ -36,7 +36,7 @@ export default function Map(props) {
                     <div className="course-info">
                         <div className="course-photo">
                             {/* add course image after aws is set up */}
-                            <img src="" alt="course-photo"/>
+                            <img className="course-image" src={selected.imageUrl} alt="course-photo"/>
                         </div>
                         <p className="course-name">{selected.name}</p>
                         <p>Golf course in Roslyn Heights, New York</p>

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import '../../stylesheets/modal.css';
+import '../../stylesheets/group_modal.css';
 import React from 'react';
 
 class CreateGroupModal extends React.Component {
@@ -68,7 +68,7 @@ class CreateGroupModal extends React.Component {
         return this.state.users.map((user) => {
             return (
                 // onClick should remove the relevant user from this.state.users and it should remove the div itself
-                <div onClick={this.deleteGroupMember} className='added-user' id={`${user._id}`}>{user.firstName} <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon></div>
+                <div onClick={this.deleteGroupMember} className='added-user' id={`${user._id}`}>{user.firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
             )
         })
     }
@@ -112,23 +112,23 @@ class CreateGroupModal extends React.Component {
 
     renderModal() {
         return (
-            <div id="modal">
-                <div id="overlay" onClick={this.props.toggleModal}></div>
+            <div id="group-modal">
+                <div id="group-overlay" onClick={this.props.toggleModal}></div>
                 <div className="modal-group">
                     <div className="modal-header">
-                        <p className="modal-header-info">Create Group</p>
+                        <p className="group-modal-header-info">Create a Group</p>
                         <div className="modal-close" onClick={this.props.toggleModal} >
                             <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
                         </div>
                     </div>
                     <div className="modal-form-separator"></div>
                     <form onSubmit={this.handleSubmit}>
-                        <div className="modal-input">
+                        <div className="group-modal-input">
                             <label>Name</label>
                             <input type="text" value={this.state.name} onChange={this.update('name')} />
                         </div>
                         <div className="users-search-container">
-                            <div className="modal-input">
+                            <div className="group-modal-input">
                                 <label>Members</label>
                                 {/* change this to this.updateUsers */}
                                 <input type="text" onChange={this.handleFilter}/>
@@ -151,15 +151,15 @@ class CreateGroupModal extends React.Component {
                                 }
                             </div>
                         </div>
-                        <div className="modal-input">
+                        <div className="group-modal-input">
                             <label>City</label>
                             <input type="text" onChange={this.updateLocation('city')}/>
                         </div>
-                        <div className="modal-input">
+                        <div className="group-modal-input">
                             <label>State</label>
                             <input type="text" onChange={this.updateLocation('state')}/>
                         </div>
-                        <div className="modal-input" id="modal-text-input">
+                        <div className="group-modal-input" id="modal-text-input">
                             <label>Description</label>
                             <textarea className="modal-text" value={this.state.description} onChange={this.update('description')}></textarea>
                         </div>

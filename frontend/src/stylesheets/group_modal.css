@@ -1,0 +1,250 @@
+#group-overlay {
+    position: absolute;
+    left: 0;
+    top: -142px;
+    width: 105vw;
+    height: 1250px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#group-modal{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin-top: -840px;
+    transform: translate(-30px, 20px);
+    position: fixed;
+    z-index: 10000;
+}
+
+.modal-group {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    height: 800px;
+    z-index: 10;
+}
+
+.modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.group-modal-header-info {
+    font-size: 24px;
+    margin-left: 200px;
+    font-weight: bold;
+}
+
+.modal-close {
+    font-size: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    height: 15px;
+    width: 15px;
+}
+
+.modal-close:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.modal-form-separator {
+    border-bottom: 1px solid lightgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.group-modal-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 450px;
+    padding: 10px;
+}
+
+.group-modal-input > label {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.group-modal-input > input, .group-modal-input > select {
+    height: 30px;
+    width: 310px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.modal-text {
+    width: 100%;
+    height: 100px;
+    border-radius: 12px;
+}
+
+#modal-text-input {
+    display: flex;
+    flex-direction: column;
+}
+
+#modal-text-input > label {
+    width: 100%;
+    display: flex;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    justify-content: flex-start;
+}
+
+.create-event-modal-text {
+    width: 100%;
+    height: 100px;
+}
+
+#create-event-modal-text-input {
+    display: flex;
+    flex-direction: column;
+}
+
+#create-event-modal-text-input > label {
+    width: 100%;
+    display: flex;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    justify-content: flex-start;
+}
+
+.users-search-results {
+    width: 315px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid lightgrey;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.20);
+    border-radius: 12px;
+    min-height: 60px;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 15px auto;
+    margin-left: 140px;
+    position: absolute;
+    top: 180px;
+}
+
+.users-item {
+    margin-left: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.modal-submit {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.modal-submit > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-size: 14px;
+    border-radius: 28px;
+    background-color: rgb(0,128,64);
+    margin-top: 2.5px;
+    border-style: none;
+}
+
+.modal-submit > button:hover {
+    cursor: pointer;
+}
+
+.search-results-container {
+    display: flex;
+}
+
+.selected-users {
+    min-height: 90px;
+}
+
+.selected-users h1 {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.added-users-container {
+    display: flex;
+}
+
+.added-user {
+    margin-left: 10px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(23, 193, 108);
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.10);
+}
+
+.added-user-icon {
+    margin-left: 5px;
+}
+
+.modal-group {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 550px;
+    min-height: 500px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-group form {
+    padding: 20px auto;
+}
+
+.group-modal-submit {
+    padding: 15px 20px;
+    width: 120px;
+    background-color: rgb(23, 193, 108);
+    border: none;
+    border-radius: 16px;
+    margin-top: 10px;
+    margin-left: 180px;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.10);
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.group-modal-submit:hover {
+    transform: scale(1.1);
+}
