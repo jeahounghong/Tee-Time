@@ -42,20 +42,29 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
         return res.status(400).json(errors)
     }
 
-    Event.findById(req.params.id)
+    console.log(req.body)
+
+    // Event.findById(req.body.id).then(even => console.log)
+
+    Event.findById(req.body.id)
         .then(event => {
+            console.log("HERE")
             if (event.ownerId.toString() !== req.user.id) {
                 return res.status(401).json( {unauthorized: 'Only the owner can update this event.' })
             } else {
                 event.courseId = req.body.courseId;
-                event.groupId = req.body.groupId;
+                if (!event.groupId){
+                    delete event.groupId
+                }
+                // event.groupId = req.body.groupId ? req.body.groupId : "0";
                 event.public = req.body.public;
                 event.eventSize = req.body.eventSize;
                 event.eventTime = new Date(req.body.eventTime); //how does this translate to frontend?
                 event.users = req.body.users;
                 event.description = req.body.description;
                 event.name = req.body.name ? req.body.name : "New Event"; // come back here to set up default naming logic
-                return event.save().then(event => res.json(event))
+                console.log(event)
+                return event.save().then(event => res.json(event)).catch(err => console.log(err))
             }
         })
         .catch(err => res.status(404).json( { noEventFound: "No event found with that ID"} ))

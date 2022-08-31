@@ -150,7 +150,6 @@ class Profile extends React.Component {
                     previousCourses[event.courseId] = this.props.courses[event.courseId].name
                 }
             })
-            console.log(previousCourses)
             return (<ul>
                 {Object.values(previousCourses).map(course => <li>
                     {course}

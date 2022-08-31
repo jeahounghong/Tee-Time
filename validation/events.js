@@ -8,10 +8,6 @@ module.exports = function validateEventInput(data){
         errors.courseId = 'Events need a course'
     }
 
-    // if (!data.groupId){
-    //     errors.groupId = 'Events need to belong to a group'
-    // }
-
     if (!data.eventSize){
         errors.eventSize = 'Event size is a required field'
     } else {
