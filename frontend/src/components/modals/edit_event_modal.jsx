@@ -6,15 +6,17 @@ import React from 'react';
 class EditEventModal extends React.Component {
     constructor(props) {
         super(props);
+        debugger;
         this.state = {
             _id: this.props.event._id,
             name: this.props.event.name || '',
             ownerId: this.props.currentUser._id,
             courseId: this.props.event.courseId,
             groupId: this.props.event.groupId || '',
-            eventTime: this.props.event.eventTime.slice(0, 10),
+            eventTime: this.props.event.eventTime,
             eventSize: this.props.event.eventSize,
             description: this.props.event.description || '',
+            users: this.props.event.users, 
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,7 +53,7 @@ class EditEventModal extends React.Component {
                         </div>
                         <div className="modal-input">
                             <label>Date</label>
-                            <input type="date" value={this.state.eventTime} onChange={this.update('eventTime')} />
+                            <input type="date" value={this.state.eventTime.slice(0, 10)} onChange={this.update('eventTime')} />
                         </div>
                         <div className="modal-input">
                             <label>Time</label>
