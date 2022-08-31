@@ -36,6 +36,7 @@ class Groups extends React.Component {
         if (this.props.currentUser !== prevProps.currentUser && this.props.currentUser){
             // debugger;
             this.props.fetchUserGroups(this.props.currentUser.id);
+            this.props.fetchUserEvents(this.props.currentUser.id);
         }
     }
 
