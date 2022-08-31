@@ -37,6 +37,16 @@
     background-color: rgb(78, 231, 154);
 }
 
+/* FIXED SCROLL FUNCTION */
+.group-show-container {
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
 .group-show {
     margin: 20px;
     background-color: white;
