@@ -27,7 +27,7 @@ const EventSchema = new Schema({
         required: true
     },
     users: {
-        type: Object
+        type: Array
     },
     description: {
         type: String,

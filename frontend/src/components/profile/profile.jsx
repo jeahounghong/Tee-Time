@@ -11,7 +11,8 @@ class Profile extends React.Component {
             userId: this.props.location.pathname.substring(7)
         }
         this.userEvents = this.userEvents.bind(this);
-        this.frequentlyPlayedWith = this.frequentlyPlayedWith.bind(this)
+        this.frequentlyPlayedWith = this.frequentlyPlayedWith.bind(this);
+        this.playedCourses = this.playedCourses.bind(this);
         this.MONTH = {
             1: "JAN",
             2: "FEB",
@@ -39,7 +40,7 @@ class Profile extends React.Component {
     componentDidUpdate(){
         if (this.state.userId !== this.props.location.pathname.substring(7)){
             // debugger;
-            this.setState({userId: this.props.location.pathname.substring(7)})
+            // this.setState({userId: this.props.location.pathname.substring(7)})
             this.props.fetchUserEvents(this.state.userId)
         }
     }
@@ -75,12 +76,13 @@ class Profile extends React.Component {
                 return playedWithCount[b] - playedWithCount[a]
             })
             return <ul>    
-                {keys.map((key) => <li>
+                {keys.map((key) => <li key={key} className={"frequently-played-with-list-item"}>
                     <Link to={`/users/${key}`} onMouseDown={() => this.setState({userId: key})}>
                         {this.props.users[key].firstName + " " + this.props.users[key].lastName}
                     </Link>
-                    
-                    Played with: {playedWithCount[key]} times
+                    <div>
+                        Played with: {playedWithCount[key]} times
+                    </div>
                 </li>)}
             </ul>
         }
@@ -132,6 +134,32 @@ class Profile extends React.Component {
         }
     }
 
+    playedCourses(){
+        if (this.props.events && 
+            Object.values(this.props.events)[0] && 
+            Object.values(this.props.courses)[0] &&
+            Object.values(this.props.users)[0]){
+
+            let userJoinedPreviousEvents = Object.values(this.props.events).filter(event => (
+                event.users.indexOf(this.state.userId) >= 0 && !this.isAfterToday(event.eventTime)
+            ))  
+
+            let previousCourses = {}
+            userJoinedPreviousEvents.forEach(event => {
+                if (this.props.courses[event.courseId]){
+                    previousCourses[event.courseId] = this.props.courses[event.courseId].name
+                }
+            })
+            console.log(previousCourses)
+            return (<ul>
+                {Object.values(previousCourses).map(course => <li>
+                    {course}
+                </li>)}
+            </ul>)
+
+        }
+    }
+
 
     render(){return(<div className='profile-page'>
         <NavbarContainer {...this.props}/>
@@ -144,6 +172,10 @@ class Profile extends React.Component {
                 <div className='most-played'>
                     <h1>Frequently played with</h1>
                     {this.frequentlyPlayedWith()}
+                </div>
+                <div className='profile-courses'>
+                    <h1>Played Courses</h1>
+                    {this.playedCourses()}
                 </div>
             </div>
         </div>
