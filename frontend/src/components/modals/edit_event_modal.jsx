@@ -10,9 +10,9 @@ class EditEventModal extends React.Component {
             id: this.props.event._id,
             name: this.props.event.name || '',
             ownerId: this.props.currentUser._id,
-            courseId: "630d29898d64f824bb700abe",
+            courseId: this.props.event.courseId,
             groupId: this.props.event.groupId || '',
-            eventTime: this.props.event.eventTime,
+            eventTime: this.props.event.eventTime.slice(0, 10),
             eventSize: this.props.event.eventSize,
             description: this.props.event.description || '',
         };

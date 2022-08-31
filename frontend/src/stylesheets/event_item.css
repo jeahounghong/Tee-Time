@@ -91,3 +91,10 @@
 .suggested-event {
     font-weight: 600;
 }
+
+#edit-event-modal {
+    margin-top: 800px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

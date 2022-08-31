@@ -7,9 +7,7 @@ import React from 'react';
 class EventItem extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            editing: false,
-        }
+        this.state = {editing: false};
         this.attendEvent = this.attendEvent.bind(this);
         this.getDate = this.getDate.bind(this);
     }
@@ -56,7 +54,7 @@ class EventItem extends React.Component {
                             <div className="attendee-count">{`${this.props.event.users.length} attendees`}</div>
                         </div>
                     </div>
-
+                    
                     <div className="event-item-right">
                         <div className="suggested-event">Suggested</div>
                         <div className="user-actions">
@@ -73,7 +71,12 @@ class EventItem extends React.Component {
                 <div className="event-item-border-container">
                     <div className="event-item-border"></div>
                 </div>
-                {this.state.editing ? <EditEventModalContainer className="edit-event-modal" currentUser={this.props.currentUser} event={this.props.event} courses={this.props.courses} /> : ""}
+                <div id="edit-event-modal">
+                    {this.state.editing ? <EditEventModalContainer className="edit-event-modal" 
+                    currentUser={this.props.currentUser} event={this.props.event} 
+                    toggleModal={() => this.setState({editing: !this.state.editing})}
+                    courses={this.props.courses} />: ""}
+                </div>
             </div>
         )
     }
