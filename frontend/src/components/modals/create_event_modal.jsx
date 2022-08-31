@@ -18,6 +18,7 @@ class CreateEventModal extends React.Component {
             users: [this.props.currentUser],
         };
         this.getDateFormat = this.getDateFormat.bind(this);
+        this.getTimeFormat = this.getTimeFormat.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDate = this.handleDate.bind(this);
         this.handleTime = this.handleTime.bind(this);
@@ -36,17 +37,23 @@ class CreateEventModal extends React.Component {
         return `${year}-${month}-${day}`
     }
 
+    getTimeFormat() {
+        let date = new Date(this.state.eventTime);
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        if (hours < 10) hours = `0${hours}`;
+        if (minutes < 10) minutes = `0${minutes}`;
+        return `${hours}:${minutes}`;
+    }
+
     handleDate() {
-        // debugger;
         let date = new Date(this.state.eventTime);
         return e => {
-            // debugger;
             let dateInput = e.target.value.split('-');
             date.setFullYear(parseInt(dateInput[0]));
             date.setMonth(parseInt(dateInput[1])-1);
             date.setDate(parseInt(dateInput[2]));
             this.setState({eventTime: date.toString()});
-            // debugger;
         }
     }
 
@@ -54,6 +61,8 @@ class CreateEventModal extends React.Component {
         let date = new Date(this.state.eventTime);
         return e => {
             let timeInput = e.target.value.split(":");
+            date.setHours(parseInt(timeInput[0]), parseInt(timeInput[1]));
+            this.setState({eventTime: date.toString()});
         }
     }
 
@@ -90,7 +99,7 @@ class CreateEventModal extends React.Component {
                         </div>
                         <div className="modal-input">
                             <label>Time</label>
-                            <input type="time" value="13:30" onChange={this.update('eventTime')}></input>
+                            <input type="time" value={this.getTimeFormat()} onChange={this.handleTime()}></input>
                         </div>
                         <div className="modal-input">
                             <label>Size</label>

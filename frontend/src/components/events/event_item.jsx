@@ -48,9 +48,8 @@ class EventItem extends React.Component {
             'June','July','August','September','October',
             'November','December'
         ];
-        // debugger;
         let month = date.getMonth();
-        let day = date.getDay();
+        let day = date.getDate();
         let hours = date.getHours();
         let minutes = date.getMinutes();
         if (hours === 0) hours = '00';
@@ -76,7 +75,6 @@ class EventItem extends React.Component {
                             </div>
                             <div className="event-members">
                                 {this.props.event.users.map((member, i) => {
-                                    // debugger;
                                     return <div className={`member-${i+1}`} key={member+i}>
                                         {this.props.users[member] ? this.props.users[member].firstName.slice(0,1) : ""}
                                     </div>
