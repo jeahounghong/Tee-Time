@@ -4,6 +4,7 @@ import '../../stylesheets/map.css';
 import '../../stylesheets/course.css';
 import React from 'react';
 import keys from '../../private/keys';
+import CourseEventsContainer from '../courses/course_events_container';
 
 export default function Map(props) {
     const { isLoaded } = useLoadScript({
@@ -41,6 +42,7 @@ export default function Map(props) {
                         <p className="course-name">{selected.name}</p>
                         <p>Golf course in Roslyn Heights, New York</p>
                         <p className="events-link">Events happening here...</p>
+                        <CourseEventsContainer course={selected} />
                     </div>
                 </InfoWindow> : null}
             </GoogleMap>
