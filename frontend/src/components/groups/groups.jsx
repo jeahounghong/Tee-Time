@@ -38,6 +38,20 @@ class Groups extends React.Component {
             this.props.fetchUserGroups(this.props.currentUser.id);
             this.props.fetchUserEvents(this.props.currentUser.id);
         }
+
+        let deleted = true;
+
+        for(let i = 0; i < this.props.groups.length; i++){
+            // debugger;
+            if (this.state.groupShowGroup && this.props.groups[i]._id === this.state.groupShowGroup._id){
+                deleted = false;
+            }
+        }
+
+        if (this.state.groupShowGroup && deleted){
+            this.setState({groupShowGroup: null})
+            // debugger;
+        }
     }
 
     toggleCreateGroupModal() {

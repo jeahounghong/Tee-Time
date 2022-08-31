@@ -78,6 +78,8 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
 });
 
 router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
+    
+    console.log(req.params.id)
     Group.findById(req.params.id)
         .then(group => {
 

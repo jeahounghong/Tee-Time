@@ -21,5 +21,5 @@ export const createGroup = (data) => {
 }
 
 export const deleteGroup = (groupId) => {
-    return axios.post(`/api/groups/${groupId}`)
+    return axios.delete(`/api/groups/${groupId}`)
 }
