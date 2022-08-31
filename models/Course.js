@@ -24,6 +24,9 @@ const CourseSchema = new Schema({
     },
     description: {
         type: String
+    },
+    imageUrl: {
+        type: String
     }
 })
 
