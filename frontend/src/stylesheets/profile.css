@@ -7,18 +7,26 @@
     padding-top: 30px;
 }
 
+.profile-event-list{
+    width: 100%;
+}
+
 .profile-event-list > li {
     border: solid 1px black;
-    width: 300px;
-    margin: 5px;
+    /* width: 100%; */
+    width: 380px;
+    /* margin: 5px; */
     background-color: white;
+    padding: 10px;
 }
 
 .profile-page .left{
     padding: 10px;
     background-color: lightgreen;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-right: 10px;
+    width: 400px;
+    
 }
 
 .most-played > h1 {
@@ -33,9 +41,17 @@
     padding: 10px;
     border: solid 1px black;
     width: 200px;
+    width: 100%;
 }
 .user-events h1{
     color: white;
     font-weight: bold;
     text-align: center;
+}
+
+.user-events{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

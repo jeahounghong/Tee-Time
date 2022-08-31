@@ -13,6 +13,7 @@ class Profile extends React.Component {
         this.userEvents = this.userEvents.bind(this);
         this.frequentlyPlayedWith = this.frequentlyPlayedWith.bind(this);
         this.playedCourses = this.playedCourses.bind(this);
+        this.header = this.header.bind(this)
         this.MONTH = {
             1: "JAN",
             2: "FEB",
@@ -47,6 +48,10 @@ class Profile extends React.Component {
 
     dateToString(date){
         return this.MONTH[parseInt(date.substring(5,7))] + " " + date.substring(8,10)
+    }
+
+    header(){
+        
     }
 
     frequentlyPlayedWith(){
@@ -134,6 +139,8 @@ class Profile extends React.Component {
         }
     }
 
+
+
     playedCourses(){
         if (this.props.events && 
             Object.values(this.props.events)[0] && 
@@ -162,6 +169,7 @@ class Profile extends React.Component {
 
     render(){return(<div className='profile-page'>
         <NavbarContainer {...this.props}/>
+        {this.header()}
         <div className='left-right'>
             <div className='user-events left'>
                 <h1>{this.props.users[this.state.userId] ? this.props.users[this.state.userId].firstName + "'s" : ""} Upcoming Events</h1>
