@@ -3,7 +3,7 @@ import GroupShow from "./group_show";
 
 const mapStateToProps = state => {
     return {
-        events: state.entities.events
+        currentUser: state.session.user
     }
 };
 

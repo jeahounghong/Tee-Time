@@ -9,7 +9,7 @@ class CreateGroupModal extends React.Component {
         this.state = {
             name: '',
             ownerId: this.props.currentUser.id,
-            users: [],
+            users: [this.props.currentUser.id],
             events: [],
             description: '',
             location: {city: '', state: ''},

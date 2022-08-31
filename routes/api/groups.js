@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
 router.get('/users/:user_id', (req, res) => {
     // maybe want to restrict to only logged in user?
     Group.find({users: req.params.user_id})
-        .sort({ name: 1 })
+        // .sort({ name: 1 })
         .then(groups => res.json(groups))
         .catch(err => 
             res.status(404).json({ noGroupsFound: "This user does not belong to any groups yet." }) //if causing problems, look back at this thrown error (null vs error)
@@ -60,6 +60,7 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
         return res.status(400).json(errors)
     }
 
+    console.log(req.body.users)
     const newGroup = new Group({
         name: req.body.name,
         description: req.body.description,
