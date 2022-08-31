@@ -18,8 +18,19 @@ class CreateEventModal extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDate = this.handleDate.bind(this);
+        this.handleTime = this.handleTime.bind(this);
         this.renderModal = this.renderModal.bind(this);
         this.update = this.update.bind(this);
+    }
+
+    handleDate() {
+        let date = new Date(this.state.eventTime);
+        
+    }
+
+    handleTime() {
+
     }
 
     update(field) {
@@ -47,11 +58,11 @@ class CreateEventModal extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="modal-input">
                             <label>Name</label>
-                            <input type="text" value={this.state.name} onChange={this.update('name')} />
+                            <input type="text" value={this.state.name} onChange={this.update('name')} required/>
                         </div>
                         <div className="modal-input">
                             <label>Date</label>
-                            <input type="date" value={this.state.eventTime} onChange={this.update('eventTime')} />
+                            <input type="date" value={this.state.eventTime.slice(0, 10)} onChange={this.update('eventTime')} required />
                         </div>
                         <div className="modal-input">
                             <label>Time</label>
@@ -60,11 +71,11 @@ class CreateEventModal extends React.Component {
                         <div className="modal-input">
                             <label>Size</label>
                             <input id="event-size" type="number" value={this.state.eventSize} onChange={this.update('eventSize')} 
-                            placeholder="Enter a number between 1 and 4" min={2} max={4} />
+                            placeholder="Enter a number between 1 and 4" min={2} max={4} required />
                         </div>
                         <div className="modal-input">
                             <label>Course</label>
-                            <select value={this.state.courseId} onChange={this.update('courseId')}>
+                            <select value={this.state.courseId} onChange={this.update('courseId')} >
                                 {Object.values(this.props.courses).map((course, i) => (
                                     <option value={course.id} key={course+i}>{course.name}</option>
                                 ))}

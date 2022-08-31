@@ -47,9 +47,12 @@ class Events extends React.Component {
                             </div>
                         </div>
                         <ul>
-                            {Object.values(this.props.events).map((event, i) => (
-                                <EventItemContainer event={event} key={event+i} courses={this.props.courses} />
-                            ))}
+                            
+                            {Object.values(this.props.events).sort(function(e1, e2) {
+                                return e1.eventTime - e2.eventTime;
+                            }).map((event, i) => {
+                                return <EventItemContainer event={event} key={event+i} courses={this.props.courses} />
+                            })}
                         </ul>
                     </div>
 

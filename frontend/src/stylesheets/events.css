@@ -4,6 +4,11 @@
     height: 100vh;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
 #events-container, #map {
     display: flex;
     flex-direction: column;

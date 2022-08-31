@@ -163,3 +163,7 @@
 #edit-actions {
     font-size: 24px;
 }
+
+.event-actions-toggle:hover {
+    cursor: pointer;
+}
