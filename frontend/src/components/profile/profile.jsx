@@ -8,12 +8,14 @@ class Profile extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            userId: this.props.location.pathname.substring(7)
+            userId: this.props.location.pathname.substring(7),
+            imageUrl: this.props.currentUser.imageUrl // added by Torben
         }
         this.userEvents = this.userEvents.bind(this);
         this.frequentlyPlayedWith = this.frequentlyPlayedWith.bind(this);
         this.playedCourses = this.playedCourses.bind(this);
-        this.header = this.header.bind(this)
+        this.header = this.header.bind(this);
+        this.handleImageSubmit = this.handleImageSubmit.bind(this);
         this.MONTH = {
             1: "JAN",
             2: "FEB",
@@ -50,9 +52,42 @@ class Profile extends React.Component {
         return this.MONTH[parseInt(date.substring(5,7))] + " " + date.substring(8,10)
     }
 
-    header(){
+    //added by Torben - start
+    handleImageSubmit(e) {
+        e.preventDefault();
+        this.props.currentUser.imageUrl = this.state.imageUrl;
         
+        let tempUser = Object.assign({}, this.props.users[this.state.userId]);
+        tempUser.id = tempUser._id;
+        delete tempUser._id
+        tempUser.imageUrl = this.state.imageUrl;
+        this.props.updateUser(tempUser);
+
+        debugger;
+
+        this.state.imageUrl = '';
     }
+
+    update(field) {
+        return e => this.setState({ [field]: e.target.value })
+    }
+
+    header(){
+        const tempUser = this.props.users[this.state.userId]
+        if (tempUser){
+            return (
+                <div>
+                    <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
+                        <input type="text" value={this.state.imageUrl} onChange={this.update('imageUrl')}/>
+                        <button type="submit" className='submit-image-url-button'>Submit</button>
+                    </form>
+    
+                    <img src={tempUser.imageUrl} />
+                </div>
+            )
+        }
+    }
+    // added by Torben - end
 
     frequentlyPlayedWith(){
         if (this.props.events && 
