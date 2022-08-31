@@ -24,7 +24,6 @@
     padding: 10px;
     background-color: lightgreen;
     border-radius: 5px;
-    margin-right: 10px;
     width: 400px;
     
 }
@@ -74,3 +73,31 @@
     /* object-position: 100%; */
     border-radius: 50%;
 }
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-image-url-button {
+    margin-left: 5px;
+}
+
+.profile-page .left-right {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 40px;
+}
+
+.left-right > .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.user-events left {
+
+}
+

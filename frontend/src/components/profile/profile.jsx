@@ -77,13 +77,15 @@ class Profile extends React.Component {
         if (tempUser){
             return (
                 <div className='profile-header'>
-                    <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
-                        <input type="text" value={this.state.imageUrl} onChange={this.update('imageUrl')}/>
-                        <button type="submit" className='submit-image-url-button'>Submit</button>
-                    </form>
                     <div className='profile-image-circle'>
                         <img src={tempUser.imageUrl} />
                     </div>
+                    <br />
+                    <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
+                        <label>Edit Image URL: </label>
+                        <input type="text" value={this.state.imageUrl} onChange={this.update('imageUrl')}/>
+                        <button type="submit" className='submit-image-url-button'>Submit</button>
+                    </form>
                 </div>
             )
         }
