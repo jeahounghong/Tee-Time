@@ -3,7 +3,7 @@ import Group from './group_item';
 
 const mapStateToProps = state => {
     return {
-
+        
     }
 };
 

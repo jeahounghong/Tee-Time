@@ -13,6 +13,7 @@ class Groups extends React.Component {
 
         this.state = {
             createGroupModalHidden: true,
+            groupShowGroup: this.props.groups[1]
         };
 
         this.toggleCreateGroupModal = this.toggleCreateGroupModal.bind(this)
@@ -21,30 +22,43 @@ class Groups extends React.Component {
     componentDidMount() {
         document.querySelector('body').style.backgroundColor = '#f3f2ee';
         this.props.fetchUserGroups(this.props.currentUser.id);
-        this.props.fetchEvents();
+        this.props.fetchUserEvents(this.props.currentUser.id);
+        // this.props.fetchGroups();
+        // this.props.fetchEvents();
     }
 
     toggleCreateGroupModal() {
         this.setState({createGroupModalHidden: !this.state.createGroupModalHidden})
     }
 
+    // essentially alter the state using this method to signify what group we want to pass down as props to the groups show
+    toggleGroupShow() {
+
+    }
+
     render() {
         return (
-            <div>
+            <div id='group'>
                 <NavBarContainer />
                 <h1 id="groups-title">My Groups</h1>
-                <div id="create-group-btn" onClick={this.toggleCreateGroupModal}>
-                    <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-                    <p>Create a Group</p>
+                <div className="group-button-container">
+                    <div id="create-group-btn" onClick={this.toggleCreateGroupModal}>
+                        <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+                        <p>Create a Group</p>
+                    </div>
+                    {/* change this to edit group modal */}
+                    <div id="create-group-btn" onClick={this.toggleCreateGroupModal}>
+                        <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+                        <p>Edit this Group</p>
+                    </div>
                 </div>
                 <div id='line'></div>
                 <div className='groups-page' >
                     <div className="groups-container">
                         <ul>
-                            <GroupItemContainer />
-                            <GroupItemContainer />
-                            <GroupItemContainer />
-                            <GroupItemContainer />
+                        {Object.values(this.props.groups).map((group, i) => (
+                                <GroupItemContainer group={group} key={group+i} />
+                            ))}
                         </ul>
                     </div>
                     <div className="group-show">

@@ -11,6 +11,8 @@ class GroupShow extends React.Component {
         super(props)
     };
 
+    // need to create a method where we not only map through the user Events but match the groupId to the groupId on the show page
+
     render() {
         return (
             <div className="group-show-container">
