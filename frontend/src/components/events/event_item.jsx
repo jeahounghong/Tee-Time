@@ -24,6 +24,7 @@ class EventItem extends React.Component {
         }
         // force rerender here with setState
         this.setState({editing: this.state.editing})
+        this.props.updateEvent(this.props.event);
     }
 
     getDate() {
@@ -61,8 +62,9 @@ class EventItem extends React.Component {
                             </div>
                             <div className="event-members">
                                 {this.props.event.users.map((member, i) => {
+                                    // debugger;
                                     return <div className={`member-${i+1}`} key={member+i}>
-                                        {this.props.users[member] ? this.props.users[member].firstName.slice(0,1) : ""}
+                                        {this.props.users[member.id] ? this.props.users[member.id].firstName.slice(0,1) : ""}
                                     </div>
                                 })}
                                 <div className="member-count">{this.props.event.users.length} attendees</div>
