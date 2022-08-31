@@ -26,8 +26,17 @@ class Groups extends React.Component {
 
     componentDidMount() {
         document.querySelector('body').style.backgroundColor = '#f3f2ee';
+        // debugger;
         this.props.fetchUserGroups(this.props.currentUser.id);
         this.props.fetchUserEvents(this.props.currentUser.id);
+    }
+
+    componentDidUpdate(prevProps){
+        // debugger;
+        if (this.props.currentUser !== prevProps.currentUser && this.props.currentUser){
+            // debugger;
+            this.props.fetchUserGroups(this.props.currentUser.id);
+        }
     }
 
     toggleCreateGroupModal() {
