@@ -49,9 +49,11 @@ class Events extends React.Component {
                         <ul>
                             
                             {Object.values(this.props.events).sort(function(e1, e2) {
-                                return e1.eventTime - e2.eventTime;
+                                return new Date(e1.eventTime).getTime() - new Date(e2.eventTime).getTime();
                             }).map((event, i) => {
-                                return <EventItemContainer event={event} key={event+i} courses={this.props.courses} />
+                                if (new Date(event.eventTime).getTime() - new Date().getTime() >= 0) {
+                                    return <EventItemContainer event={event} key={event+i} courses={this.props.courses} />
+                                }
                             })}
                         </ul>
                     </div>

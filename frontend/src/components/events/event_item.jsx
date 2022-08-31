@@ -52,8 +52,8 @@ class EventItem extends React.Component {
         let day = date.getDate();
         let hours = date.getHours();
         let minutes = date.getMinutes();
-        if (hours === 0) hours = '00';
-        if (minutes === 0) minutes = '00';
+        if (hours < 10) hours = `0${hours}`;
+        if (minutes < 10) minutes = `0${minutes}`;
         let timeSuffix = "AM";
         if (hours >= 12) timeSuffix = "PM"; 
         return `${months[month]} ${day}, ${hours}:${minutes}${timeSuffix}`;

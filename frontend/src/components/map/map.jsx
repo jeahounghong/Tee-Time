@@ -16,13 +16,13 @@ export default function Map(props) {
     
 
     function Map() {
-        const center = useMemo(() => ({ lat: 40.7626, lng: -73.5975 }), []);
+        const center = useMemo(() => ({ lat: 40.7493, lng: -73.6407 }), []);
         const [markers, setMarkers] = React.useState([
             {lat: 40.7831, lng: -73.9712}, {lat: 41, lng: -75}, {lat: 42, lng: -74.5}
         ]);
         const [selected, setSelected] = React.useState(null);
         return (
-            <GoogleMap zoom={12} 
+            <GoogleMap zoom={11} 
                 center={center} 
                 mapContainerClassName="map-container">
                 {Object.values(props.courses).map((course) => {
