@@ -155,7 +155,7 @@
 .modal-submit {
     display: flex;
     justify-content: flex-end;
-    padding-right: 10px;
+    column-gap: 10px;
 }
 
 .modal-submit > button {
@@ -166,7 +166,7 @@
     color: white;
     font-weight: 600;
     letter-spacing: 0.3px;
-    font-size: 14px;
+    font-size: 22px;
     border-radius: 28px;
     background-color: rgb(0,128,64);
     margin-top: 2.5px;

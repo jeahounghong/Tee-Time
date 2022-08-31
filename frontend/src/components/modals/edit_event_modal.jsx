@@ -77,6 +77,7 @@ class EditEventModal extends React.Component {
                             <textarea value={this.state.description} onChange={this.update('description')} className="create-event-modal-text"></textarea>
                         </div>
                         <div className="modal-submit">
+                            <button onClick={() => this.props.deleteEvent(this.props.event._id)}>Delete</button>
                             <button type="submit">Save</button>
                         </div>
                     </form>
