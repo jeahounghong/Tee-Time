@@ -56,10 +56,10 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
             console.log(event)
             event = event || req.body
             console.log(event)
-            if (event.ownerId.toString() !== req.user.id) {
-                console.log("401 error")
-                return res.status(401).json( {unauthorized: 'Only the owner can update this event.' })
-            } else {
+            // if (event.ownerId.toString() !== req.user.id) {
+            //     console.log("401 error")
+            //     return res.status(401).json( {unauthorized: 'Only the owner can update this event.' })
+            // } else {
                 console.log(event)
                 event.courseId = req.body.courseId;
                 if (!event.groupId){
@@ -75,7 +75,7 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
                 console.log(event)
                 
                 return event.save().then(event => res.json(event)).catch(err => console.log(err))
-            }
+            // }
         })
         .catch(err => res.status(404).json( { noEventFound: "No event found with that ID"} ))
 });
