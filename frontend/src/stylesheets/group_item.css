@@ -1,18 +1,14 @@
 .group-item-container {
     display: flex;
     flex-direction: column;
-    max-width: 600px;
-    height: 150px;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    border-radius: 14px;
-    background-color: rgb(142,200,64);
+    height: 250px;
+    margin-bottom: 50px;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    background-color: white;
+    cursor: pointer;
 }
 
 .group-item-top-container {
-    display: flex;
-    justify-content: space-between;
     padding: 10px;
     margin-top: 10px;
 }
@@ -20,6 +16,13 @@
 .group-name {
     margin-left: 20px;
     font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.group-events-number {
+    margin-left: 20px;
+    color: rgb(0,128,64);
 }
 
 .group-events-modal-link {
@@ -27,26 +30,15 @@
 }
 
 .group-item-content-container {
-    display: flex;
-    justify-content: flex-start;
     padding: 10px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 30px;
     border-radius: 12px;
     background-color: white;
-}
-
-.group-members-container {
-    margin-top: 5px;
-    max-width: 100px;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.group-members-container p {
-    margin: 5px 5px;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .group-information-container {
@@ -55,4 +47,10 @@
 
 .group-information-container p {
     margin: 5px auto;
+    color: grey;
+}
+
+.group-members-container {
+    margin-top: 70px;
+    color: grey;
 }
