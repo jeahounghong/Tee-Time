@@ -17,6 +17,21 @@
     justify-content: space-between;
 }
 
+.group-selector {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+}
+
+.group-selector-button {
+    padding: 10px 15px;
+    background-color: rgb(43, 195, 119);
+    margin: 10px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+}
+
 .group-show {
     margin: 20px;
     background-color: white;
@@ -27,7 +42,6 @@
 
 .group-show h1 {
     text-align: center;
-    margin-top: 20px;
     font-size: 24px;
     font-weight: bold;
 }

@@ -15,11 +15,13 @@ class Groups extends React.Component {
         this.state = {
             createGroupModalHidden: true,
             editGroupModalHidden: true,
-            groupShowGroup: this.props.groups[1]
+            groupShowGroup: this.props.groups[0]
         };
 
         this.toggleCreateGroupModal = this.toggleCreateGroupModal.bind(this)
         this.toggleEditGroupModal = this.toggleEditGroupModal.bind(this)
+        this.groupShow = this.groupShow.bind(this);
+        this.toggleGroupShow = this.toggleGroupShow.bind(this);
     }
 
     componentDidMount() {
@@ -34,6 +36,27 @@ class Groups extends React.Component {
 
     toggleEditGroupModal() {
         this.setState({editGroupModalHidden: !this.state.editGroupModalHidden})
+    }
+
+    groupShow() {
+        if (this.state.groupShowGroup === null) {
+            return (
+                null
+            )
+        } else {
+            return (
+                <GroupShowContainer group={this.state.groupShowGroup} events={this.props.events}/>
+            )
+        }
+    }
+
+    toggleGroupShow(e) {
+        e.preventDefault();
+
+        console.log(e.target.id)
+        let groupNumber = e.target.id;
+
+        this.setState({groupShowGroup: this.props.groups[groupNumber]});
     }
 
     render() {
@@ -53,6 +76,11 @@ class Groups extends React.Component {
                     </div>
                 </div>
                 <div id='line'></div>
+                <div className="group-selector">
+                        {Object.values(this.props.groups).map((group, i) => (
+                            <div onClick={this.toggleGroupShow} id={i} className='group-selector-button'>{i + 1}</div>
+                        ))}
+                    </div>
                 <div className='groups-page' >
                     <div className="groups-container">
                         <ul>
@@ -62,8 +90,9 @@ class Groups extends React.Component {
                         </ul>
                     </div>
                     <div className="group-show" id='group-show'>
-                        {/* <GroupShowContainer group={this.props.groups[0]} events={this.props.events}/> */}
-                        <h1>Render a group here by clicking on a card!</h1>
+                        {this.groupShow()}
+                        {/* <GroupShowContainer group={this.props.groups[1]} events={this.props.events}/> */}
+                        {/* <h1>Render a group here by clicking on a card!</h1> */}
                     </div>
                 </div>
                 {this.state.createGroupModalHidden ? "" : 
