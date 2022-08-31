@@ -47,10 +47,19 @@ class EventItem extends React.Component {
                         {/* <div className="event-img">
                             <img src="" alt="event-img" />
                         </div> */}
-                        <div className="event-item-info">
-                            <div className="event-name">{this.props.event.name ? this.props.event.name : "Event Name"}</div>
-                            <div className="event-date">{this.getDate()}</div>
-                            <div className="event-description">{this.props.event.description ? this.props.event.description : "Event Description"}</div>
+                        <div className="event-item-info-container">
+                            <div className="event-item-info">
+                                <div className="event-name">{this.props.event.name ? this.props.event.name : "Event Name"}</div>
+                                <div className="event-date">{this.getDate()}</div>
+                                <div className="event-description">{this.props.event.description ? this.props.event.description : "Event Description"}</div>
+                            </div>
+                            <div className="event-members">
+                                <div className="member-1">D</div>
+                                <div className="member-2">M</div>
+                                <div className="member-3">T</div>
+                                <div className="member-4">C</div>
+                                <div className="member-count">{this.props.event.users.length} attendees</div>
+                            </div>
                         </div>
                     </div>
                     

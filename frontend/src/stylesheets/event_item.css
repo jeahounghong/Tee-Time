@@ -9,16 +9,59 @@
     display: flex;
     justify-content: space-between;
     background-color: white;
-    box-shadow: 0px 3px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
-    height: 150px;
+    height: 160px;
     width: 530px;
 }
 
+.event-item-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-members {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.member-1, .member-2, .member-3, .member-4 {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(0,128,64);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2.5px solid white;
+}
+
+.member-2 {
+    margin-left: -15px;
+}
+
+.member-3 {
+    margin-left: -15px;
+}
+
+.member-4 {
+    margin-left: -15px;
+}
+
+.member-count {
+    display: flex;
+    align-items: center;
+    color: gray;
+    font-size: 14px;
+    margin-left: 6px;
+}
 .event-date {
     color: rgb(0,128,64);
     font-weight: 600;
     font-size: 16px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 .event-item-border {
@@ -51,7 +94,7 @@
 }
 
 .event-name {
-    font-weight: 500;
+    font-weight: bold;
     font-size: 24px;
 }
 
