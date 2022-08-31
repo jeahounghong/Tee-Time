@@ -15,7 +15,7 @@ class EventItem extends React.Component {
 
     attendEvent() {
         // debugger;
-        if (Object.values(this.props.event.users.length) < this.props.event.eventSize &&
+        if (this.props.event.users.length < this.props.event.eventSize &&
         this.props.event.users.indexOf(this.props.currentUser.id) === -1) {
             this.props.users[this.props.currentUser.id].events.joinedEvents.push(this.props.event._id);
             this.props.event.users.push(this.props.currentUser.id);
@@ -25,7 +25,7 @@ class EventItem extends React.Component {
             let newJoinedEvents = this.props.users[this.props.currentUser.id].events.
                 joinedEvents.splice(0, idx).concat(this.props.users[this.props.currentUser.id].events.joinedEvents.splice(idx));
         }
-        
+
         let newEvent = Object.assign({}, this.props.event);
         delete newEvent._id;
         newEvent.id = this.props.event._id;
@@ -39,7 +39,7 @@ class EventItem extends React.Component {
             'June','July','August','September','October',
             'November','December'
         ];
-
+        debugger;
         let month = date.getMonth();
         let day = date.getDay();
         let hours = date.getHours();

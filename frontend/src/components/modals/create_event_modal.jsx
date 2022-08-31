@@ -11,7 +11,7 @@ class CreateEventModal extends React.Component {
             ownerId: this.props.currentUser.id,
             courseId: "630d29898d64f824bb700abe",
             groupId: '',
-            eventTime: '2022-08-31',
+            eventTime: new Date(),
             eventSize: '',
             description: '',
             users: [this.props.currentUser],
@@ -25,8 +25,8 @@ class CreateEventModal extends React.Component {
     }
 
     handleDate() {
-        let date = new Date(this.state.eventTime);
-        
+        let date = this.state.eventTime;
+        date.setHours(Math.abs(date.getHours()-4) % 12, 19, 24);
     }
 
     handleTime() {
