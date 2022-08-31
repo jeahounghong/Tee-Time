@@ -7,6 +7,7 @@ class EditGroupModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.group._id,
             name: this.props.group.name,
             ownerId: this.props.currentUser.id,
             users: [...this.props.group.users],
