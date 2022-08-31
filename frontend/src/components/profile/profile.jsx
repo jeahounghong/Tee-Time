@@ -76,13 +76,14 @@ class Profile extends React.Component {
         const tempUser = this.props.users[this.state.userId]
         if (tempUser){
             return (
-                <div>
+                <div className='profile-header'>
                     <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
                         <input type="text" value={this.state.imageUrl} onChange={this.update('imageUrl')}/>
                         <button type="submit" className='submit-image-url-button'>Submit</button>
                     </form>
-    
-                    <img src={tempUser.imageUrl} />
+                    <div className='profile-image-circle'>
+                        <img src={tempUser.imageUrl} />
+                    </div>
                 </div>
             )
         }

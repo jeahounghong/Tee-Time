@@ -55,3 +55,22 @@
     justify-content: center;
     align-items: center;
 }
+
+.profile-image-circle{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: green;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image-circle img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    /* object-position: 100%; */
+    border-radius: 50%;
+}

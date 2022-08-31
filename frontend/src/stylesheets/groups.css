@@ -32,6 +32,11 @@
     color: white;
 }
 
+.group-selector-button:hover {
+    transform: scale(1.1);
+    background-color: rgb(78, 231, 154);
+}
+
 .group-show {
     margin: 20px;
     background-color: white;
@@ -82,6 +87,24 @@
 }
 
 #create-group-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+#edit-group-btn {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    display: flex;
+    padding: 6px 12px;
+    width: 140px;
+    border-radius: 28px;
+    column-gap: 8px;
+    color: black;
+    text-align: center;
+}
+
+#edit-group-btn:hover {
     background-color: rgba(0, 0, 0, 0.05);
     cursor: pointer;
 }
