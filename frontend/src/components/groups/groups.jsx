@@ -29,11 +29,6 @@ class Groups extends React.Component {
         this.setState({createGroupModalHidden: !this.state.createGroupModalHidden})
     }
 
-    // essentially alter the state using this method to signify what group we want to pass down as props to the groups show
-    toggleGroupShow() {
-
-    }
-
     render() {
         return (
             <div id='group'>
@@ -59,8 +54,9 @@ class Groups extends React.Component {
                             ))}
                         </ul>
                     </div>
-                    <div className="group-show">
-                        <GroupShowContainer group={this.state.groupShowGroup} events={this.props.events}/>
+                    <div className="group-show" id='group-show'>
+                        {/* <GroupShowContainer group={this.props.groups[0]} events={this.props.events}/> */}
+                        <h1>Render a group here by clicking on a card!</h1>
                     </div>
                 </div>
                 {this.state.createGroupModalHidden ? "" : 

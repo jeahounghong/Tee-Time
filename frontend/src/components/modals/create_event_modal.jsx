@@ -11,7 +11,7 @@ class CreateEventModal extends React.Component {
             ownerId: this.props.currentUser.id,
             courseId: "630d29898d64f824bb700abe",
             groupId: '',
-            eventTime: new Date(),
+            eventTime: '',
             eventSize: '',
             description: '',
             users: [this.props.currentUser],
