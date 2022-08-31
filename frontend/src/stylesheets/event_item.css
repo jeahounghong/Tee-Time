@@ -146,3 +146,16 @@
     top: 0;
     left: 0;
 }
+
+.leave-event, .attend-event {
+    display: flex;
+    column-gap: 4px;
+}
+
+.leave-event-p, .attend-event-p {
+    font-size: 14px;
+}
+
+.leave-event {
+    color: gray;
+}
