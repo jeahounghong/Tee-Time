@@ -61,22 +61,19 @@ class EventItem extends React.Component {
                             </div>
                             <div className="event-members">
                                 {this.props.event.users.map((member, i) => {
-                                    // debugger;
                                     return <div className={`member-${i+1}`} key={member+i}>
                                         {this.props.users[member] ? this.props.users[member].firstName.slice(0,1) : ""}
                                     </div>
                                 })}
                                 <div className="member-count">{this.props.event.users.length} attendees</div>
-                                {/* <div className="event-item-btn">
-                                    <FontAwesomeIcon icon={faCircleArrowRight}></FontAwesomeIcon>
-                                </div> */}
                             </div>
                         </div>
                     </div>
                     
                     <div className="event-item-right">
-                        <div className="suggested-event">Suggested</div>
-                        <div className="user-actions">
+                        {this.props.event.ownerId !== this.props.currentUser.id ? 
+                            <div className="user-actions">
+                                <div className="suggested-event">Suggested</div>
                             <div className="event-action" onClick={this.attendEvent} >
                                 {this.props.event.users.indexOf(this.props.currentUser) > -1 ?
                                 <div className="leave-event">
@@ -90,15 +87,16 @@ class EventItem extends React.Component {
                                 </div>
                                 }
                             </div>
+                        </div> 
+                        : 
+                        <div className="user-actions" id="edit-actions">
                             <div onClick={() => this.setState({editing: !this.state.editing})} className="event-actions-toggle">
                                 <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
                             </div>
                         </div>
+                        }
                     </div>
                 </div>
-                {/* <div className="event-item-border-container">
-                    <div className="event-item-border"></div>
-                </div> */}
                 <div id="edit-event-modal">
                     {this.state.editing ? <EditEventModalContainer className="edit-event-modal" 
                     currentUser={this.props.currentUser} event={this.props.event} 

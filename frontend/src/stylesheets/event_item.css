@@ -159,3 +159,7 @@
 .leave-event {
     color: gray;
 }
+
+#edit-actions {
+    font-size: 24px;
+}
