@@ -118,12 +118,6 @@ class EditGroupModal extends React.Component {
     
         delete this.state.filteredData;
         delete this.state.allUsers;
-<<<<<<< HEAD
-        console.log(this.state.id)
-        console.log(this.state)
-        // debugger;
-=======
->>>>>>> 22302186c1b584547dcecfc22cc94ebae4c7bc97
         // need to use an event we pass down via props
         // close modal after submitting form 
         this.props.deleteGroup(this.state.id);
