@@ -20,6 +20,7 @@ class EditEventModal extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         this.renderModal = this.renderModal.bind(this);
         this.update = this.update.bind(this);
     }
@@ -32,6 +33,21 @@ class EditEventModal extends React.Component {
         e.preventDefault();
         this.props.updateEvent(this.state); 
         this.props.toggleModal();
+    }
+
+    handleDelete() {
+        // debugger;
+        let currentUser = this.props.users[this.props.currentUser.id];
+        let idx = currentUser.events.joinedEvents.indexOf(this.props.event._id);
+        let updatedUser = Object.assign({}, currentUser);
+        delete updatedUser._id;
+        updatedUser.id = currentUser._id;
+        let newJoinedEvents = updatedUser.events.joinedEvents.splice(0, idx).concat(updatedUser.events.joinedEvents.splice(idx));
+        let newCreatedEvents = updatedUser.events.createdEvents.splice(0, idx).concat(updatedUser.events.createdEvents.splice(idx));
+        updatedUser.events.joinedEvents = newJoinedEvents;
+        updatedUser.events.createdEvents = newCreatedEvents;
+        this.props.deleteEvent(this.props.event._id);
+        this.props.updateUser(updatedUser);
     }
 
     renderModal() {
@@ -77,7 +93,7 @@ class EditEventModal extends React.Component {
                             <textarea value={this.state.description} onChange={this.update('description')} className="create-event-modal-text"></textarea>
                         </div>
                         <div className="modal-submit">
-                            <button onClick={() => this.props.deleteEvent(this.props.event._id)}>Delete</button>
+                            <button onClick={() => this.handleDelete()}>Delete</button>
                             <button type="submit">Save</button>
                         </div>
                     </form>
