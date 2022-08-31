@@ -14,17 +14,22 @@ class EventItem extends React.Component {
     }
 
     attendEvent() {
+        // debugger;
         if (Object.values(this.props.event.users.length) < this.props.event.eventSize &&
-        this.props.event.users.indexOf(this.props.currentUser) === -1) {
-            this.props.users[this.props.currentUser.id].events.joinedEvents.push(this.props.event);
-            this.props.event.users.push(this.props.currentUser);
+        this.props.event.users.indexOf(this.props.currentUser.id) === -1) {
+            this.props.users[this.props.currentUser.id].events.joinedEvents.push(this.props.event._id);
+            this.props.event.users.push(this.props.currentUser.id);
         } else {
-            let idx = this.props.event.users.indexOf(this.props.currentUser);
+            let idx = this.props.event.users.indexOf(this.props.currentUser.id);
             this.props.event.users = this.props.event.users.splice(0, idx).concat(this.props.event.users.splice(idx));
+            let newJoinedEvents = this.props.users[this.props.currentUser.id].events.
+                joinedEvents.splice(0, idx).concat(this.props.users[this.props.currentUser.id].events.joinedEvents.splice(idx));
         }
-        // force rerender here with setState
-        this.setState({editing: this.state.editing})
-        this.props.updateEvent(this.props.event);
+        
+        let newEvent = Object.assign({}, this.props.event);
+        delete newEvent._id;
+        newEvent.id = this.props.event._id;
+        this.props.updateEvent(newEvent);
     }
 
     getDate() {
@@ -64,7 +69,7 @@ class EventItem extends React.Component {
                                 {this.props.event.users.map((member, i) => {
                                     // debugger;
                                     return <div className={`member-${i+1}`} key={member+i}>
-                                        {this.props.users[member.id] ? this.props.users[member.id].firstName.slice(0,1) : ""}
+                                        {this.props.users[member] ? this.props.users[member].firstName.slice(0,1) : ""}
                                     </div>
                                 })}
                                 <div className="member-count">{this.props.event.users.length} attendees</div>
@@ -77,7 +82,7 @@ class EventItem extends React.Component {
                             <div className="user-actions">
                                 <div className="suggested-event">Suggested</div>
                             <div className="event-action" onClick={this.attendEvent} >
-                                {this.props.event.users.indexOf(this.props.currentUser) > -1 ?
+                                {this.props.event.users.indexOf(this.props.currentUser.id) > -1 ?
                                 <div className="leave-event">
                                     <p className="leave-event-p">Leave event</p>
                                     <FontAwesomeIcon icon={faArrowRightFromBracket}></FontAwesomeIcon>
