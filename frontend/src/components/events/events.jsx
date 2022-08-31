@@ -35,7 +35,7 @@ class Events extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="event-page">
                 <NavbarContainer />
                 <div id="events-page">
                     <div id="events-container">
