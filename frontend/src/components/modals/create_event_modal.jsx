@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import '../../stylesheets/modal.css';
+import '../../stylesheets/create_event_modal.css';
 import React from 'react';
 
 class CreateEventModal extends React.Component {
@@ -68,9 +69,9 @@ class CreateEventModal extends React.Component {
 
     renderModal() {
         return (
-            <div id="modal">
-                <div id="overlay" onClick={this.props.toggleModal}></div>
-                <div className="modal">
+            <div id="create-event-modal-container">
+                <div id="create-event-modal-overlay" onClick={this.props.toggleModal}></div>
+                <div className="modal" id="create-event-modal">
                     <div className="modal-header">
                         <p className="modal-header-info">Create Event</p>
                         <div className="modal-close" onClick={this.props.toggleModal} >

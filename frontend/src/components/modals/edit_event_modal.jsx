@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import '../../stylesheets/modal.css';
+import '../../stylesheets/edit_event_modal.css';
 import React from 'react';
 
 class EditEventModal extends React.Component {
@@ -65,9 +66,9 @@ class EditEventModal extends React.Component {
 
     renderModal() {
         return (
-            <div id="modal">
-                <div id="overlay" onClick={this.props.toggleModal}></div>
-                <div className="modal">
+            <div id="edit-event-modal-container">
+                <div id="edit-event-modal-overlay" onClick={this.props.toggleModal}></div>
+                <div className="modal" id="edit-event-modal">
                     <div className="modal-header">
                         <p className="modal-header-info">Edit Event</p>
                         <div className="modal-close" onClick={this.props.toggleModal} >
@@ -84,10 +85,10 @@ class EditEventModal extends React.Component {
                             <label>Date</label>
                             <input type="date" value={this.getDateFormat()} onChange={this.update('eventTime')} />
                         </div>
-                        {/* <div className="modal-input">
+                        <div className="modal-input">
                             <label>Time</label>
                             <input type="time" value="13:30" onChange={this.update('eventTime')}></input>
-                        </div> */}
+                        </div>
                         <div className="modal-input">
                             <label>Size</label>
                             <input id="event-size" type="number" value={this.state.eventSize} onChange={this.update('eventSize')} 

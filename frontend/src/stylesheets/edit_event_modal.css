@@ -1,0 +1,8 @@
+#edit-event-modal-overlay {
+    position: absolute;
+    top: -100px;
+    left: -500px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+}
