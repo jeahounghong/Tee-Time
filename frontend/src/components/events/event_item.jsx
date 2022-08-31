@@ -14,17 +14,8 @@ class EventItem extends React.Component {
     }
 
     attendEvent() {
-<<<<<<< HEAD
-        // debugger;
-        if (this.props.event.users.length < this.props.event.eventSize &&
-        this.props.event.users.indexOf(this.props.currentUser.id) === -1) {
-            this.props.users[this.props.currentUser.id].events.joinedEvents.push(this.props.event._id);
-            this.props.event.users.push(this.props.currentUser.id);
-        } else {
-=======
 
         if (this.props.event.users.indexOf(this.props.currentUser.id) >= 0){
->>>>>>> 18bce6602b2af7eb66d4d8ce9dbbace95b4f55e8
             let idx = this.props.event.users.indexOf(this.props.currentUser.id);
             this.props.event.users = this.props.event.users.splice(0, idx).concat(this.props.event.users.splice(idx));
             let newJoinedEvents = this.props.users[this.props.currentUser.id].events.
@@ -44,12 +35,6 @@ class EventItem extends React.Component {
             this.props.updateEvent(updatedEvent)
         }
 
-<<<<<<< HEAD
-        let newEvent = Object.assign({}, this.props.event);
-        delete newEvent._id;
-        newEvent.id = this.props.event._id;
-        this.props.updateEvent(newEvent);
-=======
         // debugger;
         // if (Object.values(this.props.event.users.length) < this.props.event.eventSize &&
         // this.props.event.users.indexOf(this.props.currentUser.id) === -1) {
@@ -66,7 +51,6 @@ class EventItem extends React.Component {
         // delete newEvent._id;
         // newEvent.id = this.props.event._id;
         // this.props.updateEvent(newEvent);
->>>>>>> 18bce6602b2af7eb66d4d8ce9dbbace95b4f55e8
     }
 
     getDate() {
