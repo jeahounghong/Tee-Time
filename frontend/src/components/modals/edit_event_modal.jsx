@@ -55,10 +55,10 @@ class EditEventModal extends React.Component {
                             <label>Date</label>
                             <input type="date" value={this.state.eventTime.slice(0, 10)} onChange={this.update('eventTime')} />
                         </div>
-                        <div className="modal-input">
+                        {/* <div className="modal-input">
                             <label>Time</label>
                             <input type="time" value="13:30" onChange={this.update('eventTime')}></input>
-                        </div>
+                        </div> */}
                         <div className="modal-input">
                             <label>Size</label>
                             <input id="event-size" type="number" value={this.state.eventSize} onChange={this.update('eventSize')} 

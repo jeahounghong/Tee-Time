@@ -37,9 +37,6 @@ class Navbar extends React.Component {
                         <FontAwesomeIcon icon={faGolfBallTee}></FontAwesomeIcon>
                         <p id="navbar-slogan">Tee Times</p>
                     </div>
-                    {this.props.currentUser ? <p id="navbar-welcome">
-                        {`Welcome, ${this.props.currentUser.firstName} ${this.props.currentUser.lastName}`}
-                    </p>: ""}
                 </div>
                 
                 <div id="navbar-right">

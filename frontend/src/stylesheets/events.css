@@ -19,9 +19,9 @@
     font-weight: 600;
     width: 100%;
     display: flex;
-    justify-content: center;
     margin-top: 10px;
     margin-bottom: 15px;
+    margin-right: 140px;
 }
 
 #events-header {
@@ -30,8 +30,7 @@
 }
 
 #create-event-btn {
-    margin-left: 110px;
-    margin-right: 10px;
+    margin-left: 15px;
     font-size: 14px;
     display: flex;
     justify-content: center;
@@ -40,6 +39,7 @@
     border-radius: 28px;
     column-gap: 8px;
     color: gray;
+    width: 215px;
 }
 
 #create-event-btn:hover {
