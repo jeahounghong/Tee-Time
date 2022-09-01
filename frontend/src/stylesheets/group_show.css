@@ -1,10 +1,18 @@
 .group-show-top {
+
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: flex-start; */
     align-items: center;
-    margin-top: 30px;
-    margin-left: 25px;
+    /* margin-top: 30px;
+    margin-left: 25px; */
+    padding: 30px;
+    padding-bottom: 10px;
     max-height: 100px;
+}
+.close{
+    padding-bottom: 70px;
 }
 
 .group-show-heading {
@@ -24,7 +32,7 @@
 }
 
 .group-show-top-left {
-    margin-right: 40px;
+    margin-right: 0px;
     width: 50%;
 }
 
@@ -70,26 +78,32 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
 }
 
 .group-show-events-header button {
-    margin-top: 20px;
-    margin-left: 30px;
-    margin-right: 180px;
+    margin-left: 20px;
+    margin-right: 0px;
     font-size: 14px;
     display: flex;
-    padding: 10px 10px;
-    width: auto;
-    border-radius: 50%;
+    padding: 10px 8px;
+    width: 140px;
+    border-radius: 28px;
     color: black;
     text-align: center;
-    background-color: rgb(0,128,64);
+    background-color: white;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     border: none;
-    color: white;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.15)
+}
+
+.group-show-events-header button:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
 }
 
 .add-group-event:hover {
@@ -97,7 +111,7 @@
 }
 
 .group-show-events-header h1 {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     font-size: 18px;
     color: grey;
     text-align: center;
