@@ -46,8 +46,8 @@ router.patch('/:id', (req,res) => {
             user.firstName = req.body.firstName;
             user.lastName = req.body.lastName;
             user.email = req.body.email;
-            user.imageUrl = req.body.imageUrl, // added for image handling
-            user.bio = req.body.bio
+            user.imageUrl = req.body.imageUrl; // added for image handling
+            user.bio = req.body.bio;
 
             return user.save().then(user => res.json(user))
         })
@@ -100,12 +100,15 @@ router.post('/register', (req, res) => {
   });
 
   router.post('/login', (req, res) => {
+    console.log(req.body)
     const { errors, isValid } = validateLoginInput(req.body);
-
+    console.log("REQUEST BODY")
+    console.log(req.body.email)
     if (!isValid) {
         return res.status(400).json(errors);
     }
 
+    console.log("logging in..")
 
     const email = req.body.email;
     const password = req.body.password;
