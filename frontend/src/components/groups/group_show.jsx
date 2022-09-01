@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import '../../stylesheets/group_show.css';
 import EventItemContainer from '../events/event_item_container'
 
@@ -12,6 +13,10 @@ class GroupShow extends React.Component {
 
         this.showGroupEvents = this.showGroupEvents.bind(this);
     };
+
+    componentDidMount() {
+        this.props.fetchGroupEvents();
+    }
 
     // need to create a method where we not only map through the user Events but match the groupId to the groupId on the show page
     showGroupEvents() {
@@ -47,6 +52,7 @@ class GroupShow extends React.Component {
                     <div id="group-show-line"></div>
                     <div className="group-show-bottom">
                         <div className="group-show-events-header">
+                            <button className="add-group-event"><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
                             <h1>Upcoming Events</h1>
                         </div>
                         <div className="group-show-events-container">
