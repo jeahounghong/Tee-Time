@@ -37,6 +37,10 @@
     background-color: rgb(78, 231, 154);
 }
 
+.group-item-container {
+
+}
+
 /* FIXED SCROLL FUNCTION */
 .group-show-container {
     overflow: scroll;
