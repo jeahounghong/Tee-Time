@@ -1,8 +1,8 @@
 
-
-.left-right{
+.profile-items-container{
     display: flex;
     justify-content: center;
+    margin: auto 40px;
     /* background: red; */
     padding-top: 30px;
 }
@@ -48,6 +48,7 @@
 .right{
     margin-left: 10px;
     padding: 10px;
+    margin-bottom: 100px;
 }
 
 .event-date-profile {
@@ -143,7 +144,7 @@
     padding-top: 40px;
 }
 
-.left-right > .right {
+.profile-items-container > .right {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

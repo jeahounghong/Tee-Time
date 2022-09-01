@@ -228,7 +228,7 @@ class Profile extends React.Component {
     renderProfilePage(){return(<div className='profile-page'>
         <NavbarContainer {...this.props}/>
         {this.header()}
-        <div className='left-right'>
+        <div className='profile-items-container'>
             <div className='user-events left'>
                 <h1>{this.props.users[this.state.userId] ? this.props.users[this.state.userId].firstName + "'s" : ""} Upcoming Events</h1>
                 {this.userEvents()}
@@ -238,6 +238,8 @@ class Profile extends React.Component {
                     <h1>Frequently played with:</h1>
                     {this.frequentlyPlayedWith()}
                 </div>
+            </div>
+            <div className="right">
                 <div className='profile-courses'>
                     <h1>Played Courses</h1>
                     {this.playedCourses()}
