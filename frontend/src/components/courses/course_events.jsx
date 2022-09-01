@@ -20,10 +20,9 @@ class CourseEvents extends React.Component {
                         return <div className="course-event" key={event+i}>
                             <EventItemContainer event={event} courses={this.props.courses} />
                             </div>
-                    } 
-                    // else {
-                    //     this.props.deleteEvent(event._id);
-                    // }
+                    } else {
+                        this.props.deleteEvent(event._id);
+                    }
                 })}
             </div>
         )
