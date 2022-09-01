@@ -47,6 +47,7 @@
 
 .right{
     margin-left: 10px;
+    padding: 10px;
 }
 
 .event-date-profile {
@@ -65,8 +66,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-left: 5px;
-    margin-right: 5px;
+    /* margin-left: 5px;
+    margin-right: 5px; */
     background-color: white;
 }
 
@@ -82,6 +83,12 @@
 
 .frequently-played-with-list-item .member-2, .frequently-played-with-list-item .member-3, .frequently-played-with-list-item .member-4 {
     margin-left: 0px;
+}
+
+.frequently-played-with-list-item p {
+    font-weight: 600;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .user-events h1{
@@ -162,10 +169,10 @@
 
 .profile-courses > ul {
     background-color: white;
-    margin-left: 5px;
-    margin-right: 5px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -173,4 +180,14 @@
 
 .profile-courses > ul > li {
     margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.past-courses-image {
+    height: 70px;
+    width: 90px;
+}
+
+.past-courses-list-item {
+    margin-top: 8px;
 }

@@ -129,9 +129,9 @@ class Profile extends React.Component {
                     <div className={`member-${i+1}`}>
                         {this.props.users[key] ? this.profileCircle(this.props.users[key]) : ""}
                     </div>
-                    <Link to={`/users/${key}`} onMouseDown={() => this.setState({userId: key})}>
+                    <p>
                         {this.props.users[key].firstName + " " + this.props.users[key].lastName}
-                    </Link>
+                    </p>
                     <div>
                         Played with: {playedWithCount[key]} times
                     </div>
@@ -181,7 +181,7 @@ class Profile extends React.Component {
                         <h4>Attendees</h4>
                         <ul className='event-members'>
                             {event.users.map((userId, i) => this.props.users[userId] ? <li className={`member-${i+1}`}>
-                                {this.props.users[userId].firstName[0]}
+                                {this.props.users[userId] ? this.profileCircle(this.props.users[userId]) : ""}
                             </li> : "")}
                         </ul>
                     </div>
@@ -209,12 +209,13 @@ class Profile extends React.Component {
             let previousCourses = {}
             userJoinedPreviousEvents.forEach(event => {
                 if (this.props.courses[event.courseId]){
-                    previousCourses[event.courseId] = this.props.courses[event.courseId].name
+                    previousCourses[event.courseId] = this.props.courses[event.courseId]
                 }
             })
             return (<ul>
-                {Object.values(previousCourses).map(course => <li>
-                    {course}
+                {Object.values(previousCourses).map(course => <li className='past-courses-list-item'>
+                    <img src={course.imageUrl} className="past-courses-image" />
+                    <p>{course.name}</p>
                 </li>)}
             </ul>)
 
@@ -232,7 +233,7 @@ class Profile extends React.Component {
             </div>
             <div className='right'>
                 <div className='most-played'>
-                    <h1>Frequently played with</h1>
+                    <h1>Frequently played with:</h1>
                     {this.frequentlyPlayedWith()}
                 </div>
                 <div className='profile-courses'>
