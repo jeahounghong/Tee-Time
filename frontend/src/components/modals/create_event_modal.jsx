@@ -110,7 +110,6 @@ class CreateEventModal extends React.Component {
                             <label>Course</label>
                             <select value={this.state.courseId} onChange={this.update('courseId')} >
                                 {Object.values(this.props.courses).map((course, i) => {
-                                    debugger;
                                     return <option value={course._id} key={course+i}>{course.name}</option>
                                 })}
                             </select>
