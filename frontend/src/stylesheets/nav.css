@@ -55,3 +55,22 @@
     text-decoration: none;
     color: black;
 }
+
+.session-link-pro-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: green;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.session-link-pro-pic img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    /* object-position: 100%; */
+    border-radius: 50%;
+}
