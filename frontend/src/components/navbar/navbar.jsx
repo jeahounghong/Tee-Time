@@ -30,7 +30,7 @@ class Navbar extends React.Component {
                     </Link>
                     <div className="" to={`/users/${this.props.currentUser.id}`}>
                         <div className="session-link-profile" onClick={this.toggleProfileModal}>
-                            {this.props.currentUser ? this.props.currentUser.firstName.slice(0,1) : ""}
+                            {/* {this.props.currentUser ? this.props.currentUser.firstName.slice(0,1) : ""} */}
                         </div>
                     </div>
                 </div>
