@@ -1,6 +1,8 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import '../../stylesheets/profile.css'
+import { GiPartyPopper, GiGolfFlag, GiGolfTee } from 'react-icons/gi';
+import { FiSend } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 
@@ -80,7 +82,7 @@ class Profile extends React.Component {
         if (tempUser){
             return (
                 <div className='profile-header'>
-                    <div className='profile-welcome'>Welcome, {this.props.currentUser.firstName}</div>
+                    <div className='profile-welcome'>Welcome back, {this.props.currentUser.firstName} <GiPartyPopper /></div>
                     <div id='line'></div>
                     <br />
                     <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
@@ -130,18 +132,23 @@ class Profile extends React.Component {
             })
             return <ul>    
                 {keys.map((key, i) => <li key={key} className={"frequently-played-with-list-item"}>
-                    <div className='frequently-played-with-list-item-left'>
-                        <div className={`member-${i+1}`}>
-                            {this.props.users[key] ? this.profileCircle(this.props.users[key]) : ""}
+                    <div id="freq-played-item">
+                        <div id="freq-played-item-left">
+                            <div className='frequently-played-with-list-item-left'>
+                                <div className={`member-${i+1}`}>
+                                    {this.props.users[key] ? this.profileCircle(this.props.users[key]) : ""}
+                                </div>
+                            </div>
+                            <div className='frequently-played-with-list-item-right'>
+                                <p>
+                                    {this.props.users[key].firstName + " " + this.props.users[key].lastName}
+                                </p>
+                                <div className="played-with-text">
+                                    Played with: {playedWithCount[key]} times
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className='frequently-played-with-list-item-right'>
-                        <p>
-                            {this.props.users[key].firstName + " " + this.props.users[key].lastName}
-                        </p>
-                        <div className="played-with-text">
-                            Played with: {playedWithCount[key]} times
-                        </div>
+                        <div id="freq-played-item-right"><FiSend /> follow</div>
                     </div>
                 </li>)}
             </ul>
@@ -220,10 +227,16 @@ class Profile extends React.Component {
                     previousCourses[event.courseId] = this.props.courses[event.courseId]
                 }
             })
-            return (<ul>
-                {Object.values(previousCourses).map(course => <li className='past-courses-list-item'>
-                    <img src={course.imageUrl} className="past-courses-image" />
-                    <p>{course.name}</p>
+            return (<ul id="profile-courses-list">
+                {Object.values(previousCourses).map((course, i) => <li id='past-courses-list-item' key={course+i}>
+                    <div className="profile-course-left">
+                        <img src={course.imageUrl} className="past-courses-image" />
+                    </div>
+                    <div className="profile-course-right">
+                        <p className="profile-course-name">{course.name}</p>
+                        <p className="profile-course-description">{course.description}</p>
+                    </div>
+                    <div id="profile-courses-separator"></div>
                 </li>)}
             </ul>)
 
@@ -241,13 +254,25 @@ class Profile extends React.Component {
             </div>
             <div className='profile-section-container'>
                 <div className='most-played'>
-                    <h1>Frequently Played With</h1>
+                    <h1>
+                        <div id="profile-courses-logo">
+                            <GiGolfTee />
+                        </div>
+                        Frequently Played With
+                        <div id="profile-played-separator"></div>
+                    </h1>
                     {this.frequentlyPlayedWith()}
                 </div>
             </div>
             <div className="profile-section-container">
                 <div className='profile-courses'>
-                    <h1>Played Courses</h1>
+                    <h1>
+                        <div id="profile-courses-logo">
+                            <GiGolfFlag/>
+                        </div>
+                        Played Courses
+                        <div id="profile-courses-logo-separator"></div>
+                    </h1>
                     {this.playedCourses()}
                 </div>
             </div>
