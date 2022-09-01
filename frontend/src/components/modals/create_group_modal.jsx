@@ -47,19 +47,23 @@ class CreateGroupModal extends React.Component {
 
     deleteGroupMember(e) {
         e.preventDefault();
-
+        // debugger;
         let item;
         let indexOfUser;
-        let newState = [];
-        for (let i = 0; i < this.props.allUsers.length; i++) {
-            let user = this.props.allUsers[i];
-            if (user._id === e.target.id && e.target.id !== this.props.currentUser.id) {
-                item = e.target;
-                indexOfUser = this.state.users.indexOf(user);
-                newState = this.state.users.filter(item => item !== user )
+        let newState = this.state.users;
+        if (e.currentTarget.id !== this.props.currentUser.id){
+            newState = [];
+            for (let i = 0; i < this.props.allUsers.length; i++) {
+                let user = this.props.allUsers[i];
+                if (user._id === e.currentTarget.id) {
+                    debugger;
+                    item = e.target;
+                    indexOfUser = this.state.users.indexOf(user);
+                    newState = this.state.users.filter(item => item !== user._id )
+                }
             }
         }
-
+        // debugger;
         this.setState({users: newState})
     }
 
@@ -74,7 +78,7 @@ class CreateGroupModal extends React.Component {
             return this.state.users.map((user) => {
                 return (
                     // onClick should remove the relevant user from this.state.users and it should remove the div itself
-                    <div onClick={this.deleteGroupMember} className='added-user' id={`${user}`}>{users[user].firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
+                    <div onClick={this.deleteGroupMember} className='added-user' id={`${user}`}>{users[user].firstName} {users[user].lastName}<FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
                 )
             })
         }
