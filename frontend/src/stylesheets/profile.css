@@ -11,20 +11,31 @@
     width: 100%;
 }
 
+.profile-event-list li h3 {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.profile-event-list li h4 {
+    font-weight: bold;
+    font-size: 16px;
+}
+
 .profile-event-list > li {
-    border: solid 1px black;
+    /* border: solid 1px black; */
+    border-radius: 5px;
     /* width: 100%; */
     width: 380px;
     /* margin: 5px; */
     background-color: white;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 .profile-page .left{
     padding: 10px;
-    background-color: lightgreen;
+    background-color: rgb(6, 124, 6);
     border-radius: 5px;
-    margin-right: 10px;
     width: 400px;
     
 }
@@ -37,16 +48,29 @@
 .right{
     margin-left: 10px;
 }
+
+.event-date-profile {
+    color: rgb(0,128,64);
+    font-weight: 600;
+    font-size: 16px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 5px;
+}
+
 .frequently-played-with-list-item{
     padding: 10px;
     border: solid 1px black;
-    width: 200px;
-    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
+
 .user-events h1{
     color: white;
     font-weight: bold;
     text-align: center;
+    padding: 10px;
+    font-size: 24px;
 }
 
 .user-events{
@@ -71,6 +95,48 @@
     width: 300px;
     height: 300px;
     object-fit: cover;
-    /* object-position: 100%; */
+    object-position: 100%;
     border-radius: 50%;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.submit-image-url-button {
+    margin-left: 5px;
+}
+
+.profile-page .left-right {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 40px;
+}
+
+.left-right > .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 250px;
+    background-color: rgb(6, 124, 6);
+    border-radius: 5px;
+    width: 400px;
+}
+
+.profile-welcome {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.right h1 {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
 }

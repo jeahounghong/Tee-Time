@@ -77,13 +77,13 @@ class Profile extends React.Component {
         if (tempUser){
             return (
                 <div className='profile-header'>
+                    <div className='profile-welcome'>Welcome, {this.props.currentUser.firstName}</div>
+                    <br />
                     <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
+                        <label>Edit Image URL: </label>
                         <input type="text" value={this.state.imageUrl} onChange={this.update('imageUrl')}/>
                         <button type="submit" className='submit-image-url-button'>Submit</button>
                     </form>
-                    <div className='profile-image-circle'>
-                        <img src={tempUser.imageUrl} />
-                    </div>
                 </div>
             )
         }
@@ -160,20 +160,21 @@ class Profile extends React.Component {
             return (<ul className='profile-event-list'>
                 {userJoinedEvents.map((event) => (<li key={event._id}>
                     <h3>{event.name ? event.name : "My Event"}</h3>
-                    <div>
+                    <div className='event-date-profile'>
                         {this.dateToString(event.eventTime)}
                     </div>
-                    <div>
+                    {/* <div>
                         {this.props.courses[event.courseId].name}
-                    </div>
+                    </div> */}
                     <div>
-                        <h3>Attendees</h3>
-                        <ul>
-                            {event.users.map(userId => this.props.users[userId] ? <li>
-                                {this.props.users[userId].firstName + " " + this.props.users[userId].lastName}
+                        <h4>Attendees</h4>
+                        <ul className='event-members'>
+                            {event.users.map((userId, i) => this.props.users[userId] ? <li className={`member-${i+1}`}>
+                                {this.props.users[userId].firstName[0]}
                             </li> : "")}
                         </ul>
                     </div>
+                    <div className="member-count">{event.users.length} / {event.eventSize} attendees</div>
                 </li>))}    
             </ul>)
             
