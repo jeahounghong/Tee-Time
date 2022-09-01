@@ -18,7 +18,7 @@ class EditGroupModal extends React.Component {
             allUsers: []
         };
 
-        this.addUsersSuccessfully = null;
+        this.userMessage = null;
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderModal = this.renderModal.bind(this);
@@ -63,9 +63,9 @@ class EditGroupModal extends React.Component {
                 this.props.updateGroup(updatedGroup);
             }
 
-            this.addUsersSuccessfully = `${user.firstName} ${user.lastName} was added successfully`
+            this.userMessage = `${user.firstName} ${user.lastName} was added successfully`
             setTimeout(() => {
-                this.addUsersSuccessfully = null;
+                this.userMessage = null;
                 this.setState({id: this.state.id})
             }, 3000)
 
@@ -84,17 +84,57 @@ class EditGroupModal extends React.Component {
             let item;
             let indexOfUser;
             let newState = [];
-    
+            let deletedUser;
             for (let i = 0; i < this.props.allUsers.length; i++) {
                 let user = this.props.allUsers[i];
                 // debugger;
-                if (user._id === e.target.id) {
-                    item = e.target;
+                if (user._id === e.currentTarget.id) {
+                    item = e.currentTarget;
                     indexOfUser = this.state.users.indexOf(user);
                     newState = this.state.users.filter(item => item !== user._id )
+                    // debugger;
+                    deletedUser = Object.assign({},this.props.usersObjects[user._id])
+                    // debugger;
                 }
             }
             // debugger;
+            
+            let newGroups = []
+            if (deletedUser && deletedUser.groups && deletedUser.groups.joinedGroups){
+                
+                deletedUser.groups.joinedGroups.forEach((groupId) => {
+                    if (groupId !== this.props.group._id){
+                        newGroups.push(groupId)
+                    }
+                })
+                deletedUser.groups.joinedGroups = newGroups
+                deletedUser.id = deletedUser._id;
+                delete deletedUser._id;
+                this.props.updateUser(deletedUser);
+                this.userMessage = `${deletedUser.firstName} ${deletedUser.lastName} has been removed from the group`
+                setTimeout(() => {
+                    this.userMessage = null;
+                    this.setState({id: this.state.id})
+                }, 3000)
+            }
+
+            if (this.props.group.users.indexOf(e.currentTarget.id) >= 0){
+                let updatedGroup = Object.assign({},this.props.group)
+                let newUsers = []
+                updatedGroup.users.forEach(userId => {
+                    if (userId !== e.currentTarget.id){
+                        newUsers.push(userId)
+                    }
+                })
+                updatedGroup.users = newUsers;
+                updatedGroup.id = updatedGroup._id;
+                delete updatedGroup._id;
+                this.props.updateGroup(updatedGroup)
+            }
+
+
+
+
             this.setState({users: newState})
         }
 
@@ -195,7 +235,7 @@ class EditGroupModal extends React.Component {
                                     <div className="added-users-container">
                                         {this.populateGroupMembers()}
                                     </div>
-                                    {this.addUsersSuccessfully ? this.addUsersSuccessfully : ""}
+                                    {this.userMessage ? this.userMessage : ""}
                                 </div>
                                 { this.state.filteredData.length != 0 && (
                                     <div className="users-search-results">
