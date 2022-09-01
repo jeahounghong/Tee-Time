@@ -40,6 +40,7 @@ class Group extends React.Component {
                 </div>
                 <div className="group-item-content-container">
                     <div className="group-information-container">
+                        {this.props.group.location ? <p>{this.props.group.location.city}, {this.props.group.location.state}</p> : "" }
                         <p className="group-description">{this.props.group.description}</p>
                     </div>
                     <div className="group-members-container">

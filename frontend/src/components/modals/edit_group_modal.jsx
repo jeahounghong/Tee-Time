@@ -173,11 +173,15 @@ class EditGroupModal extends React.Component {
                         </div>
                         <div className="group-modal-input">
                             <label>City</label>
-                            <input type="text" onChange={this.updateLocation('city')}/>
+                            <input type="text" onChange={this.updateLocation('city')}
+                                value={this.state.location ? this.state.location.city : ""}
+                            />
                         </div>
                         <div className="group-modal-input">
                             <label>State</label>
-                            <input type="text" onChange={this.updateLocation('state')}/>
+                            <input type="text" onChange={this.updateLocation('state')}
+                                value={this.state.location ? this.state.location.state : ""}
+                            />
                         </div>
                         <div className="group-modal-input" id="modal-text-input">
                             <label>Description</label>
