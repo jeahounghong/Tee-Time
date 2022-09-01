@@ -30,7 +30,8 @@ router.get('/', (req,res) => {
                 email: user.email,
                 groups: user.groups,
                 events: user.events,
-                imageUrl: user.imageUrl
+                imageUrl: user.imageUrl,
+                bio: user.bio
             }}))
         })
         .catch(err => res.status(404).json({noUsersFound: "Users were not found"}))
@@ -45,7 +46,8 @@ router.patch('/:id', (req,res) => {
             user.firstName = req.body.firstName;
             user.lastName = req.body.lastName;
             user.email = req.body.email;
-            user.imageUrl = req.body.imageUrl // added for image handling
+            user.imageUrl = req.body.imageUrl, // added for image handling
+            user.bio = req.body.bio
 
             return user.save().then(user => res.json(user))
         })

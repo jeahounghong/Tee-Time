@@ -47,6 +47,9 @@ const UserSchema = new Schema({
     },
     imageUrl: {
       type: String
+    },
+    bio: {
+      type: String
     }
     // might want to add image down the line, will depend on AWS configuration
   }, {
