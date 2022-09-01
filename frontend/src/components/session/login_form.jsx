@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
             email: '',
             password: '',
         });
-        this.props.history.push('/groups');
+        this.props.history.push('/events');
     }
 
     update(field) {
