@@ -20,6 +20,13 @@ if (process.env.NODE_ENV === 'production') {
   })
 };
 
+
+app.use("/api/users", users);
+app.use("/api/groups", groups);
+app.use("/api/courses", courses);
+app.use("/api/events", events);
+
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
@@ -34,8 +41,3 @@ mongoose
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-app.use("/api/users", users);
-app.use("/api/groups", groups);
-app.use("/api/courses", courses);
-app.use("/api/events", events);
