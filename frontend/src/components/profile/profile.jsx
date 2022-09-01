@@ -16,6 +16,7 @@ class Profile extends React.Component {
         this.playedCourses = this.playedCourses.bind(this);
         this.header = this.header.bind(this);
         this.handleImageSubmit = this.handleImageSubmit.bind(this);
+        this.renderProfilePage = this.renderProfilePage.bind(this);
         this.MONTH = {
             1: "JAN",
             2: "FEB",
@@ -224,7 +225,7 @@ class Profile extends React.Component {
     }
 
 
-    render(){return(<div className='profile-page'>
+    renderProfilePage(){return(<div className='profile-page'>
         <NavbarContainer {...this.props}/>
         {this.header()}
         <div className='left-right'>
@@ -244,6 +245,10 @@ class Profile extends React.Component {
             </div>
         </div>
     </div>)}
+
+    render() {
+        return Object.values(this.props.users).length > 0 && this.renderProfilePage();
+    }
 }
 
 export default Profile

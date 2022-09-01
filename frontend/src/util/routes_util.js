@@ -11,7 +11,7 @@ const Auth = ({ component: Component, path, isAuthenticated, exact }) => (
   )} />
 );
 const Protected = ({ component: Component, path, isAuthenticated, exact }) => {
-  debugger;
+  // debugger;
   return <Route path={path} exact={exact} render={(props) => (
      isAuthenticated ? (
       <Component {...props} />
