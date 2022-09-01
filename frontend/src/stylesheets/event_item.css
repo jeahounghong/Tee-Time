@@ -26,6 +26,13 @@
     margin-bottom: 10px;
 }
 
+.event-members img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* object-position: 100%; */
+}
+
 .member-1, .member-2, .member-3, .member-4 {
     width: 50px;
     height: 50px;
@@ -35,6 +42,7 @@
     justify-content: center;
     align-items: center;
     border: 2.5px solid white;
+    overflow: hidden;
 }
 
 .member-2 {

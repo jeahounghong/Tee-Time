@@ -59,7 +59,9 @@ class Groups extends React.Component {
     }
 
     toggleEditGroupModal() {
-        this.setState({editGroupModalHidden: !this.state.editGroupModalHidden})
+        if (this.state.groupShowGroup){
+            this.setState({editGroupModalHidden: !this.state.editGroupModalHidden})
+        }
     }
 
     groupShow() {
@@ -100,12 +102,12 @@ class Groups extends React.Component {
                     </div>
                 </div>
                 <div id='line'></div>
-                <h1 className='select-a-group'>Select a Group</h1>
+                {/* <h1 className='select-a-group'>Select a Group</h1>
                 <div className="group-selector">
                         {Object.values(this.props.groups).map((group, i) => (
                             <div onClick={this.toggleGroupShow} id={i} className='group-selector-button'>{i + 1}</div>
                         ))}
-                    </div>
+                    </div> */}
                 <div className='groups-page' >
                     <div className="groups-container">
                         <ul>
