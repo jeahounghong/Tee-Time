@@ -3,8 +3,9 @@ import { useMemo } from 'react';
 import '../../stylesheets/map.css';
 import '../../stylesheets/course.css';
 import React from 'react';
-import keys from '../../private/keys';
+// import keys from '../../private/keys';
 import CourseEventsContainer from '../courses/course_events_container';
+const keys = require('../../private/keys')
 
 export default function Map(props) {
     console.log(keys.googleMapsApiKey)
