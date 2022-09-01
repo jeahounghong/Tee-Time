@@ -17,9 +17,15 @@ class Navbar extends React.Component {
     toggleProfileModal() {
         this.setState({displayProfileModal: !this.state.displayProfileModal});
     }
-    
+
     componentDidMount() {
         this.props.fetchUsers();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (Object.values(prevProps.users).length !== Object.values(this.props.users).length) {
+            this.setState({displayProfileModal: this.state.displayProfileModal});
+        }
     }
 
     sessionLinks() {
@@ -41,6 +47,7 @@ class Navbar extends React.Component {
     }
 
     render() {
+        // debugger;
         return (
             <div>
                 {this.state.displayProfileModal ? <ProfileModalContainer toggleProfileModal={() => this.toggleProfileModal()} /> : ""}
