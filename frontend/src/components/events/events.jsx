@@ -14,6 +14,7 @@ class Events extends React.Component {
             createEventModalHidden: true,
         }
         this.toggleCreateEventModal = this.toggleCreateEventModal.bind(this);
+        this.renderEventsPage = this.renderEventsPage.bind(this);
     }
 
     toggleCreateEventModal() {
@@ -28,12 +29,14 @@ class Events extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.courses !== this.props.courses) {
+        if (Object.values(prevProps.courses).length !== Object.values(this.props.courses).length) {
+            this.setState({createEventModalHidden: this.state.createEventModalHidden});
+        } else if (Object.values(prevProps.users).length !== Object.values(this.props.users).length) {
             this.setState({createEventModalHidden: this.state.createEventModalHidden});
         }
     }
 
-    render() {
+    renderEventsPage() {
         return (
             <div className="event-page">
                 <NavbarContainer />
@@ -70,6 +73,11 @@ class Events extends React.Component {
                 action={this.state.createEventModalHidden} courses={this.props.courses} /> }
             </div>
         )
+    }
+
+    render() {
+        debugger;
+        return Object.values(this.props.users).length > 0 && this.renderEventsPage();
     }
 }
 

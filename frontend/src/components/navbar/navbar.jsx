@@ -11,6 +11,7 @@ class Navbar extends React.Component {
             displayProfileModal: false,
         }
         this.toggleProfileModal = this.toggleProfileModal.bind(this);
+        this.renderNavbar = this.renderNavbar.bind(this);
         this.sessionLinks = this.sessionLinks.bind(this);
     }
 
@@ -46,7 +47,7 @@ class Navbar extends React.Component {
         )
     }
 
-    render() {
+    renderNavbar() {
         // debugger;
         return (
             <div>
@@ -65,6 +66,10 @@ class Navbar extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    render() {
+        return Object.values(this.props.currentUser).length > 0 && this.renderNavbar();
     }
 }
 

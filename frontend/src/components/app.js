@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Splash from './splash/splash';
+import SplashContainer from './splash/splash_container';
 import { Switch } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
@@ -13,7 +13,7 @@ import ProfileContainer from './profile/profile_container';
 const App = () => (
     <div>
         <Switch>
-            <Route exact path='/' component={Splash} />
+            <Route exact path='/' component={SplashContainer} />
             <AuthRoute exact path='/login' component={LoginFormContainer} />
             <AuthRoute exact path='/signup' component={SignUpFormContainer} />
             <Route path='/events' component={EventsContainer} />

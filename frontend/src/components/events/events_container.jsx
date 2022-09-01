@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
     events: state.entities.events,
     currentUser: state.session.user,
     courses: state.entities.courses,
+    users: state.entities.users,
 });
 
 const mapDispatchToProps = dispatch => ({
