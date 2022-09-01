@@ -6,6 +6,7 @@ import { updateEvent, deleteEvent } from "../../actions/event_actions";
 const mapStateToProps = state => ({
     currentUser: state.session.user,
     users: state.entities.users,
+    courses: state.entities.courses,
 });
 
 const mapDispatchToProps = dispatch => ({
