@@ -5,6 +5,7 @@ const groups = require("./routes/api/groups");
 const courses = require("./routes/api/courses")
 const events = require("./routes/api/events");
 const passport = require('passport');
+const path = require('path');
 
 
 const app = express();
