@@ -12,6 +12,10 @@ export const getUserEvents = (userId) => (
     axios.get(`/api/events/users/${userId}`)
 )
 
+export const getGroupEvents = (groupId) => (
+    axios.get(`/api/events/groups/${groupId}`)
+)
+
 export const updateEvent = (data) => (
     axios.patch(`/api/events/${data.id}`, data)
 )

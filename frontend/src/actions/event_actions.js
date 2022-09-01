@@ -36,3 +36,6 @@ export const deleteEvent = (eventId) => dispatch => EventApiUtil.deleteEvent(eve
 
 export const fetchUserEvents = (userId) => dispatch => EventApiUtil.getUserEvents(userId)
     .then(events => dispatch(receiveEvents(events.data)));
+
+export const fetchGroupEvents = (groupId) => dispatch => EventApiUtil.getGroupEvents(groupId)
+    .then(events => dispatch(receiveEvents(events.data)))

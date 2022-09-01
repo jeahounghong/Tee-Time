@@ -5,6 +5,7 @@ const router = express.Router();
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+
 const validateEventInput = require('../../validation/events');
 const User = require("../../models/User");
 const Group = require('../../models/Group');
@@ -36,6 +37,31 @@ router.get('/users/:user_id', (req, res) => {
             res.status(404).json({ noEventsFound: 'This user does not have any events' })
         )
 });
+
+router.get('/groups/:group_id', (req,res) => {
+
+    // console.log(mongoose.Types.ObjectId(req.params.group_id))
+    Event.find().then(events => console.log(events))
+    let query = {
+        groupId: req.params.group_id
+    }
+    Event.find( {groupId: { $ne: null }})
+        .then(events => {
+
+            let groupEvents = []
+            events.forEach(event => {
+                if (event.groupId.toString() === req.params.group_id){
+                    groupEvents.push(event)
+                }
+            })
+            // console.log("here!")
+            // console.log(events)
+            res.json(groupEvents)
+        })
+        .catch(err =>
+            res.status(404).json({noEventsFound: 'No events found for that group'})    
+        )
+})
 
 router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
     const {errors, isValid} = validateEventInput(req.body);
