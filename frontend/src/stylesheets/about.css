@@ -27,6 +27,11 @@
     border-radius: 16px;
 }
 
+.dev-profile-icon:hover{
+    transform: scale(1.1);
+    transition: 300ms;
+}
+
 .dev-profile-name {
     font-weight: bolder;
     margin-bottom: 10px;
