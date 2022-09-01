@@ -8,10 +8,8 @@ import CourseEventsContainer from '../courses/course_events_container';
 const keys = require('../../private/keys')
 
 export default function Map(props) {
-    console.log(keys.googleMapsApiKey)
-    console.log(process.env.REACT_APP_MAP_KEY)
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: keys.googleMapsApiKey,
+        googleMapsApiKey: keys.googleMapsApiKey ? keys.googleMapsApiKey : process.env.REACT_APP_MAP_KEY,
     });
     if (!isLoaded) return <div>Loading...</div>
 

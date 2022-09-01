@@ -171,7 +171,7 @@ class Profile extends React.Component {
             // debugger;
             
             return (<ul className='profile-event-list'>
-                {userJoinedEvents.map((event) => (<li key={event._id}>
+                {userJoinedEvents.map((event) => (<li key={event._id} className="profile-event-item">
                     <h3>{event.name ? event.name : "My Event"}</h3>
                     <div className='event-date-profile'>
                         {this.dateToString(event.eventTime)}
@@ -228,16 +228,18 @@ class Profile extends React.Component {
     renderProfilePage(){return(<div className='profile-page'>
         <NavbarContainer {...this.props}/>
         {this.header()}
-        <div className='left-right'>
-            <div className='user-events left'>
+        <div className='profile-items-container'>
+            <div className='profile-section-container'>
                 <h1>{this.props.users[this.state.userId] ? this.props.users[this.state.userId].firstName + "'s" : ""} Upcoming Events</h1>
                 {this.userEvents()}
             </div>
-            <div className='right'>
+            <div className='profile-section-container'>
                 <div className='most-played'>
-                    <h1>Frequently played with:</h1>
+                    <h1>Frequently Played With</h1>
                     {this.frequentlyPlayedWith()}
                 </div>
+            </div>
+            <div className="profile-section-container">
                 <div className='profile-courses'>
                     <h1>Played Courses</h1>
                     {this.playedCourses()}
