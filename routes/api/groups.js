@@ -52,8 +52,6 @@ router.patch('/:id', passport.authenticate('jwt', {session: false}), (req, res) 
                 }
                 if (req.body.location){
                     group.location = req.body.location;
-                    console.log("LOCATION");
-                    console.log(req.body.location)
                 }
                 return group.save().then(group => res.json(group))
             }

@@ -50,6 +50,14 @@ const UserSchema = new Schema({
     },
     bio: {
       type: String
+    },
+    follows: {
+      followers: {
+        type: Array
+      },
+      following: {
+        type: Array
+      }
     }
     // might want to add image down the line, will depend on AWS configuration
   }, {
