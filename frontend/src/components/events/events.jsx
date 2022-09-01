@@ -53,6 +53,8 @@ class Events extends React.Component {
                             }).map((event, i) => {
                                 if (new Date(event.eventTime).getTime() - new Date().getTime() >= 0) {
                                     return <EventItemContainer event={event} key={event+i} courses={this.props.courses} />
+                                } else {
+                                    this.props.deleteEvent(event._id);
                                 }
                             })}
                         </ul>

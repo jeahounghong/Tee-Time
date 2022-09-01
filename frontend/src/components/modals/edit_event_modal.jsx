@@ -25,7 +25,6 @@ class EditEventModal extends React.Component {
         this.handleTime = this.handleTime.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
-        this.renderModal = this.renderModal.bind(this);
         this.update = this.update.bind(this);
     }
 
@@ -95,7 +94,7 @@ class EditEventModal extends React.Component {
         this.props.updateUser(updatedUser);
     }
 
-    renderModal() {
+    render() {
         return (
             <div id="edit-event-modal-container">
                 <div id="edit-event-modal-overlay" onClick={this.props.toggleModal}></div>
@@ -145,10 +144,6 @@ class EditEventModal extends React.Component {
                 </div>
             </div>
         )
-    }
-
-    render() {
-        return this.renderModal();
     }
 }
 

@@ -86,3 +86,7 @@
     width: 90%;
     margin-left: 8%;
 }
+
+.group-show-container {
+    overflow: scroll;
+}

@@ -16,9 +16,13 @@ class CourseEvents extends React.Component {
                     return new Date(e1.eventTime).getTime() - new Date(e2.eventTime).getTime();
                 })
                 .map((event, i) => {
-                    return <div className="course-event" key={event+i}>
-                        <EventItemContainer event={event} />
-                        </div>
+                    if (new Date(event.eventTime).getTime() - new Date().getTime() >= 0) {
+                        return <div className="course-event" key={event+i}>
+                            <EventItemContainer event={event} courses={this.props.courses} />
+                            </div>
+                    } else {
+                        this.props.deleteEvent(event._id);
+                    }
                 })}
             </div>
         )
