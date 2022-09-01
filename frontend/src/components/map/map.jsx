@@ -9,7 +9,7 @@ const keys = require('../../private/keys')
 
 export default function Map(props) {
     console.log(keys.googleMapsApiKey)
-    console.log(process.env.MAPS_API_KEY)
+    console.log(process.env.REACT_APP_MAP_KEY)
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: keys.googleMapsApiKey,
     });
