@@ -75,6 +75,9 @@ class CreateEventModal extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createEvent(this.state);
+        if (this.state.groupId){
+            setTimeout(() => this.props.fetchGroup(this.state.groupId),0)
+        }
         this.props.toggleModal();
     }
 

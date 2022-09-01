@@ -124,6 +124,15 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
     }
 
     newEvent.save().then( event => {
+        if (event.groupId){
+            Group.findById(event.groupId)
+                .then(group => {
+                    if (group.events.indexOf(event.id) < 0){
+                        group.events.push(event.id);
+                        group.save()
+                    }
+                })
+        }
         req.user.events.createdEvents.push(event.id)
         req.user.events.joinedEvents.push(event.id)
         req.user.save()
