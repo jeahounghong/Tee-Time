@@ -2,6 +2,7 @@ import { logout } from "../../actions/session_actions";
 import { connect } from "react-redux";
 import Navbar from './navbar';
 import { fetchUsers } from '../../actions/user_actions';
+import { withRouter } from "react-router-dom";
 
 const mapStateToProps = state => {
     return {
@@ -16,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

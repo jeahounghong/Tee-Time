@@ -17,12 +17,12 @@ class Navbar extends React.Component {
     toggleProfileModal() {
         this.setState({displayProfileModal: !this.state.displayProfileModal});
     }
+    
     componentDidMount() {
         this.props.fetchUsers();
     }
 
     sessionLinks() {
-        const tempUser = this.props.users[this.props.currentUser.id]
         return (
             <div id="session-links">
                 <Link className="session-link" to="/events">
@@ -32,8 +32,9 @@ class Navbar extends React.Component {
                     <div className="session-link-icon">Groups</div>
                 </Link>
                 <div className="session-link-profile" onClick={this.toggleProfileModal}>
-                    {/* {this.props.currentUser ? this.props.currentUser.firstName.slice(0,1) : ""} */}
-                    {tempUser ? <img src={tempUser.imageUrl} /> : ""}
+                    {Object.values(this.props.users).length > 0 ? 
+                    <img src={this.props.users[this.props.currentUser.id].imageUrl} />
+                    : ""}
                 </div>
             </div>
         )
@@ -45,12 +46,10 @@ class Navbar extends React.Component {
                 {this.state.displayProfileModal ? <ProfileModalContainer toggleProfileModal={() => this.toggleProfileModal()} /> : ""}
                 <div id="navbar">
                     <div id="navbar-left">
-                        {/* <Link to="/groups"> */}
-                            <div id="navbar-logo">
-                                <MdGolfCourse />
-                                <p id="navbar-slogan">Tee Times</p>
-                            </div>
-                        {/* </Link> */}
+                        <div id="navbar-logo" onClick={() => this.props.history.push('/events')}>
+                            <MdGolfCourse />
+                            <p id="navbar-slogan">Tee Times</p>
+                        </div>
                     </div>
                     
                     <div id="navbar-right">
