@@ -9,10 +9,12 @@ import { AuthRoute, ProtectedRoute } from '../util/routes_util';
 import EventsContainer from '../components/events/events_container';
 import GroupsContainer from '../components/groups/groups_container';
 import ProfileContainer from './profile/profile_container';
+import NavbarContainer from './navbar/navbar_container';
 
 const App = () => (
-    <div>
-        <Switch>
+    <div>   
+        <NavbarContainer />
+        <Switch>    
             <Route exact path='/' component={SplashContainer} />
             <AuthRoute exact path='/login' component={LoginFormContainer} />
             <AuthRoute exact path='/signup' component={SignUpFormContainer} />

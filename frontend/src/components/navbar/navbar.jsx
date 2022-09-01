@@ -43,12 +43,12 @@ class Navbar extends React.Component {
                     <img src={this.props.users[this.props.currentUser.id].imageUrl} />
                     : ""}
                 </div>
+                {/* <div onClick={() => this.props.logout()}>Sign out</div> */}
             </div>
         )
     }
 
     renderNavbar() {
-        // debugger;
         return (
             <div>
                 {this.state.displayProfileModal ? <ProfileModalContainer toggleProfileModal={() => this.toggleProfileModal()} /> : ""}

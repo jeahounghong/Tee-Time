@@ -76,7 +76,6 @@ class Events extends React.Component {
     }
 
     render() {
-        debugger;
         return Object.values(this.props.users).length > 0 && this.renderEventsPage();
     }
 }
