@@ -18,6 +18,8 @@ class EditGroupModal extends React.Component {
             allUsers: []
         };
 
+        this.userMessage = null;
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderModal = this.renderModal.bind(this);
         this.update = this.update.bind(this);
@@ -41,41 +43,114 @@ class EditGroupModal extends React.Component {
     updateUsers(user) {
         // somehow push into users
         return () => {
-            this.setState({users: this.state.users.concat([user])});
+            debugger;
+            let userId = user._id;
+            this.setState({users: this.state.users.concat([user._id])});
             this.setState({filteredData: []});
+            if (user.groups.joinedGroups.indexOf(this.props.group._id) < 0){
+                user.groups.joinedGroups.push(this.props.group._id);
+                user.id = user._id;
+                delete user._id;
+                this.props.updateUser(user)
+                
+            }
+            let updatedGroup = Object.assign({},this.props.group)
+            if (updatedGroup.users.indexOf(userId) < 0){
+                updatedGroup.users.push(userId);
+                updatedGroup.id = updatedGroup._id;
+                delete updatedGroup._id
+                debugger;
+                this.props.updateGroup(updatedGroup);
+            }
+
+            this.userMessage = `${user.firstName} ${user.lastName} was added successfully`
+            setTimeout(() => {
+                this.userMessage = null;
+                this.setState({id: this.state.id})
+            }, 3000)
+
+            // debugger;
         }
     }
 
     deleteGroupMember(e) {
         e.preventDefault();
 
-        let item;
-        let indexOfUser;
-        let newState = [];
-
-        for (let i = 0; i < this.props.allUsers.length; i++) {
-            let user = this.props.allUsers[i];
-
-            if (user._id === e.target.id) {
-                item = e.target;
-                indexOfUser = this.state.users.indexOf(user);
-                newState = this.state.users.filter(item => item !== user )
+        if (e.currentTarget.id === this.props.group.ownerId){
+            console.log("Owner can't leave the group. Delete group instead.")
+            // debugger;
+        } else {
+            // debugger;
+            let item;
+            let indexOfUser;
+            let newState = [];
+            let deletedUser;
+            for (let i = 0; i < this.props.allUsers.length; i++) {
+                let user = this.props.allUsers[i];
+                // debugger;
+                if (user._id === e.currentTarget.id) {
+                    item = e.currentTarget;
+                    indexOfUser = this.state.users.indexOf(user);
+                    newState = this.state.users.filter(item => item !== user._id )
+                    // debugger;
+                    deletedUser = Object.assign({},this.props.usersObjects[user._id])
+                    // debugger;
+                }
             }
+            // debugger;
+            
+            let newGroups = []
+            if (deletedUser && deletedUser.groups && deletedUser.groups.joinedGroups){
+                
+                deletedUser.groups.joinedGroups.forEach((groupId) => {
+                    if (groupId !== this.props.group._id){
+                        newGroups.push(groupId)
+                    }
+                })
+                deletedUser.groups.joinedGroups = newGroups
+                deletedUser.id = deletedUser._id;
+                delete deletedUser._id;
+                this.props.updateUser(deletedUser);
+                this.userMessage = `${deletedUser.firstName} ${deletedUser.lastName} has been removed from the group`
+                setTimeout(() => {
+                    this.userMessage = null;
+                    this.setState({id: this.state.id})
+                }, 3000)
+            }
+
+            if (this.props.group.users.indexOf(e.currentTarget.id) >= 0){
+                let updatedGroup = Object.assign({},this.props.group)
+                let newUsers = []
+                updatedGroup.users.forEach(userId => {
+                    if (userId !== e.currentTarget.id){
+                        newUsers.push(userId)
+                    }
+                })
+                updatedGroup.users = newUsers;
+                updatedGroup.id = updatedGroup._id;
+                delete updatedGroup._id;
+                this.props.updateGroup(updatedGroup)
+            }
+
+
+
+
+            this.setState({users: newState})
         }
 
-        this.setState({users: newState})
     }
 
     populateGroupMembers() {
-        if (!this.state.users[0].firstName) {
+        if (this.props.usersObjects[this.state.users[0]] &&  !this.props.usersObjects[this.state.users[0]].firstName) {
+            debugger;
             return (
                 <div onClick={this.deleteGroupMember} className='added-user' id={`${this.props.currentUser.id}`}>{this.props.currentUser.firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
             )
         }  else {
-            return this.state.users.map((user) => {
+            return this.state.users.map((userId) => {
                 return (
                     // onClick should remove the relevant user from this.state.users and it should remove the div itself
-                    <div onClick={this.deleteGroupMember} className='added-user' id={`${user._id}`}>{user.firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
+                    <div onClick={this.deleteGroupMember} className='added-user' id={`${userId}`}>{this.props.usersObjects[userId].firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
                 )
             })
         }
@@ -160,6 +235,7 @@ class EditGroupModal extends React.Component {
                                     <div className="added-users-container">
                                         {this.populateGroupMembers()}
                                     </div>
+                                    {this.userMessage ? this.userMessage : ""}
                                 </div>
                                 { this.state.filteredData.length != 0 && (
                                     <div className="users-search-results">

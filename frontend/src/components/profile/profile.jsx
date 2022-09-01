@@ -78,6 +78,7 @@ class Profile extends React.Component {
             return (
                 <div className='profile-header'>
                     <div className='profile-welcome'>Welcome, {this.props.currentUser.firstName}</div>
+                    <div id='line'></div>
                     <br />
                     <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
                         <label>Edit Image URL: </label>

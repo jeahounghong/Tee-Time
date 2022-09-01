@@ -48,7 +48,9 @@ class GroupShow extends React.Component {
                         <div className="group-show-top-left">
                             <div className="group-show-heading">
                                 <h1 className="group-show-name">{this.props.group.name}</h1>
-                                <h3 className="group-show-member-status">Member</h3>
+                                <h3 className="group-show-member-status">{
+                                    this.props.group.ownerId === this.props.currentUser.id ? "Owner" : "Member"
+                                    }</h3>
                             </div>
                             <div className="group-show-description">
                                 <p className="group-show-description-content">{this.props.group.description}</p>
