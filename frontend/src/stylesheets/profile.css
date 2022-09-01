@@ -1,7 +1,7 @@
 
 .profile-items-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin: auto 40px;
     /* background: red; */
     padding-top: 30px;
@@ -23,32 +23,31 @@
 
 .profile-event-list > li {
     /* border: solid 1px black; */
-    border-radius: 5px;
     /* width: 100%; */
     width: 380px;
     /* margin: 5px; */
     background-color: white;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 }
 
-.profile-page .left{
-    padding: 10px;
-    background-color: rgb(6, 124, 6);
-    border-radius: 5px;
-    width: 400px;
-    
+.profile-section-container {
+    min-width: 400px;
+}
+
+.profile-section-container h1 { 
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-decoration: underline;
 }
 
 .most-played > h1 {
     font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.right{
-    margin-left: 10px;
-    padding: 10px;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .event-date-profile {
@@ -60,16 +59,17 @@
     margin-bottom: 5px;
 }
 
+
 .frequently-played-with-list-item{
     padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     /* margin-left: 5px;
     margin-right: 5px; */
     background-color: white;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 }
 
 .frequently-played-with-list-item a {
@@ -90,6 +90,10 @@
     font-weight: 600;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.profile-event-item {
+    border-radius: none;
 }
 
 .user-events h1{
@@ -132,6 +136,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .submit-image-url-button {
@@ -150,7 +155,6 @@
     justify-content: space-evenly;
     width: 250px;
     background-color: rgb(6, 124, 6);
-    border-radius: 5px;
     width: 400px;
 }
 
@@ -169,19 +173,19 @@
 }
 
 .profile-courses > ul {
-    background-color: white;
     /* margin-left: 10px;
     margin-right: 10px; */
-    border-radius: 5px;
-    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
 .profile-courses > ul > li {
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     font-weight: 600;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 }
 
 .past-courses-image {
@@ -189,6 +193,7 @@
     width: 90px;
 }
 
-.past-courses-list-item {
-    margin-top: 8px;
+.profile-courses h1 {
+    font-weight: bold;
+    text-align: center;
 }
