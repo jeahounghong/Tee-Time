@@ -18,6 +18,8 @@ class EditGroupModal extends React.Component {
             allUsers: []
         };
 
+        this.addUsersSuccessfully = null;
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderModal = this.renderModal.bind(this);
         this.update = this.update.bind(this);
@@ -60,6 +62,12 @@ class EditGroupModal extends React.Component {
                 debugger;
                 this.props.updateGroup(updatedGroup);
             }
+
+            this.addUsersSuccessfully = `${user.firstName} ${user.lastName} was added successfully`
+            setTimeout(() => {
+                this.addUsersSuccessfully = null;
+                this.setState({id: this.state.id})
+            }, 3000)
 
             // debugger;
         }
@@ -187,6 +195,7 @@ class EditGroupModal extends React.Component {
                                     <div className="added-users-container">
                                         {this.populateGroupMembers()}
                                     </div>
+                                    {this.addUsersSuccessfully ? this.addUsersSuccessfully : ""}
                                 </div>
                                 { this.state.filteredData.length != 0 && (
                                     <div className="users-search-results">
