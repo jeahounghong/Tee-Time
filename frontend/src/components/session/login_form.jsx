@@ -13,7 +13,7 @@ class LoginForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
-        this.handleDemo = this.update.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     handleDemo(e) {
@@ -29,7 +29,7 @@ class LoginForm extends React.Component {
             email: '',
             password: ''
         });
-        
+
         this.props.history.push('/events');
     }
 
@@ -80,7 +80,7 @@ class LoginForm extends React.Component {
                             <input type="password" value={this.state.password} onChange={this.update('password')}/>
                         </div>
                         <button className="login-btn" type="login">Login</button>
-                        <button className="login-btn" id='demo-login'>Demo User</button>
+                        <button onClick={this.handleDemo} className="login-btn" id='demo-login'>Demo User</button>
                         <p id="login-footer-info">Don't have an account? <Link id="signup-link" to="/signup">Sign up</Link></p>
                     </form>
                 </div>
