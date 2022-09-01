@@ -66,12 +66,39 @@
     margin-left: 30px;
 }
 
+.group-show-events-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.group-show-events-header button {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 180px;
+    font-size: 14px;
+    display: flex;
+    padding: 10px 10px;
+    width: auto;
+    border-radius: 50%;
+    color: black;
+    text-align: center;
+    background-color: rgb(0,128,64);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
 .group-show-events-header h1 {
     margin-top: 20px;
     font-size: 18px;
     color: grey;
     text-align: center;
     font-weight: bold;
+    text-decoration: underline;
 }
 
 .group-show-events-container {
