@@ -120,6 +120,8 @@ class Groups extends React.Component {
                                         }
                                     }
                                     console.log(i)
+                                    // debugger;
+                                    this.props.fetchGroupEvents(this.props.groups[idx]._id)
                                     this.setState({groupShowGroup: this.props.groups[idx]})
                                 }}>
                                     <GroupItemContainer group={group} key={group+i} />

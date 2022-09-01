@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Groups from './groups';
 import { fetchUserGroups, fetchGroups } from '../../actions/group_actions';
 import { fetchUsers } from '../../actions/user_actions';
-import { fetchUserEvents, fetchEvents } from '../../actions/event_actions';
+import { fetchUserEvents, fetchEvents, fetchGroupEvents } from '../../actions/event_actions';
 
 const mapStateToProps = state => {
     return {
@@ -17,7 +17,8 @@ const mapDispatchToProps = dispatch => {
         fetchUsers: () => dispatch(fetchUsers()),
         fetchUserEvents: userId => dispatch(fetchUserEvents(userId)),
         fetchEvents: () => dispatch(fetchEvents()),
-        fetchGroups: () => dispatch(fetchGroups())
+        fetchGroups: () => dispatch(fetchGroups()),
+        fetchGroupEvents: (groupId) => dispatch(fetchGroupEvents(groupId))
     }
 };
 
