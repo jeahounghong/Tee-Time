@@ -6,7 +6,6 @@ import React from 'react';
 class ProfileModal extends React.Component {
     constructor(props) {
         super(props);
-        // debugger;
         this.handleViewProfile = this.handleViewProfile.bind(this);
         this.handleSignout = this.handleSignout.bind(this);
     }
@@ -41,9 +40,7 @@ class ProfileModal extends React.Component {
                         </div>
                     </div>
                     <div id="profile-modal-actions">
-                        {/* <Link to={`users/${this.props.currentUser.id}`}> */}
-                            <button onClick={() => this.handleViewProfile()} id="view-profile">View Profile</button>
-                        {/* </Link> */}
+                        <button onClick={() => this.handleViewProfile()} id="view-profile">View Profile</button>
                         <button id="signout-btn" onClick={() => this.handleSignout()}><ImExit /> Sign Out</button>
                     </div>
                 </div>

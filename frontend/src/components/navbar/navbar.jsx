@@ -1,6 +1,5 @@
 import ProfileModalContainer from './profile_modal_container';
 import { Link } from 'react-router-dom';
-import { BiExit } from 'react-icons/bi';
 import { MdGolfCourse } from 'react-icons/md';
 import '../../stylesheets/nav.css';
 import React from 'react';
@@ -34,9 +33,6 @@ class Navbar extends React.Component {
                             {this.props.currentUser.firstName.slice(0,1)}
                         </div>
                     </div>
-                    {/* <Link className="session-link" to="/">
-                        <div onClick={this.props.logout} className="session-link-icon"><BiExit /></div>
-                    </Link> */}
                 </div>
             )
         }
