@@ -45,7 +45,7 @@ class Group extends React.Component {
                     <div className="group-members-container">
                         {this.props.group.users.map((member, i) => {
                             return <div className={`member-${i+1}`} key={member+i}>
-                                {this.props.users[member] ? this.props.users[this.props.users[member]].firstName.slice(0,1) : ""}
+                                {this.props.users[member] ? this.props.users[member].firstName.slice(0,1) : ""}
                             </div>
                         })}
                         <p className="group-members-number">{this.props.group.users.length} members</p>

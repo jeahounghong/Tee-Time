@@ -59,7 +59,9 @@ class Groups extends React.Component {
     }
 
     toggleEditGroupModal() {
-        this.setState({editGroupModalHidden: !this.state.editGroupModalHidden})
+        if (this.state.groupShowGroup){
+            this.setState({editGroupModalHidden: !this.state.editGroupModalHidden})
+        }
     }
 
     groupShow() {

@@ -51,7 +51,7 @@ class EditGroupModal extends React.Component {
 
         let item;
         let indexOfUser;
-        let newState;
+        let newState = [];
 
         for (let i = 0; i < this.props.allUsers.length; i++) {
             let user = this.props.allUsers[i];
