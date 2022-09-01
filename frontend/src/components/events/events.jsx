@@ -46,7 +46,7 @@ class Events extends React.Component {
                                 <p>Create Event</p>
                             </div>
                         </div>
-                        <ul>
+                        <ul id="event-items">
                             
                             {Object.values(this.props.events).sort(function(e1, e2) {
                                 return new Date(e1.eventTime).getTime() - new Date(e2.eventTime).getTime();

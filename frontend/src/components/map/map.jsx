@@ -22,6 +22,7 @@ export default function Map(props) {
             {lat: 40.7831, lng: -73.9712}, {lat: 41, lng: -75}, {lat: 42, lng: -74.5}
         ]);
         const [selected, setSelected] = React.useState(null);
+        const [showEvents, toggleShowEvents] = React.useState(false);
         return (
             <GoogleMap zoom={11} 
                 center={center} 
@@ -41,8 +42,8 @@ export default function Map(props) {
                         </div>
                         <p className="course-name">{selected.name}</p>
                         <p>Golf course in Roslyn Heights, New York</p>
-                        <p className="events-link">Events happening here...</p>
-                        <CourseEventsContainer course={selected} />
+                        <p className="events-link" onClick={toggleShowEvents}>Events happening here...</p>
+                        {showEvents ? <CourseEventsContainer course={selected} /> : ""}
                     </div>
                 </InfoWindow> : null}
             </GoogleMap>

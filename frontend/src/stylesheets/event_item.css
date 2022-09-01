@@ -5,14 +5,14 @@
 .event-item-container {
     margin-left: -12px;
     padding: 10px;
-    /* width: 130%; */
+    width: 90%;
     display: flex;
     justify-content: space-between;
     background-color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
     height: 160px;
-    width: 530px;
+    /* width: 530px; */
 }
 
 .event-item-info-container {
@@ -96,7 +96,7 @@
 }
 
 .event-name {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 24px;
 }
 

@@ -13,7 +13,9 @@ class CourseEvents extends React.Component {
                 {Object.values(this.props.events)
                 .filter(event => event.courseId === this.props.course._id)
                 .map((event, i) => {
-                    return <div className="course-event"><EventItemContainer event={event} key={event+i} /></div>
+                    return <div className="course-event" key={event+i}>
+                        <EventItemContainer event={event} />
+                        </div>
                 })}
             </div>
         )

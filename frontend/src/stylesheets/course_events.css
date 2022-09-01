@@ -1,7 +1,5 @@
 .course-events {
-    width: 100%;
-}
-
-.course-event {
-    width: 300px;
+    width: 95%;
+    margin-left: 30px;
+    margin-top: 10px;
 }
