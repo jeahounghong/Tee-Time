@@ -31,27 +31,58 @@
     font-size: 36px;
     display: flex;
     align-items: center;
-    column-gap: 10px;
-    padding-left: 20px;
+    column-gap: 5px;
+    /* padding-left: 20px; */
+    margin-left: 20px;
+    color: rgb(0,128,64);
 }
 
 #navbar-slogan {
     font-size: 28px;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .session-link {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     display: flex;
+    text-decoration: none;
+}
+
+.session-link:hover {
+    transform: scale(1.1);
+    transition: 150ms;
 }
 
 #session-links {
     display: flex;
+    align-items: center;
+    column-gap: 20px;
 }
 
 .session-link-icon {
-    font-size: 24px;
+    font-size: 16px;
     text-decoration: none;
-    color: black;
+    color: gray;
+    /* font-weight: 600; */
+}
+
+.session-link-profile {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(0,128,64);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.session-link-profile {
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.session-link-profile:hover {
+    cursor: pointer;
 }

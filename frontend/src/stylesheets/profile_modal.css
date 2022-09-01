@@ -1,0 +1,86 @@
+#profile-modal {
+    position: absolute;
+    top: 60px;
+    right: 50px;
+    background-color: white;
+    border-radius: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#profile-info-container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    column-gap: 10px;
+}
+
+#profile-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: rgb(0,128,64);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+}
+
+#profile-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#profile-skill {
+    font-size: 14px;
+    color: gray;
+}
+
+#profile-modal-actions {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    column-gap: 8px;
+}
+
+#view-profile, #signout-btn {
+    border-style: none;
+    border-radius: 28px;
+    padding: 3px 8px;
+    border: 1px solid rgb(0,128,64);
+    color: rgb(0,128,64);
+    background-color: white;
+    font-weight: bold;
+}
+
+#signout-btn {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+}
+
+#view-profile:hover, #signout-btn:hover {
+    cursor: pointer;
+    background-color: rgba(0,128,64, 0.2);
+}
+
+#profile-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}

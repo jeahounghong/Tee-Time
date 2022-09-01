@@ -1,17 +1,22 @@
+import ProfileModalContainer from './profile_modal_container';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGolfBallTee, faCalendar, faUsers, faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
-import { GrGroup } from 'react-icons/gr';
-import { BsCalendarDate } from 'react-icons/bs';
 import { BiExit } from 'react-icons/bi';
-import { AiOutlineUser } from 'react-icons/ai';
+import { MdGolfCourse } from 'react-icons/md';
 import '../../stylesheets/nav.css';
 import React from 'react';
 
 class Navbar extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            displayProfileModal: false,
+        }
+        this.toggleProfileModal = this.toggleProfileModal.bind(this);
         this.sessionLinks = this.sessionLinks.bind(this);
+    }
+
+    toggleProfileModal() {
+        this.setState({displayProfileModal: !this.state.displayProfileModal});
     }
 
     sessionLinks() {
@@ -19,17 +24,19 @@ class Navbar extends React.Component {
             return (
                 <div id="session-links">
                     <Link className="session-link" to="/events">
-                        <div className="session-link-icon"><BsCalendarDate /></div>
+                        <div className="session-link-icon">Events</div>
                     </Link>
                     <Link className="session-link" to="/groups">
-                        <div className="session-link-icon"><GrGroup /></div>
+                        <div className="session-link-icon">Groups</div>
                     </Link>
-                    <Link className="session-link" to={`/users/${this.props.currentUser.id}`}>
-                        <div className="session-link-icon"><AiOutlineUser /></div>
-                    </Link>
-                    <Link className="session-link" to="/">
+                    <div className="" to={`/users/${this.props.currentUser.id}`}>
+                        <div className="session-link-profile" onClick={this.toggleProfileModal}>
+                            {this.props.currentUser.firstName.slice(0,1)}
+                        </div>
+                    </div>
+                    {/* <Link className="session-link" to="/">
                         <div onClick={this.props.logout} className="session-link-icon"><BiExit /></div>
-                    </Link>
+                    </Link> */}
                 </div>
             )
         }
@@ -38,11 +45,14 @@ class Navbar extends React.Component {
     render() {
         return (
             <div id="navbar">
+                {this.state.displayProfileModal ? <ProfileModalContainer toggleProfileModal={() => this.toggleProfileModal()} /> : ""}
                 <div id="navbar-left">
-                    <div id="navbar-logo">
-                        <FontAwesomeIcon icon={faGolfBallTee}></FontAwesomeIcon>
-                        <p id="navbar-slogan">Tee Times</p>
-                    </div>
+                    {/* <Link to="/groups"> */}
+                        <div id="navbar-logo">
+                            <MdGolfCourse />
+                            <p id="navbar-slogan">Tee Times</p>
+                        </div>
+                    {/* </Link> */}
                 </div>
                 
                 <div id="navbar-right">
