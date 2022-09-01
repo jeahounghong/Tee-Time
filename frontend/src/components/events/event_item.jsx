@@ -77,7 +77,6 @@ class EventItem extends React.Component {
     }
 
     renderEventItem() {
-        debugger;
         return (
             <div>
                 <div className="event-item-container">

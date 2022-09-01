@@ -38,7 +38,7 @@ class ProfileModal extends React.Component {
                             <p id="profile-name">
                                 {`${this.props.currentUser.firstName} ${this.props.currentUser.lastName}`}
                             </p>
-                            <p id="profile-skill">current user skill level goes here</p>
+                            <p id="profile-skill">{this.props.currentUser.bio ? this.props.currentUser.bio : "New user"}</p>
                         </div>
                     </div>
                     <div id="profile-modal-actions">

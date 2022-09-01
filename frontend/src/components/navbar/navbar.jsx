@@ -71,7 +71,7 @@ class Navbar extends React.Component {
     }
 
     render() {
-        // debugger;
+        debugger;
         return this.props.currentUser && this.renderNavbar();
     }
 }
