@@ -18,6 +18,11 @@ class Group extends React.Component {
         this.toggleEditGroupModal = this.toggleEditGroupModal.bind(this)
     };
 
+    componentDidMount() {
+        debugger;
+        this.props.fetchGroupEvents(this.props.group._id)
+    }
+
     toggleGroupShow(e) {
         e.preventDefault();
         console.log('click working')

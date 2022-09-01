@@ -7,16 +7,18 @@ import React from 'react';
 class CreateEventModal extends React.Component {
     constructor(props) {
         super(props);
+        
         this.state = {
             name: '',
             ownerId: this.props.currentUser.id,
             courseId: "630d29898d64f824bb700abe",
-            groupId: '',
+            groupId: this.props.groupId,
             eventTime: new Date().toString(),
             eventSize: '',
             description: '',
             users: [this.props.currentUser],
         };
+
         this.getDateFormat = this.getDateFormat.bind(this);
         this.getTimeFormat = this.getTimeFormat.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
