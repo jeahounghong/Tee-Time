@@ -10,6 +10,7 @@ import EventsContainer from '../components/events/events_container';
 import GroupsContainer from '../components/groups/groups_container';
 import ProfileContainer from './profile/profile_container';
 import NavbarContainer from './navbar/navbar_container';
+import { About } from './about/about';
 
 const App = () => (
     <div>   
@@ -21,6 +22,7 @@ const App = () => (
             <Route path='/events' component={EventsContainer} />
             <Route path='/groups' component={GroupsContainer} />
             <Route path ='/users' component={ProfileContainer} />
+            <Route path ='/about' component={About} />
         </Switch>
     </div>
 );
