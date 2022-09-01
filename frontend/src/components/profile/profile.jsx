@@ -3,6 +3,7 @@ import NavbarContainer from '../navbar/navbar_container';
 import '../../stylesheets/profile.css'
 import { GiPartyPopper, GiGolfFlag, GiGolfTee } from 'react-icons/gi';
 import { FiSend } from 'react-icons/fi';
+import { BsCalendarDateFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 
@@ -131,7 +132,7 @@ class Profile extends React.Component {
                 return playedWithCount[b] - playedWithCount[a]
             })
             return <ul>    
-                {keys.map((key, i) => <li key={key} className={"frequently-played-with-list-item"}>
+                {keys.map((key, i) => <li key={key+i} className={"frequently-played-with-list-item"}>
                     <div id="freq-played-item">
                         <div id="freq-played-item-left">
                             <div className='frequently-played-with-list-item-left'>
@@ -249,7 +250,7 @@ class Profile extends React.Component {
         {this.header()}
         <div className='profile-items-container'>
             <div className='profile-section-container'>
-                <h1>{this.props.users[this.state.userId] ? this.props.users[this.state.userId].firstName + "'s" : ""} Upcoming Events</h1>
+                <h1><BsCalendarDateFill /> {this.props.users[this.state.userId] ? this.props.users[this.state.userId].firstName + "'s" : ""} Upcoming Events</h1>
                 {this.userEvents()}
             </div>
             <div className='profile-section-container'>
