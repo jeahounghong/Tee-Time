@@ -46,8 +46,8 @@ router.patch('/:id', (req,res) => {
             user.firstName = req.body.firstName;
             user.lastName = req.body.lastName;
             user.email = req.body.email;
-            user.imageUrl = req.body.imageUrl, // added for image handling
-            user.bio = req.body.bio
+            user.imageUrl = req.body.imageUrl; // added for image handling
+            user.bio = req.body.bio;
 
             return user.save().then(user => res.json(user))
         })
