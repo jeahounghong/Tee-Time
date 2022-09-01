@@ -39,7 +39,8 @@ class CreateGroupModal extends React.Component {
     updateUsers(user) {
         // somehow push into users
         return () => {
-            this.setState({users: this.state.users.concat([user])});
+            // debugger;
+            this.setState({users: this.state.users.concat([user._id])});
             this.setState({filteredData: []});
         }
     }
@@ -63,15 +64,17 @@ class CreateGroupModal extends React.Component {
     }
 
     populateGroupMembers() {
-        if (!this.state.users[0].firstName) {
+        if (!this.state.users && !this.state.users[0].firstName) {
             return (
                 <div onClick={this.deleteGroupMember} className='added-user' id={`${this.props.currentUser.id}`}>{this.props.currentUser.firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
             )
         }  else {
+            debugger;
+            const users = this.props.usersObjects
             return this.state.users.map((user) => {
                 return (
                     // onClick should remove the relevant user from this.state.users and it should remove the div itself
-                    <div onClick={this.deleteGroupMember} className='added-user' id={`${user._id}`}>{user.firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
+                    <div onClick={this.deleteGroupMember} className='added-user' id={`${user}`}>{users[user].firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
                 )
             })
         }
