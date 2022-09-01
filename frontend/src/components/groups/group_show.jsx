@@ -66,7 +66,10 @@ class GroupShow extends React.Component {
                     <div id="group-show-line"></div>
                     <div className="group-show-bottom">
                         <div className="group-show-events-header">
-                            <button onClick={this.toggleCreateEventModal} className="add-group-event"><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                            <button onClick={ () => {
+                                this.toggleCreateEventModal();
+                                this.props.fetchCourses();
+                            }} className="add-group-event"><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
                             <h1>Upcoming Events</h1>
                         </div>
                         <div className="group-show-events-container">
