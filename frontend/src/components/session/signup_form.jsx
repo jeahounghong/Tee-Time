@@ -17,6 +17,12 @@ class SignUpForm extends React.Component {
         this.update = this.update.bind(this);
     }
 
+    componentDidMount() {
+        if (Object.values(this.props.events).length === 0) {
+            this.props.fetchEvents();
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.setState({

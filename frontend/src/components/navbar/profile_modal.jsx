@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import '../../stylesheets/profile_modal.css';
 import { ImExit } from 'react-icons/im';
 import React from 'react';
@@ -6,6 +5,7 @@ import React from 'react';
 class ProfileModal extends React.Component {
     constructor(props) {
         super(props);
+        this.renderProfileModal = this.renderProfileModal.bind(this);
         this.handleViewProfile = this.handleViewProfile.bind(this);
         this.handleSignout = this.handleSignout.bind(this);
     }
@@ -21,7 +21,7 @@ class ProfileModal extends React.Component {
         this.props.history.push(`/users/${this.props.currentUser.id}`);
     }
 
-    render() {
+    renderProfileModal() {
         return (
             <div>
                 <div id="profile-modal-overlay" onClick={this.props.toggleProfileModal}></div>
@@ -29,7 +29,7 @@ class ProfileModal extends React.Component {
                     <div id="profile-info-container">
                         <div id="profile-img-container">
                             <div id="profile-img">
-                                {Object.values(this.props.currentUser).length > 0 ? 
+                                {Object.values(this.props.currentUser).length > 0 && this.props.users[this.props.currentUser.id].imageUrl > 0 ? 
                                 <img src={this.props.users[this.props.currentUser.id].imageUrl} alt="profile-img" />
                                 : this.props.currentUser.firstName.slice(0,1)}
                             </div>
@@ -48,6 +48,10 @@ class ProfileModal extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    render() {
+        return this.props.currentUser && this.renderProfileModal();
     }
 }
 

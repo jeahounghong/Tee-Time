@@ -9,8 +9,15 @@ class EventItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {editing: false};
+        this.renderEventItem = this.renderEventItem.bind(this);
         this.attendEvent = this.attendEvent.bind(this);
         this.getDate = this.getDate.bind(this);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.currentUser !== this.props.currentUser) {
+            this.setState({editing: this.state.editing});
+        }
     }
 
     attendEvent() {
@@ -69,7 +76,7 @@ class EventItem extends React.Component {
         return user.firstName.slice(0,1)
     }
 
-    render() {
+    renderEventItem() {
         return (
             <div>
                 <div className="event-item-container">
@@ -129,6 +136,10 @@ class EventItem extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    render() {
+        return this.props.currentUser && this.renderEventItem();
     }
 }
 
