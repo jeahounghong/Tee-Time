@@ -41,7 +41,7 @@ export default function Map(props) {
                             <img className="course-image" src={selected.imageUrl} alt="course-photo"/>
                         </div>
                         <p className="course-name">{selected.name}</p>
-                        <p>Golf course in Roslyn Heights, New York</p>
+                        <p className="course-description">{selected.description}</p>
                         <p className="events-link" onClick={toggleShowEvents}>Events happening here...</p>
                         {showEvents ? <CourseEventsContainer course={selected} /> : ""}
                     </div>

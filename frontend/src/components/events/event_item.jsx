@@ -77,6 +77,7 @@ class EventItem extends React.Component {
     }
 
     renderEventItem() {
+        debugger;
         return (
             <div>
                 <div className="event-item-container">
@@ -96,7 +97,8 @@ class EventItem extends React.Component {
                                         {this.props.users[member] ? this.profileCircle(this.props.users[member]) : ""}
                                     </div>
                                 })}
-                                <div className="member-count">{this.props.event.users.length} / {this.props.event.eventSize} attendees</div>
+                                {this.props.event.users.length === this.props.event.eventSize ? <div className="member-count" id="event-full">Event is full</div>
+                                : <div className="member-count">{this.props.event.users.length} / {this.props.event.eventSize} attendees</div>}
                             </div>
                         </div>
                     </div>
@@ -105,19 +107,20 @@ class EventItem extends React.Component {
                         {this.props.event.ownerId !== this.props.currentUser.id ? 
                             <div className="user-actions">
                                 <div className="suggested-event">Suggested</div>
+                            {this.props.event.users.length < this.props.event.eventSize || this.props.event.users.indexOf(this.props.currentUser.id) > -1 ? 
                             <div className="event-action" onClick={this.attendEvent} >
-                                {this.props.event.users.indexOf(this.props.currentUser.id) > -1 ?
-                                <div className="leave-event">
-                                    <p className="leave-event-p">Leave event</p>
-                                    <FontAwesomeIcon icon={faArrowRightFromBracket}></FontAwesomeIcon>
-                                </div>
-                                : 
-                                <div className="attend-event">
-                                    <p className="attend-event-p">Attend event</p>
-                                    <FontAwesomeIcon icon={faPersonWalkingArrowRight}></FontAwesomeIcon>
-                                </div>
-                                }
+                            {this.props.event.users.indexOf(this.props.currentUser.id) > -1 ?
+                            <div className="leave-event">
+                                <p className="leave-event-p">Leave event</p>
+                                <FontAwesomeIcon icon={faArrowRightFromBracket}></FontAwesomeIcon>
                             </div>
+                            : 
+                            <div className="attend-event">
+                                <p className="attend-event-p">Attend event</p>
+                                <FontAwesomeIcon icon={faPersonWalkingArrowRight}></FontAwesomeIcon>
+                            </div>
+                            }
+                        </div> : <div className="cant-attend">Unable to join</div>}
                         </div> 
                         : 
                         <div className="user-actions" id="edit-actions">

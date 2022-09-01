@@ -111,6 +111,9 @@
 .event-description {
     font-size: 14px;
     color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    width: 420px;
 }
 
 .event-item-info {
@@ -144,8 +147,20 @@
     width: 80px;
 }
 
+#event-full {
+    color: #cc0000;
+}
+
 .suggested-event {
     font-weight: 600;
+}
+
+.cant-attend {
+    font-size: 14px;
+    color: gray;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #edit-event-modal {
