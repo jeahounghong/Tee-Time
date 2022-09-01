@@ -1,7 +1,7 @@
 #profile-modal {
     position: absolute;
     top: 60px;
-    right: 50px;
+    right: 20px;
     background-color: white;
     border-radius: 10px;
     width: 200px;
@@ -10,6 +10,7 @@
     row-gap: 10px;
     padding: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 11;
 }
 
 #profile-info-container {

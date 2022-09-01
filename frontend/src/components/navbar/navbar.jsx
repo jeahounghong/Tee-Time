@@ -40,19 +40,21 @@ class Navbar extends React.Component {
 
     render() {
         return (
-            <div id="navbar">
+            <div>
                 {this.state.displayProfileModal ? <ProfileModalContainer toggleProfileModal={() => this.toggleProfileModal()} /> : ""}
-                <div id="navbar-left">
-                    {/* <Link to="/groups"> */}
-                        <div id="navbar-logo">
-                            <MdGolfCourse />
-                            <p id="navbar-slogan">Tee Times</p>
-                        </div>
-                    {/* </Link> */}
-                </div>
-                
-                <div id="navbar-right">
-                    {this.sessionLinks()}
+                <div id="navbar">
+                    <div id="navbar-left">
+                        {/* <Link to="/groups"> */}
+                            <div id="navbar-logo">
+                                <MdGolfCourse />
+                                <p id="navbar-slogan">Tee Times</p>
+                            </div>
+                        {/* </Link> */}
+                    </div>
+                    
+                    <div id="navbar-right">
+                        {this.sessionLinks()}
+                    </div>
                 </div>
             </div>
         )
