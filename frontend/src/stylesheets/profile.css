@@ -313,3 +313,20 @@
 body {
     background-color: #f3f2ed;
 }
+
+.profile-welcome {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.profile-welcome > img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.profile-welcome > img:hover {
+    cursor: pointer;
+}

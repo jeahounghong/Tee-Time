@@ -83,7 +83,11 @@ class Profile extends React.Component {
         if (tempUser){
             return (
                 <div className='profile-header'>
-                    <div className='profile-welcome'>Welcome back, {this.props.currentUser.firstName} <GiPartyPopper /></div>
+                    <div className='profile-welcome'>
+                        {/* CHANGE THIS TO LINK BACK TO WHOEVER'S PROFILE  */}
+                        <img src={this.props.users[this.props.currentUser.id].imageUrl} alt="profile-photo"/>
+                        Welcome back, {this.props.currentUser.firstName} <GiPartyPopper />
+                    </div>
                     <div id='line'></div>
                     <br />
                     <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
@@ -185,7 +189,7 @@ class Profile extends React.Component {
             // debugger;
             
             return (<ul className='profile-event-list'>
-                {userJoinedEvents.map((event) => (<li key={event._id} className="profile-event-item">
+                {userJoinedEvents.map((event, i) => (<li key={event._id+i} className="profile-event-item">
                     <h3>{event.name ? event.name : "My Event"}</h3>
                     <div className='event-date-profile'>
                         {this.dateToString(event.eventTime)}
