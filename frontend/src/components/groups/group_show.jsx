@@ -54,7 +54,8 @@ class GroupShow extends React.Component {
                             <ul className="group-events">
                                 {/* (this.showGroupEvents()) */}
                                 {Object.values(this.props.events).map((event, i) => (
-                                    <EventItemContainer event={event} key={event+i} courses={this.props.courses} />
+                                    event.groupId === this.props.group._id ? 
+                                    <EventItemContainer event={event} key={event+i} courses={this.props.courses}/> : ""
                                 ))}
                             </ul>
                         </div>
