@@ -92,6 +92,10 @@
     color: white;
 }
 
+.add-group-event:hover {
+    background-color: rgb(53, 207, 130);
+}
+
 .group-show-events-header h1 {
     margin-top: 20px;
     font-size: 18px;
