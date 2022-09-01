@@ -10,9 +10,14 @@ class Splash extends React.Component {
     super(props);
     this.state = {rerender: true};
   }
+  
   componentDidMount() {
-    this.props.fetchEvents();
-    this.props.fetchUsers();
+    if (Object.values(this.props.users).length === 0) {
+      this.props.fetchUsers();
+    }
+    if (Object.values(this.props.events).length === 0) {
+      this.props.fetchEvents();
+    }
   }
 
   componentDidUpdate(prevProps) {
