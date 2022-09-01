@@ -14,9 +14,11 @@ class Profile extends React.Component {
         super(props)
         this.state = {
             userId: this.props.location.pathname.substring(7),
-            imageUrl: this.props.currentUser.imageUrl // added by Torben
+            imageUrl: this.props.currentUser.imageUrl, // added by Torben
+            editingProfileImage: false,
         }
         this.userEvents = this.userEvents.bind(this);
+        this.toggleEditProfileImage = this.toggleEditProfileImage.bind(this);
         this.frequentlyPlayedWith = this.frequentlyPlayedWith.bind(this);
         this.playedCourses = this.playedCourses.bind(this);
         this.header = this.header.bind(this);
@@ -58,6 +60,10 @@ class Profile extends React.Component {
         return this.MONTH[parseInt(date.substring(5,7))] + " " + date.substring(8,10)
     }
 
+    toggleEditProfileImage() {
+        this.setState({editingProfileImage: !this.state.editingProfileImage});
+    }
+
     //added by Torben - start
     handleImageSubmit(e) {
         e.preventDefault();
@@ -85,16 +91,17 @@ class Profile extends React.Component {
                 <div className='profile-header'>
                     <div className='profile-welcome'>
                         {/* CHANGE THIS TO LINK BACK TO WHOEVER'S PROFILE  */}
-                        <img src={this.props.users[this.props.currentUser.id].imageUrl} alt="profile-photo"/>
+                        <img onClick={this.toggleEditProfileImage} src={this.props.users[this.props.currentUser.id].imageUrl} alt="profile-photo"/>
                         Welcome back, {this.props.currentUser.firstName} <GiPartyPopper />
                     </div>
                     <div id='line'></div>
                     <br />
+                    {this.state.editingProfileImage ? 
                     <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
-                        <label>Edit Image URL: </label>
-                        <input type="text" value={this.state.imageUrl} onChange={this.update('imageUrl')}/>
-                        <button type="submit" className='submit-image-url-button'>Submit</button>
-                    </form>
+                    <label>Edit Image URL: </label>
+                    <input type="text" value={this.state.imageUrl} onChange={this.update('imageUrl')}/>
+                    <button type="submit" className='submit-image-url-button'>Submit</button>
+                    </form>: ""}
                 </div>
             )
         }
