@@ -33,6 +33,9 @@ class Navbar extends React.Component {
         // if (this.props.currentUser){
             return (
                 <div id="session-links">
+                    <Link className='session-link' to='/about'>
+                        <div className="session-link-icon">About</div>
+                    </Link>
                     <Link className="session-link" to="/events">
                         <div className="session-link-icon">Events</div>
                     </Link>

@@ -1,7 +1,8 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import '../../stylesheets/profile.css'
-import { GiPartyPopper, GiGolfFlag } from 'react-icons/gi';
+import { GiPartyPopper, GiGolfFlag, GiGolfTee } from 'react-icons/gi';
+import { FiSend } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 
@@ -131,18 +132,23 @@ class Profile extends React.Component {
             })
             return <ul>    
                 {keys.map((key, i) => <li key={key} className={"frequently-played-with-list-item"}>
-                    <div className='frequently-played-with-list-item-left'>
-                        <div className={`member-${i+1}`}>
-                            {this.props.users[key] ? this.profileCircle(this.props.users[key]) : ""}
+                    <div id="freq-played-item">
+                        <div id="freq-played-item-left">
+                            <div className='frequently-played-with-list-item-left'>
+                                <div className={`member-${i+1}`}>
+                                    {this.props.users[key] ? this.profileCircle(this.props.users[key]) : ""}
+                                </div>
+                            </div>
+                            <div className='frequently-played-with-list-item-right'>
+                                <p>
+                                    {this.props.users[key].firstName + " " + this.props.users[key].lastName}
+                                </p>
+                                <div className="played-with-text">
+                                    Played with: {playedWithCount[key]} times
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className='frequently-played-with-list-item-right'>
-                        <p>
-                            {this.props.users[key].firstName + " " + this.props.users[key].lastName}
-                        </p>
-                        <div className="played-with-text">
-                            Played with: {playedWithCount[key]} times
-                        </div>
+                        <div id="freq-played-item-right"><FiSend /> follow</div>
                     </div>
                 </li>)}
             </ul>
@@ -248,7 +254,13 @@ class Profile extends React.Component {
             </div>
             <div className='profile-section-container'>
                 <div className='most-played'>
-                    <h1>Frequently Played With</h1>
+                    <h1>
+                        <div id="profile-courses-logo">
+                            <GiGolfTee />
+                        </div>
+                        Frequently Played With
+                        <div id="profile-played-separator"></div>
+                    </h1>
                     {this.frequentlyPlayedWith()}
                 </div>
             </div>
