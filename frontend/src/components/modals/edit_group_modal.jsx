@@ -80,7 +80,7 @@ class EditGroupModal extends React.Component {
         const searchWord = e.target.value;
 
         const newFilter = this.props.allUsers.filter((user) => {
-            return user.firstName.toLowerCase().includes(searchWord)
+            return user.firstName.toLowerCase().includes(searchWord.toLowerCase()) || user.firstName.toUpperCase().includes(searchWord.toUpperCase())
         });
 
         if (searchWord === "") {
