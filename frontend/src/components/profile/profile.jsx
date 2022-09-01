@@ -131,6 +131,8 @@ class Profile extends React.Component {
 
     // relevant Groups
     suggestedGroups() {
+        // filtering all groups that a user is not a part of
+
         
     }
 

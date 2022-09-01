@@ -57,4 +57,10 @@
 .group-members-container {
     margin-top: 80px;
     color: grey;
+    display: flex;
+    align-items: center;
+}
+
+.group-members-container p {
+    margin-left: 10px;
 }

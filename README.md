@@ -17,7 +17,7 @@ Our application will consist of:
 * User authorization: signup and login 
 * Users will be able to view nearby courses 
 * Users will be able to create and join groups 
-* Users will be able to create and join public/private events 
+* Users will be able to create and join events 
 * Users will be able to connect with other users 
 * Production README 
 
