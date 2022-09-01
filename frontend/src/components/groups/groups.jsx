@@ -22,6 +22,7 @@ class Groups extends React.Component {
         this.toggleEditGroupModal = this.toggleEditGroupModal.bind(this)
         this.groupShow = this.groupShow.bind(this);
         this.toggleGroupShow = this.toggleGroupShow.bind(this);
+        this.renderGroupPage = this.renderGroupPage.bind(this);
     }
 
     componentDidMount() {
@@ -29,6 +30,7 @@ class Groups extends React.Component {
         // debugger;
         this.props.fetchUserGroups(this.props.currentUser.id);
         this.props.fetchUserEvents(this.props.currentUser.id);
+        this.props.fetchUsers();
     }
 
     componentDidUpdate(prevProps){
@@ -37,6 +39,9 @@ class Groups extends React.Component {
             // debugger;
             this.props.fetchUserGroups(this.props.currentUser.id);
             this.props.fetchUserEvents(this.props.currentUser.id);
+        }
+        if (Object.values(prevProps.users).length !== Object.values(this.props.users).length) {
+            this.setState({createGroupModalHidden: this.state.createGroupModalHidden});
         }
 
         let deleted = true;
@@ -85,7 +90,7 @@ class Groups extends React.Component {
         this.setState({groupShowGroup: this.props.groups[groupNumber]});
     }
 
-    render() {
+    renderGroupPage() {
         return (
             <div id='group'>
                 <NavBarContainer />
@@ -141,6 +146,10 @@ class Groups extends React.Component {
                 <EditGroupModalContainer toggleModal={() => this.toggleEditGroupModal()} action={this.state.EditGroupModalHidden} group={this.state.groupShowGroup} /> }
             </div>
         )
+    }
+
+    render() {
+        return Object.values(this.props.users).length > 0 && this.renderGroupPage();
     }
 }
 

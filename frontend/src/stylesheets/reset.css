@@ -23,6 +23,7 @@ time, mark, audio, video {
 	font: inherit;
 	font-family: 'Inter', sans-serif;
 	vertical-align: baseline;
+	background-color: '#f3f2ee';
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
