@@ -7,6 +7,12 @@
     text-align: center;
 }
 
+.dev-profile-container { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .dev-profile-item {
     display: flex;
     justify-content: space-between;
@@ -14,17 +20,19 @@
     margin-top: 30px;
     background-color: white;
     padding: 20px;
-    margin-right: 40px;
-    margin-left: 40px;
-    height: 220px;
+    margin-right: 80px;
+    margin-left: 120px;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
     border: 1px solid rgb(43, 195, 119);
+    width: 400px;
+    height: 200px;
 }
 
 .dev-profile-image img {
-    width: 150px;
-    margin-left: 100px;
+    width: 100px;
+    margin-right: 40px;
     border-radius: 16px;
+    margin-left: 30px;
 }
 
 .dev-profile-icon:hover{
@@ -32,35 +40,38 @@
     transition: 300ms;
 }
 
+.dev-profile-left {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+}
+
 .dev-profile-name {
     font-weight: bolder;
     margin-bottom: 10px;
-    font-size: 32px;
-}
-
-.dev-profile-links img {
-    width: 50px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    margin-right: 100px;
-}
-
-.dev-profile-icon {
-    font-size: 50px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    font-size: 24px;
 }
 
 .dev-profile-links {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 40px;
+}
+
+.dev-profile-links img {
+    width: 50px;
+}
+
+.dev-profile-icon {
+    font-size: 50px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .dev-profile-information {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 160px;
+    text-align: center;
 }
 
 .dev-profile-title {
