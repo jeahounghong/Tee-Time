@@ -16,9 +16,9 @@ const App = () => (
             <Route exact path='/' component={Splash} />
             <AuthRoute exact path='/login' component={LoginFormContainer} />
             <AuthRoute exact path='/signup' component={SignUpFormContainer} />
-            <Route exact path='/events' component={EventsContainer} />
-            <Route exact path='/groups' component={GroupsContainer} />
-            <Route path = '/users' component={ProfileContainer}/>
+            <Route path='/events' component={EventsContainer} />
+            <Route path='/groups' component={GroupsContainer} />
+            <Route path ='/users' component={ProfileContainer} />
         </Switch>
     </div>
 );

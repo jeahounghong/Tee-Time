@@ -10,17 +10,19 @@ const Auth = ({ component: Component, path, isAuthenticated, exact }) => (
     )
   )} />
 );
-const Protected = ({ component: Component, path, isAuthenticated, exact }) => (
-  <Route path={path} exact={exact} render={(props) => (
+const Protected = ({ component: Component, path, isAuthenticated, exact }) => {
+  debugger;
+  return <Route path={path} exact={exact} render={(props) => (
      isAuthenticated ? (
       <Component {...props} />
     ) : (
       <Redirect to="/login" />
     )
   )} />
-);
+};
 const mapStateToProps = state => ({
-//   isAuthenticated: Boolean(state.session.id)
+  // isAuthenticated: Object.values(this.props.currentUser).length > 0
 });
+
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
