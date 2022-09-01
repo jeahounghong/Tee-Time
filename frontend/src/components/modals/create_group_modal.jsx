@@ -78,7 +78,7 @@ class CreateGroupModal extends React.Component {
         const searchWord = e.target.value;
 
         const newFilter = this.props.allUsers.filter((user) => {
-            return user.firstName.toLowerCase().includes(searchWord)
+            return user.firstName.toLowerCase().includes(searchWord) || user.firstName.toUpperCase().includes(searchWord)
         });
 
         if (searchWord === "") {
