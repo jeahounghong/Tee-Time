@@ -4,6 +4,8 @@ import '../../stylesheets/profile.css'
 import { GiPartyPopper, GiGolfFlag } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 
+
+
 class Profile extends React.Component {
 
     constructor(props){
@@ -129,14 +131,18 @@ class Profile extends React.Component {
             })
             return <ul>    
                 {keys.map((key, i) => <li key={key} className={"frequently-played-with-list-item"}>
-                    <div className={`member-${i+1}`}>
-                        {this.props.users[key] ? this.profileCircle(this.props.users[key]) : ""}
+                    <div className='frequently-played-with-list-item-left'>
+                        <div className={`member-${i+1}`}>
+                            {this.props.users[key] ? this.profileCircle(this.props.users[key]) : ""}
+                        </div>
                     </div>
-                    <p>
-                        {this.props.users[key].firstName + " " + this.props.users[key].lastName}
-                    </p>
-                    <div>
-                        Played with: {playedWithCount[key]} times
+                    <div className='frequently-played-with-list-item-right'>
+                        <p>
+                            {this.props.users[key].firstName + " " + this.props.users[key].lastName}
+                        </p>
+                        <div className="played-with-text">
+                            Played with: {playedWithCount[key]} times
+                        </div>
                     </div>
                 </li>)}
             </ul>

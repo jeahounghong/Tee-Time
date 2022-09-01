@@ -109,6 +109,26 @@
     cursor: pointer;
 }
 
+.close{
+    font-size: 20px;
+}
+
+.groups-container-header{
+    display: flex;
+    /* background-color: red; */
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.groups-container-header h1{
+    font-size: 30px;
+}
+
+.group-show-top{
+    display: flex;
+    justify-content: space-between;
+}
+
 #edit-group-btn {
     margin-left: 10px;
     margin-right: 30px;

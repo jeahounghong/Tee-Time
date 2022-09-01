@@ -23,6 +23,11 @@ class Groups extends React.Component {
         this.groupShow = this.groupShow.bind(this);
         this.toggleGroupShow = this.toggleGroupShow.bind(this);
         this.renderGroupPage = this.renderGroupPage.bind(this);
+        this.closeShow = this.closeShow.bind(this)
+    }
+
+    closeShow(){
+        this.setState({groupShowGroup: null})
     }
 
     componentDidMount() {
@@ -64,6 +69,7 @@ class Groups extends React.Component {
     }
 
     toggleEditGroupModal() {
+        debugger;
         if (this.state.groupShowGroup){
             this.setState({editGroupModalHidden: !this.state.editGroupModalHidden})
         }
@@ -76,7 +82,11 @@ class Groups extends React.Component {
             )
         } else {
             return (
-                <GroupShowContainer group={this.state.groupShowGroup} events={this.props.events}/>
+                <GroupShowContainer group={this.state.groupShowGroup} 
+                                    events={this.props.events} 
+                                    toggleEditGroupModal={this.toggleEditGroupModal}
+                                    closeShow = {this.closeShow}
+                />
             )
         }
     }
@@ -94,19 +104,18 @@ class Groups extends React.Component {
         return (
             <div id='group'>
                 <NavBarContainer />
-                <h1 id="groups-title">My Groups</h1>
+                {/* <h1 id="groups-title">My Groups</h1>
                 <div className="group-button-container">
                     <div id="create-group-btn" onClick={this.toggleCreateGroupModal}>
                         <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
                         <p>Create a Group</p>
                     </div>
-                    {/* change this to edit group modal */}
                     <div id="edit-group-btn" onClick={this.toggleEditGroupModal}>
                         <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
                         <p>Edit this Group</p>
                     </div>
-                </div>
-                <div id='line'></div>
+                </div> */}
+                {/* <div id='line'></div> */}
                 {/* <h1 className='select-a-group'>Select a Group</h1>
                 <div className="group-selector">
                         {Object.values(this.props.groups).map((group, i) => (
@@ -115,6 +124,13 @@ class Groups extends React.Component {
                     </div> */}
                 <div className='groups-page' >
                     <div className="groups-container">
+                        <div className='groups-container-header'>
+                            <h1>My Groups</h1>
+                            <div id="create-group-btn" onClick={this.toggleCreateGroupModal}>
+                                <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+                                <p>Create a Group</p>
+                            </div>
+                        </div>
                         <ul>
                         {Object.values(this.props.groups).map((group, i) => (
                                 <div onClick={() => {

@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
+// import { HiXMark } from 'react-icons/hi';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import '../../stylesheets/group_show.css';
 import EventItemContainer from '../events/event_item_container';
 import CreateEventModalContainer from '../modals/create_event_modal_container';
@@ -64,6 +66,9 @@ class GroupShow extends React.Component {
                             <p className="group-show-members"><FontAwesomeIcon className="group-show-top-icon" icon={faUserGroup}></FontAwesomeIcon>{this.props.group.users.length} Members</p>
                             <p className="group-show-owner"><FontAwesomeIcon className="group-show-top-icon" icon={faUser}></FontAwesomeIcon>Owner: {this.props.currentUser.firstName} {this.props.currentUser.lastName}</p>
                         </div>
+                        <div className={"close"}>
+                            <FontAwesomeIcon icon={faXmark} onClick={this.props.closeShow}></FontAwesomeIcon>
+                        </div>
                     </div>
                     <div id="group-show-line"></div>
                     <div className="group-show-bottom">
@@ -71,8 +76,15 @@ class GroupShow extends React.Component {
                             <button onClick={ () => {
                                 this.toggleCreateEventModal();
                                 this.props.fetchCourses();
-                            }} className="add-group-event"><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                            }} className="add-group-event">
+                                <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+                                <p>Add group event</p>
+                                </button>
                             <h1>Upcoming Events</h1>
+                            <div id="edit-group-btn" onClick={this.props.toggleEditGroupModal}>
+                                    <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
+                                    <p>Edit Group</p>
+                                </div> 
                         </div>
                         <div className="group-show-events-container">
                             {/* include function to show group events */}
