@@ -13,7 +13,7 @@ import NavbarContainer from './navbar/navbar_container';
 
 const App = () => (
     <div>   
-        <NavbarContainer />
+        {/* <NavbarContainer /> */}
         <Switch>    
             <Route exact path='/' component={SplashContainer} />
             <AuthRoute exact path='/login' component={LoginFormContainer} />
