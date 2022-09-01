@@ -100,7 +100,7 @@
 .session-link-profile:hover {
     cursor: pointer;
 }
-.session-link-profile > img {
+.session-link-profile > img, #profile-img > img {
     width: 40px;
     height: 40px;
     object-fit: cover;
