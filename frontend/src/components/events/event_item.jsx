@@ -61,6 +61,14 @@ class EventItem extends React.Component {
         return `${months[month]} ${day}, ${hours}:${minutes}${timeSuffix}`;
     }
 
+    profileCircle(user){
+        if (user.imageUrl){
+            return <img src={user.imageUrl} alt=""/>
+        }
+
+        return user.firstName.slice(0,1)
+    }
+
     render() {
         return (
             <div>
@@ -78,7 +86,7 @@ class EventItem extends React.Component {
                             <div className="event-members">
                                 {this.props.event.users.map((member, i) => {
                                     return <div className={`member-${i+1}`} key={member+i}>
-                                        {this.props.users[member] ? this.props.users[member].firstName.slice(0,1) : ""}
+                                        {this.props.users[member] ? this.profileCircle(this.props.users[member]) : ""}
                                     </div>
                                 })}
                                 <div className="member-count">{this.props.event.users.length} / {this.props.event.eventSize} attendees</div>
