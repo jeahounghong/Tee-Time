@@ -1,6 +1,7 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import '../../stylesheets/profile.css'
+import { GiPartyPopper, GiGolfFlag } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
@@ -78,7 +79,7 @@ class Profile extends React.Component {
         if (tempUser){
             return (
                 <div className='profile-header'>
-                    <div className='profile-welcome'>Welcome, {this.props.currentUser.firstName}</div>
+                    <div className='profile-welcome'>Welcome back, {this.props.currentUser.firstName} <GiPartyPopper /></div>
                     <div id='line'></div>
                     <br />
                     <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
@@ -214,10 +215,16 @@ class Profile extends React.Component {
                     previousCourses[event.courseId] = this.props.courses[event.courseId]
                 }
             })
-            return (<ul>
-                {Object.values(previousCourses).map(course => <li className='past-courses-list-item'>
-                    <img src={course.imageUrl} className="past-courses-image" />
-                    <p>{course.name}</p>
+            return (<ul id="profile-courses-list">
+                {Object.values(previousCourses).map((course, i) => <li id='past-courses-list-item' key={course+i}>
+                    <div className="profile-course-left">
+                        <img src={course.imageUrl} className="past-courses-image" />
+                    </div>
+                    <div className="profile-course-right">
+                        <p className="profile-course-name">{course.name}</p>
+                        <p className="profile-course-description">{course.description}</p>
+                    </div>
+                    <div id="profile-courses-separator"></div>
                 </li>)}
             </ul>)
 
@@ -241,7 +248,13 @@ class Profile extends React.Component {
             </div>
             <div className="profile-section-container">
                 <div className='profile-courses'>
-                    <h1>Played Courses</h1>
+                    <h1>
+                        <div id="profile-courses-logo">
+                            <GiGolfFlag/>
+                        </div>
+                        Played Courses
+                        <div id="profile-courses-logo-separator"></div>
+                    </h1>
                     {this.playedCourses()}
                 </div>
             </div>
