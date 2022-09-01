@@ -30,24 +30,26 @@ class Navbar extends React.Component {
     }
 
     sessionLinks() {
-        return (
-            <div id="session-links">
-                <Link className="session-link" to="/events">
-                    <div className="session-link-icon">Events</div>
-                </Link>
-                <Link className="session-link" to="/groups">
-                    <div className="session-link-icon">Groups</div>
-                </Link>
-                <div className="session-link-profile" onClick={this.toggleProfileModal}>
-                    {Object.values(this.props.currentUser).length > 0 ? 
-                    this.props.users[this.props.currentUser.id].imageUrl ?
-                    <img src={this.props.users[this.props.currentUser.id].imageUrl} /> : 
-                    this.props.currentUser.firstName.slice(0, 1)
-                    : ""}
+        // if (this.props.currentUser){
+            return (
+                <div id="session-links">
+                    <Link className="session-link" to="/events">
+                        <div className="session-link-icon">Events</div>
+                    </Link>
+                    <Link className="session-link" to="/groups">
+                        <div className="session-link-icon">Groups</div>
+                    </Link>
+                    <div className="session-link-profile" onClick={this.toggleProfileModal}>
+                        {Object.values(this.props.currentUser).length > 0 ? 
+                        this.props.users[this.props.currentUser.id].imageUrl ?
+                        <img src={this.props.users[this.props.currentUser.id].imageUrl} /> : 
+                        this.props.currentUser.firstName.slice(0, 1)
+                        : ""}
+                    </div>
+                    {/* <div onClick={() => this.props.logout()}>Sign out</div> */}
                 </div>
-                {/* <div onClick={() => this.props.logout()}>Sign out</div> */}
-            </div>
-        )
+            )
+        
     }
 
     renderNavbar() {

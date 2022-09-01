@@ -7,6 +7,7 @@ import keys from '../../private/keys';
 import CourseEventsContainer from '../courses/course_events_container';
 
 export default function Map(props) {
+    console.log(keys.googleMapsApiKey)
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: keys.googleMapsApiKey,
     });
