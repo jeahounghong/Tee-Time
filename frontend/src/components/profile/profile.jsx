@@ -88,6 +88,14 @@ class Profile extends React.Component {
             )
         }
     }
+
+    profileCircle(user){
+        if (user.imageUrl){
+            return <img src={user.imageUrl} alt=""/>
+        }
+
+        return user.firstName.slice(0,1)
+    }
     // added by Torben - end
 
     frequentlyPlayedWith(){
@@ -117,7 +125,10 @@ class Profile extends React.Component {
                 return playedWithCount[b] - playedWithCount[a]
             })
             return <ul>    
-                {keys.map((key) => <li key={key} className={"frequently-played-with-list-item"}>
+                {keys.map((key, i) => <li key={key} className={"frequently-played-with-list-item"}>
+                    <div className={`member-${i+1}`}>
+                        {this.props.users[key] ? this.profileCircle(this.props.users[key]) : ""}
+                    </div>
                     <Link to={`/users/${key}`} onMouseDown={() => this.setState({userId: key})}>
                         {this.props.users[key].firstName + " " + this.props.users[key].lastName}
                     </Link>
