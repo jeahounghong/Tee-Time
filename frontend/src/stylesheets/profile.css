@@ -7,15 +7,21 @@
     margin: auto 80px;
     /* background: red; */
     padding-top: 30px;
+    column-gap: 30px;
 }
 
 .profile-event-list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
     width: 100%;
+    overflow: scroll;
+    max-height: 75vh;
 }
 
 .profile-event-list li h3 {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .profile-event-list li h4 {
@@ -24,14 +30,11 @@
 }
 
 .profile-event-list > li {
-    /* border: solid 1px black; */
-    /* width: 100%; */
     width: 380px;
-    /* margin: 5px; */
     background-color: white;
     padding: 10px;
-    /* margin-bottom: 20px; */
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    border-radius: 5px;
 }
 
 .profile-section-container {
@@ -42,8 +45,10 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
-    text-decoration: underline;
+    font-size: 22.5px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
 }
 
 .most-played > h1 {
@@ -144,7 +149,6 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .submit-image-url-button {
@@ -307,4 +311,21 @@
 
 body {
     background-color: #f3f2ed;
+}
+
+.profile-welcome {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.profile-welcome > img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.profile-welcome > img:hover {
+    cursor: pointer;
 }

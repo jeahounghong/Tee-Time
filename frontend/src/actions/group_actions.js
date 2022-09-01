@@ -1,8 +1,10 @@
 import * as GroupApiUtil from '../util/group_api_util';
+import {fetchUsers} from './user_actions'
 
 export const RECEIVE_GROUPS = "RECEIVE_GROUPS";
 export const RECEIVE_GROUP = "RECEIVE_GROUP";
 export const REMOVE_GROUP = "REMOVE_GROUP";
+
 
 export const receiveGroup = (group) => ({
     type: RECEIVE_GROUP,
@@ -35,4 +37,7 @@ export const updateGroup = (group) => dispatch => GroupApiUtil.updateGroup(group
     .then((group) => dispatch(receiveGroup(group.data)))
 
 export const createGroup = (group) => dispatch => GroupApiUtil.createGroup(group)
-    .then(group => dispatch(receiveGroup(group.data)))
+    .then(group => {
+        dispatch(receiveGroup(group.data))
+        dispatch(fetchUsers())
+    })

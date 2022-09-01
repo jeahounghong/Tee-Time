@@ -3,6 +3,7 @@ import NavbarContainer from '../navbar/navbar_container';
 import '../../stylesheets/profile.css'
 import { GiPartyPopper, GiGolfFlag, GiGolfTee } from 'react-icons/gi';
 import { FiSend } from 'react-icons/fi';
+import { BsCalendarDateFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 
@@ -13,9 +14,11 @@ class Profile extends React.Component {
         super(props)
         this.state = {
             userId: this.props.location.pathname.substring(7),
-            imageUrl: this.props.currentUser.imageUrl // added by Torben
+            imageUrl: this.props.currentUser.imageUrl, // added by Torben
+            editingProfileImage: false,
         }
         this.userEvents = this.userEvents.bind(this);
+        this.toggleEditProfileImage = this.toggleEditProfileImage.bind(this);
         this.frequentlyPlayedWith = this.frequentlyPlayedWith.bind(this);
         this.playedCourses = this.playedCourses.bind(this);
         this.header = this.header.bind(this);
@@ -57,6 +60,10 @@ class Profile extends React.Component {
         return this.MONTH[parseInt(date.substring(5,7))] + " " + date.substring(8,10)
     }
 
+    toggleEditProfileImage() {
+        this.setState({editingProfileImage: !this.state.editingProfileImage});
+    }
+
     //added by Torben - start
     handleImageSubmit(e) {
         e.preventDefault();
@@ -82,14 +89,19 @@ class Profile extends React.Component {
         if (tempUser){
             return (
                 <div className='profile-header'>
-                    <div className='profile-welcome'>Welcome back, {this.props.currentUser.firstName} <GiPartyPopper /></div>
+                    <div className='profile-welcome'>
+                        {/* CHANGE THIS TO LINK BACK TO WHOEVER'S PROFILE  */}
+                        <img onClick={this.toggleEditProfileImage} src={this.props.users[this.props.currentUser.id].imageUrl} alt="profile-photo"/>
+                        Welcome back, {this.props.currentUser.firstName} <GiPartyPopper />
+                    </div>
                     <div id='line'></div>
                     <br />
+                    {this.state.editingProfileImage ? 
                     <form onSubmit={this.handleImageSubmit} className='edit-pro-pic-form'>
-                        <label>Edit Image URL: </label>
-                        <input type="text" value={this.state.imageUrl} onChange={this.update('imageUrl')}/>
-                        <button type="submit" className='submit-image-url-button'>Submit</button>
-                    </form>
+                    <label>Edit Image URL: </label>
+                    <input type="text" value={this.state.imageUrl} onChange={this.update('imageUrl')}/>
+                    <button type="submit" className='submit-image-url-button'>Submit</button>
+                    </form>: ""}
                 </div>
             )
         }
@@ -131,7 +143,7 @@ class Profile extends React.Component {
                 return playedWithCount[b] - playedWithCount[a]
             })
             return <ul>    
-                {keys.map((key, i) => <li key={key} className={"frequently-played-with-list-item"}>
+                {keys.map((key, i) => <li key={key+i} className={"frequently-played-with-list-item"}>
                     <div id="freq-played-item">
                         <div id="freq-played-item-left">
                             <div className='frequently-played-with-list-item-left'>
@@ -184,7 +196,7 @@ class Profile extends React.Component {
             // debugger;
             
             return (<ul className='profile-event-list'>
-                {userJoinedEvents.map((event) => (<li key={event._id} className="profile-event-item">
+                {userJoinedEvents.map((event, i) => (<li key={event._id+i} className="profile-event-item">
                     <h3>{event.name ? event.name : "My Event"}</h3>
                     <div className='event-date-profile'>
                         {this.dateToString(event.eventTime)}
@@ -249,7 +261,7 @@ class Profile extends React.Component {
         {this.header()}
         <div className='profile-items-container'>
             <div className='profile-section-container'>
-                <h1>{this.props.users[this.state.userId] ? this.props.users[this.state.userId].firstName + "'s" : ""} Upcoming Events</h1>
+                <h1><BsCalendarDateFill /> {this.props.users[this.state.userId] ? this.props.users[this.state.userId].firstName + "'s" : ""} Upcoming Events</h1>
                 {this.userEvents()}
             </div>
             <div className='profile-section-container'>
