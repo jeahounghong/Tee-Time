@@ -100,12 +100,15 @@ router.post('/register', (req, res) => {
   });
 
   router.post('/login', (req, res) => {
+    console.log(req.body)
     const { errors, isValid } = validateLoginInput(req.body);
-
+    console.log("REQUEST BODY")
+    console.log(req.body.email)
     if (!isValid) {
         return res.status(400).json(errors);
     }
 
+    console.log("logging in..")
 
     const email = req.body.email;
     const password = req.body.password;

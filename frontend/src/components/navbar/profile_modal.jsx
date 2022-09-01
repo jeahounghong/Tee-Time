@@ -31,7 +31,7 @@ class ProfileModal extends React.Component {
                             <div id="profile-img">
                                 {Object.values(this.props.currentUser).length > 0 && this.props.users[this.props.currentUser.id].imageUrl ? 
                                 <img src={this.props.users[this.props.currentUser.id].imageUrl} alt="profile-img" />
-                                : this.props.currentUser.firstName.slice(0,1)}
+                                : (this.props.currentUser && this.props.currentUser.firstName ? this.props.currentUser.firstName.slice(0,1) : "")}
                             </div>
                         </div>
                         <div id="profile-info">
