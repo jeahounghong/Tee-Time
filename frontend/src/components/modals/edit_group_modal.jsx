@@ -67,12 +67,18 @@ class EditGroupModal extends React.Component {
     }
 
     populateGroupMembers() {
-        return this.state.users.map((user) => {
+        if (!this.state.users[0].firstName) {
             return (
-                // onClick should remove the relevant user from this.state.users and it should remove the div itself
-                <div onClick={this.deleteGroupMember} className='added-user' id={`${user._id}`}>{user.firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
+                <div onClick={this.deleteGroupMember} className='added-user' id={`${this.props.currentUser.id}`}>{this.props.currentUser.firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
             )
-        })
+        }  else {
+            return this.state.users.map((user) => {
+                return (
+                    // onClick should remove the relevant user from this.state.users and it should remove the div itself
+                    <div onClick={this.deleteGroupMember} className='added-user' id={`${user._id}`}>{user.firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
+                )
+            })
+        }
     }
 
     // displaying data when user searches

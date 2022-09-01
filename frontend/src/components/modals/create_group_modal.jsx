@@ -63,7 +63,11 @@ class CreateGroupModal extends React.Component {
     }
 
     populateGroupMembers() {
-        if (this.state.users) {
+        if (!this.state.users[0].firstName) {
+            return (
+                <div onClick={this.deleteGroupMember} className='added-user' id={`${this.props.currentUser.id}`}>{this.props.currentUser.firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
+            )
+        }  else {
             return this.state.users.map((user) => {
                 return (
                     // onClick should remove the relevant user from this.state.users and it should remove the div itself
