@@ -109,9 +109,10 @@ class CreateEventModal extends React.Component {
                         <div className="modal-input">
                             <label>Course</label>
                             <select value={this.state.courseId} onChange={this.update('courseId')} >
-                                {Object.values(this.props.courses).map((course, i) => (
-                                    <option value={course.id} key={course+i}>{course.name}</option>
-                                ))}
+                                {Object.values(this.props.courses).map((course, i) => {
+                                    debugger;
+                                    return <option value={course._id} key={course+i}>{course.name}</option>
+                                })}
                             </select>
                         </div>
                         <div className="modal-input" id="create-event-modal-text-input">

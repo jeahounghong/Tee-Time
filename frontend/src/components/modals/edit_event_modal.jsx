@@ -129,7 +129,7 @@ class EditEventModal extends React.Component {
                             <label>Course</label>
                             <select value={this.state.courseId} onChange={this.update('courseId')}>
                                 {Object.values(this.props.courses).map((course, i) => (
-                                    <option value={course.id} key={course+i}>{course.name}</option>
+                                    <option value={course._id} key={course+i}>{course.name}</option>
                                 ))}
                             </select>
                         </div>
