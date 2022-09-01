@@ -123,10 +123,20 @@
     justify-content: space-evenly;
     width: 250px;
     background-color: rgb(6, 124, 6);
+    border-radius: 5px;
+    width: 400px;
 }
 
 .profile-welcome {
-    font-size: 28px;
+    font-size: 36px;
     font-weight: 700;
     margin-bottom: 20px;
+}
+
+.right h1 {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
 }
