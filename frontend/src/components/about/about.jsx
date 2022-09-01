@@ -21,10 +21,10 @@ export const About = () => {
                     <div className="dev-profile-description">Hey All! I am a software engineer with a passion for include rest of description.</div>
                 </div>
                 <div className="dev-profile-links">
-                    <a href=""><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
-                    <a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
+                    <a href=""><img className='dev-profile-icon' src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
+                    <a href=""><img className='dev-profile-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
                     <a href=""><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
-                    <a href=""><img src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
+                    <a href=""><img className='dev-profile-icon' src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
                 </div>
             </div>
             <div className="dev-profile-item">

@@ -75,7 +75,18 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
 
     newGroup.save().then( group => {
         req.user.groups.ownedGroups.push(group.id)
-        req.user.groups.joinedGroups.push(group.id)
+        // req.user.groups.joinedGroups.push(group.id)
+        group.users.forEach(userId => {
+            User.findById(userId)
+                .then(user => {
+                    // user.firstName
+                    if (user.groups.joinedGroups.indexOf(group.id) < 0){
+                        user.groups.joinedGroups.push(group.id)
+                    }
+                    user.save()
+                }).catch(err => console.log("Error"))
+        })
+        
         req.user.save()
         res.json(group)
     })
