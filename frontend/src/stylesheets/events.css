@@ -20,7 +20,7 @@
     display: grid;
     grid-template-columns: 600px 850px;
     height: 92vh;
-    /* padding-top: 8vh; */
+    padding-top: 40px;
     /* padding-bottom: 100px; */
     /* background-color: red; */
     /* display: flex; */
