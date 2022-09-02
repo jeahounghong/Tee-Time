@@ -124,7 +124,7 @@ class FriendProfile extends React.Component {
                 <div className='profile-header'>
                     <div className='profile-welcome'>
                         {/* CHANGE THIS TO LINK BACK TO WHOEVER'S PROFILE  */}
-                        <img onClick={this.toggleEditProfileImage} src={this.props.users[this.state.currentProfileId].imageUrl} alt="profile-photo"/>
+                        <img className='profile-show-main-image' onClick={this.toggleEditProfileImage} src={this.props.users[this.state.currentProfileId].imageUrl} alt="profile-photo"/>
                         <div>
                             {/* refactor */}
                             {this.props.users[this.state.currentProfileId].firstName} {this.props.users[this.state.currentProfileId].lastName} <GiPartyPopper />
@@ -162,7 +162,7 @@ class FriendProfile extends React.Component {
     profileCircle(user){
         if (user.imageUrl){
             return (
-                <img onClick={this.goToFriend} id={user._id} src={user.imageUrl} alt=""/>
+                <img onClick={this.goToFriend} className="profile-page-image" id={user._id} src={user.imageUrl} alt=""/>
             )
         }
 
