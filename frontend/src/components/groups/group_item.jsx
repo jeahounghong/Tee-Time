@@ -50,9 +50,15 @@ class Group extends React.Component {
                     </div>
                     <div className="group-members-container">
                         {this.props.group.users.map((member, i) => {
-                            return <div className={`member-${i+1}`} key={member+i}>
-                                {this.props.users[member] ? this.props.users[member].firstName.slice(0,1) : ""}
-                            </div>
+                            if (i < 4){
+                                return <div className={`member-${i+1}`} key={member+i}>
+                                    {this.props.users[member] ? (
+                                        this.props.users[member].imageUrl ? 
+                                            <img src={this.props.users[member].imageUrl} alt=""/>
+                                        : this.props.users[member].firstName.slice(0,1)
+                                    ) : ""}
+                                </div>
+                            } else {return ""}
                         })}
                         <p className="group-members-number">{this.props.group.users.length} members</p>
                     </div>
