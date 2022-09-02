@@ -2,6 +2,7 @@
 .profile-items-container{
     display: flex;
     /* grid-template-columns: 25% 30% 35%; */
+    justify-content: center;
     column-gap: 10px;
     /* justify-content: space-between; */
     margin: auto 80px;
@@ -188,6 +189,7 @@
     background-color: white;
     padding: 15px;
     border-radius: 10px;
+    max-width: 800px;
 }
 
 .profile-courses > ul {
@@ -207,7 +209,8 @@
 }
 
 .past-courses-image {
-    height: 140px;
+    min-height: 140px;
+    height: 30vh;
     width: 100%;
     border-radius: 10px;
 }
