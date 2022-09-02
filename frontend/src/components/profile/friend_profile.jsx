@@ -150,11 +150,13 @@ class FriendProfile extends React.Component {
     // redirect to profile show page
     goToFriend(e) {
         e.preventDefault();
-        this.setState({
-            currentProfileId: e.target.id
-        }).then(() => {
-            this.props.history.push(`/member/${e.target.id}`)
-        })
+        if (this.props.currentUser.id != e.target.id) {
+            this.setState({
+                currentProfileId: e.target.id
+            }).then(() => {
+                this.props.history.push(`/member/${e.target.id}`)
+            })
+        }
     }
 
     profileCircle(user){
