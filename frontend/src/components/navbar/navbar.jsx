@@ -43,7 +43,9 @@ class Navbar extends React.Component {
                         <div className="session-link-icon">Groups</div>
                     </Link>
                     <div className="session-link-profile" onClick={this.toggleProfileModal}>
-                        {Object.values(this.props.currentUser).length > 0 ? 
+                        {this.props.currentUser && 
+                        this.props.users[this.props.currentUser.id]
+                         ? 
                         this.props.users[this.props.currentUser.id].imageUrl ?
                         <img src={this.props.users[this.props.currentUser.id].imageUrl} /> : 
                         this.props.currentUser.firstName.slice(0, 1)
