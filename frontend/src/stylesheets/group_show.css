@@ -1,5 +1,5 @@
 .group-show{
-    height: 92vh;
+    /* height: vh; */
     overflow-y: scroll;
 }
 
@@ -145,6 +145,7 @@
 }
 
 .group-show-container {
+    height: 90vh;
     overflow: scroll;
 }
 
