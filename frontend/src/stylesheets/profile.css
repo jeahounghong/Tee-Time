@@ -359,3 +359,12 @@ body {
     transform: scale(1.05);
     transition: 100ms;
 }
+
+.profile-page-image {
+    cursor: pointer;
+}
+
+.profile-page-image:hover {
+    transform: scale(1.1);
+    transition: 300ms;
+}
