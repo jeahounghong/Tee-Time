@@ -11,6 +11,7 @@ import GroupsContainer from '../components/groups/groups_container';
 import ProfileContainer from './profile/profile_container';
 import NavbarContainer from './navbar/navbar_container';
 import AboutContainer from './about/about_container';
+import FriendProfileContainer from './profile/friend_profile_container';
 
 const App = () => (
     <div>   
@@ -23,6 +24,7 @@ const App = () => (
             <Route path='/groups' component={GroupsContainer} />
             <Route path ='/users' component={ProfileContainer} />
             <Route path ='/about' component={AboutContainer} />
+            <Route exact path='/member/:id' component={FriendProfileContainer} />
         </Switch>
     </div>
 );

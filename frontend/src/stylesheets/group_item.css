@@ -64,3 +64,10 @@
 .group-members-container p {
     margin-left: 10px;
 }
+
+.group-members-container img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* object-position: 100%; */
+}

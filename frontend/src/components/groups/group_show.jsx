@@ -1,4 +1,5 @@
 import React from "react";
+import EventItemContainer from '../events/event_item_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +8,6 @@ import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 // import { HiXMark } from 'react-icons/hi';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import '../../stylesheets/group_show.css';
-import EventItemContainer from '../events/event_item_container';
 import CreateEventModalContainer from '../modals/create_event_modal_container';
 import timespan from "jsonwebtoken/lib/timespan";
 

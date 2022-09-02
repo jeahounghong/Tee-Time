@@ -20,6 +20,7 @@ Our application will consist of:
 * Users will be able to create and join groups 
 * Users will be able to create and join events 
 * Users will be able to connect with other users
+* Users will be able to follow other users 
 * Production README 
 
 ### Overview

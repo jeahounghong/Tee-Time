@@ -5,23 +5,24 @@ import { GiPartyPopper, GiGolfFlag, GiGolfTee } from 'react-icons/gi';
 import { FiSend } from 'react-icons/fi';
 import { BsCalendarDateFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 
-class Profile extends React.Component {
+class FriendProfile extends React.Component {
     constructor(props){
         super(props)
         this.state = {
             userId: this.props.location.pathname.substring(7),
             imageUrl: this.props.currentUser.imageUrl, // added by Torben
             editingProfileImage: false,
+            currentProfileId: this.props.match.params.id
         }
         this.userEvents = this.userEvents.bind(this);
-        this.toggleEditProfileImage = this.toggleEditProfileImage.bind(this);
         this.frequentlyPlayedWith = this.frequentlyPlayedWith.bind(this);
         this.playedCourses = this.playedCourses.bind(this);
         this.header = this.header.bind(this);
-        this.handleImageSubmit = this.handleImageSubmit.bind(this);
+        // this.handleImageSubmit = this.handleImageSubmit.bind(this);
         this.handleFollow = this.handleFollow.bind(this);
         this.renderProfilePage = this.renderProfilePage.bind(this);
         this.goToFriend = this.goToFriend.bind(this);
@@ -43,17 +44,20 @@ class Profile extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchUserEvents(this.state.userId)
+        this.renderProfilePage()
+        this.props.fetchUserEvents(this.state.currentProfileId)
         this.props.fetchCourses()
         this.props.fetchUsers()
         // debugger
     }
 
+    // might need to refactor this not know what this is doing
     componentDidUpdate(){
-        if (this.state.userId !== this.props.location.pathname.substring(7)){
-            // debugger;
-            // this.setState({userId: this.props.location.pathname.substring(7)})
-            this.props.fetchUserEvents(this.state.userId)
+        this.renderProfilePage()
+        if (this.state.currentProfileId !== this.props.match.params.id){
+            debugger;
+            this.setState({userId: this.props.location.pathname.substring(7)})
+            this.props.fetchUserEvents(this.state.currentProfileId)
         }
     }
 
@@ -88,16 +92,17 @@ class Profile extends React.Component {
         return this.MONTH[parseInt(date.substring(5,7))] + " " + date.substring(8,10)
     }
 
-    toggleEditProfileImage() {
-        this.setState({editingProfileImage: !this.state.editingProfileImage});
-    }
+    // commenting this functionality out for the user show page
+    // toggleEditProfileImage() {
+    //     this.setState({editingProfileImage: !this.state.editingProfileImage});
+    // }
 
     //added by Torben - start
     handleImageSubmit(e) {
         e.preventDefault();
         this.props.currentUser.imageUrl = this.state.imageUrl;
         
-        let tempUser = Object.assign({}, this.props.users[this.state.userId]);
+        let tempUser = Object.assign({}, this.props.users[this.state.currentProfileId]);
         tempUser.id = tempUser._id;
         delete tempUser._id
         tempUser.imageUrl = this.state.imageUrl;
@@ -113,18 +118,19 @@ class Profile extends React.Component {
     }
 
     header(){
-        const tempUser = this.props.users[this.state.userId]
+        const tempUser = this.props.users[this.state.currentProfileId]
         if (tempUser){
             return (
                 <div className='profile-header'>
                     <div className='profile-welcome'>
                         {/* CHANGE THIS TO LINK BACK TO WHOEVER'S PROFILE  */}
-                        <img onClick={this.toggleEditProfileImage} src={this.props.users[this.props.currentUser.id].imageUrl} alt="profile-photo"/>
+                        <img className='profile-show-main-image' onClick={this.toggleEditProfileImage} src={this.props.users[this.state.currentProfileId].imageUrl} alt="profile-photo"/>
                         <div>
-                            Welcome back, {this.props.currentUser.firstName} <GiPartyPopper />
+                            {/* refactor */}
+                            {this.props.users[this.state.currentProfileId].firstName} {this.props.users[this.state.currentProfileId].lastName} <GiPartyPopper />
                             <div id="follow-stats">
-                                <div id="following-stats">{this.props.users[this.props.currentUser.id].follows.following.length} following</div>
-                                <div id="follower-stats">{this.props.users[this.props.currentUser.id].follows.followers.length} followers</div>
+                                <div id="following-stats">{this.props.users[this.state.currentProfileId].follows.following.length} following</div>
+                                <div id="follower-stats">{this.props.users[this.state.currentProfileId].follows.followers.length} followers</div>
                             </div>
                         </div>
                     </div>
@@ -144,13 +150,21 @@ class Profile extends React.Component {
     // redirect to profile show page
     goToFriend(e) {
         e.preventDefault();
-        
-        this.props.history.push(`/member/${e.target.id}`)
+        if (this.props.currentUser.id != e.target.id) {
+            this.setState({
+                currentProfileId: e.target.id
+            })
+            // .then(() => {
+                this.props.history.push(`/member/${e.target.id}`)
+            // })
+        }
     }
 
     profileCircle(user){
         if (user.imageUrl){
-            return <img id={user._id} src={user.imageUrl} alt=""/>
+            return (
+                <img onClick={this.goToFriend} className="profile-page-image" id={user._id} src={user.imageUrl} alt=""/>
+            )
         }
 
         return user.firstName.slice(0,1)
@@ -164,7 +178,7 @@ class Profile extends React.Component {
             Object.values(this.props.users)[0]){
 
             let userJoinedPreviousEvents = Object.values(this.props.events).filter(event => (
-                event.users.indexOf(this.state.userId) >= 0 && !this.isAfterToday(event.eventTime)
+                event.users.indexOf(this.state.currentProfileId) >= 0 && !this.isAfterToday(event.eventTime)
             ))
 
             // debugger;
@@ -172,7 +186,7 @@ class Profile extends React.Component {
             const playedWithCount = {}
             userJoinedPreviousEvents.forEach(event => {
                 event.users.forEach(userId => {
-                    if (userId !== this.state.userId){
+                    if (userId !== this.state.currentProfileId){
                         playedWithCount[userId] = playedWithCount[userId] || 0;
                         playedWithCount[userId] += 1
                     }
@@ -211,13 +225,6 @@ class Profile extends React.Component {
         }
     }
 
-    // relevant Groups
-    suggestedGroups() {
-        // filtering all groups that a user is not a part of
-
-        
-    }
-
     isAfterToday(date){
         let day = new Date()
         day = day.getFullYear() + "-" + ((day.getMonth() + 1) < 10 ? "0" + (day.getMonth() + 1) : (day.getMonth() + 1)) + "-" + 
@@ -235,7 +242,7 @@ class Profile extends React.Component {
             // This filters for user events. This may be unnecessary but the state could have already prefetched
             // events that the user is not a part of
             let userJoinedEvents = Object.values(this.props.events).filter(event => (
-                event.users.indexOf(this.state.userId) >= 0 && this.isAfterToday(event.eventTime)
+                event.users.indexOf(this.state.currentProfileId) >= 0 && this.isAfterToday(event.eventTime)
             ))  
             // debugger;
             
@@ -274,7 +281,7 @@ class Profile extends React.Component {
             Object.values(this.props.users)[0]){
 
             let userJoinedPreviousEvents = Object.values(this.props.events).filter(event => (
-                event.users.indexOf(this.state.userId) >= 0 && !this.isAfterToday(event.eventTime)
+                event.users.indexOf(this.state.currentProfileId) >= 0 && !this.isAfterToday(event.eventTime)
             ))  
 
             let previousCourses = {}
@@ -305,7 +312,7 @@ class Profile extends React.Component {
         {this.header()}
         <div className='profile-items-container'>
             <div className='profile-section-container'>
-                <h1><BsCalendarDateFill /> {this.props.users[this.state.userId] ? this.props.users[this.state.userId].firstName + "'s" : ""} Upcoming Events</h1>
+                <h1><BsCalendarDateFill /> {this.props.users[this.state.currentProfileId] ? this.props.users[this.state.currentProfileId].firstName + "'s" : ""} Upcoming Events</h1>
                 {this.userEvents()}
             </div>
             <div className='profile-section-container'>
@@ -340,4 +347,4 @@ class Profile extends React.Component {
     }
 }
 
-export default Profile
+export default withRouter(FriendProfile)
