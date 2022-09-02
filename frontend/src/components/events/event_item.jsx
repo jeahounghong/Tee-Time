@@ -92,6 +92,7 @@ class EventItem extends React.Component {
                             </div>
                             <div className="event-members">
                                 {this.props.event.users.map((member, i) => {
+                                    // put an onClick here to show user profile page
                                     return <div className={`member-${i+1}`} key={member+i}>
                                         {this.props.users[member] ? this.profileCircle(this.props.users[member]) : ""}
                                     </div>
