@@ -86,7 +86,7 @@ class Groups extends React.Component {
                                     events={this.props.events} 
                                     toggleEditGroupModal={this.toggleEditGroupModal}
                                     closeShow = {this.closeShow}
-                />
+                /> 
             )
         }
     }
@@ -98,6 +98,14 @@ class Groups extends React.Component {
         let groupNumber = e.target.id;
 
         this.setState({groupShowGroup: this.props.groups[groupNumber]});
+    }
+
+    componentDidUpdate(prevProps){
+        this.props.groups.forEach(group => {
+            if (this.state.groupShowGroup && group._id === this.state.groupShowGroup._id){
+                debugger;
+            }
+        })
     }
 
     renderGroupPage() {

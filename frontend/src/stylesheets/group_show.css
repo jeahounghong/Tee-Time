@@ -135,3 +135,12 @@
 .group-show-container {
     overflow: scroll;
 }
+
+.event-item-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-item-info-container{
+    width: 270px;
+}
