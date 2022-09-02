@@ -1,6 +1,18 @@
 .groups-page {
     display: flex;
+    height: 92vh;
+    margin-top: 8vh;
+}
+
+#group{
     height: 100vh;
+    overflow: hidden;
+}
+#group #navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5vh;
 }
 
 .groups-container {
@@ -10,6 +22,8 @@
     margin: 20px;
     z-index: 1;
     width: 50%;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .group-button-container {

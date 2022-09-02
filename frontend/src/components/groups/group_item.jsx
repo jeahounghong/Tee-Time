@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../stylesheets/group_item.css'
+
 import GroupShowContainer from './group_show_container'
 import EditGroupModalContainer from '../modals/edit_group_modal_container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
