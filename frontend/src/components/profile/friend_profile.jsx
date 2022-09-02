@@ -5,6 +5,7 @@ import { GiPartyPopper, GiGolfFlag, GiGolfTee } from 'react-icons/gi';
 import { FiSend } from 'react-icons/fi';
 import { BsCalendarDateFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -43,6 +44,7 @@ class FriendProfile extends React.Component {
     }
 
     componentDidMount(){
+        this.renderProfilePage()
         this.props.fetchUserEvents(this.state.currentProfileId)
         this.props.fetchCourses()
         this.props.fetchUsers()
@@ -51,7 +53,8 @@ class FriendProfile extends React.Component {
 
     // might need to refactor this not know what this is doing
     componentDidUpdate(){
-        if (this.state.currentProfileId !== this.props.match.params.id){
+        this.renderProfilePage()
+        if (this.state.currentProfileId != this.props.match.params.id){
             // debugger;
             // this.setState({userId: this.props.location.pathname.substring(7)})
             this.props.fetchUserEvents(this.state.currentProfileId)
@@ -147,7 +150,11 @@ class FriendProfile extends React.Component {
     // redirect to profile show page
     goToFriend(e) {
         e.preventDefault();
-        this.props.history.push(`/member/${e.target.id}`)
+        this.setState({
+            currentProfileId: e.target.id
+        }).then(() => {
+            this.props.history.push(`/member/${e.target.id}`)
+        })
     }
 
     profileCircle(user){
@@ -337,4 +344,4 @@ class FriendProfile extends React.Component {
     }
 }
 
-export default FriendProfile
+export default withRouter(FriendProfile)
