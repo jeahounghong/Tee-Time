@@ -303,7 +303,7 @@
     transition: 100ms;
 }
 
-#freq-played-item {
+.freq-played-item {
     width: 100%;
     display: flex;
     justify-content: space-between;
