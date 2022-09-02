@@ -23,6 +23,7 @@ class Profile extends React.Component {
         this.playedCourses = this.playedCourses.bind(this);
         this.header = this.header.bind(this);
         this.handleImageSubmit = this.handleImageSubmit.bind(this);
+        this.handleFollow = this.handleFollow.bind(this);
         this.renderProfilePage = this.renderProfilePage.bind(this);
         this.MONTH = {
             1: "JAN",
@@ -54,6 +55,33 @@ class Profile extends React.Component {
             // this.setState({userId: this.props.location.pathname.substring(7)})
             this.props.fetchUserEvents(this.state.userId)
         }
+    }
+
+    handleFollow(userId) {
+
+        let followedUser = Object.assign({}, this.props.users[userId]);
+        followedUser.id = followedUser._id;
+        delete followedUser._id;
+
+        let updatedUser = Object.assign({}, this.props.users[this.props.currentUser.id]);
+        updatedUser.id = updatedUser._id;
+        delete updatedUser._id;
+
+        var followerIndex = followedUser.follows.followers.indexOf(updatedUser.id);
+        var followingIndex = updatedUser.follows.following.indexOf(followedUser.id);
+
+        if (followerIndex === -1 && followingIndex === -1) {
+            // debugger;
+            followedUser.follows.followers.push(this.props.currentUser.id);
+            updatedUser.follows.following.push(userId);
+        } else {
+            // debugger;
+            followedUser.follows.followers.slice(0, followerIndex).concat(followedUser.follows.followers.slice(followerIndex+1));
+            updatedUser.follows.following.slice(0, followingIndex).concat(updatedUser.follows.following.slice(followingIndex+1));
+        }
+
+        this.props.updateUser(followedUser);
+        this.props.updateUser(updatedUser);
     }
 
     dateToString(date){
@@ -148,6 +176,7 @@ class Profile extends React.Component {
             keys.sort(function(a,b) {
                 return playedWithCount[b] - playedWithCount[a]
             })
+            // debugger;
             return <ul>    
                 {keys.map((key, i) => <li key={key+i} className={"frequently-played-with-list-item"}>
                     <div id="freq-played-item">
@@ -166,7 +195,10 @@ class Profile extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div id="freq-played-item-right"><FiSend /> follow</div>
+                        {this.props.users[key].follows.followers.indexOf(this.props.currentUser.id) === -1 ? 
+                        <div id="freq-played-item-right" onClick={() => this.handleFollow(key)}><FiSend /> follow</div>
+                        : <div id="freq-played-item-right-unfollow" onClick={() => this.handleFollow(key)}><FiSend /> unfollow</div>
+                        }
                     </div>
                 </li>)}
             </ul>

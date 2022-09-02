@@ -341,3 +341,18 @@ body {
     font-weight: 400;
     color: gray;
 }
+
+
+#freq-played-item-right-unfollow {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    font-size: 14px;
+    color: #cc0000;
+}
+
+#freq-played-item-right-unfollow:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 100ms;
+}
