@@ -329,3 +329,15 @@ body {
 .profile-welcome > img:hover {
     cursor: pointer;
 }
+
+#follow-stats {
+    display: flex;
+    column-gap: 12px;
+    margin-left: 5px;
+}
+
+#following-stats, #follower-stats {
+    font-size: 14px;
+    font-weight: 400;
+    color: gray;
+}

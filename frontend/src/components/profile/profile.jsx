@@ -92,7 +92,13 @@ class Profile extends React.Component {
                     <div className='profile-welcome'>
                         {/* CHANGE THIS TO LINK BACK TO WHOEVER'S PROFILE  */}
                         <img onClick={this.toggleEditProfileImage} src={this.props.users[this.props.currentUser.id].imageUrl} alt="profile-photo"/>
-                        Welcome back, {this.props.currentUser.firstName} <GiPartyPopper />
+                        <div>
+                            Welcome back, {this.props.currentUser.firstName} <GiPartyPopper />
+                            <div id="follow-stats">
+                                <div id="following-stats">{this.props.users[this.props.currentUser.id].follows.following.length} following</div>
+                                <div id="follower-stats">{this.props.users[this.props.currentUser.id].follows.followers.length} followers</div>
+                            </div>
+                        </div>
                     </div>
                     <div id='line'></div>
                     <br />
