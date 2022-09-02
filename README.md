@@ -1,6 +1,8 @@
 # Tee-Time
 
-Tee-Time is a full stack web application where users can connect with other users to find local games happening around their area.
+![Logo](logo.png)
+
+Live link: https://tee-time-application.herokuapp.com/#/
 
 ## Background and Overview 
 One of the biggest barriers to entry for people looking to pick up the game of golf is finding people to play with.
@@ -8,59 +10,52 @@ One of the biggest barriers to entry for people looking to pick up the game of g
 Tee-Time is a platform for finding and building local groups to get together for a round. This full stack web application will also let users easily keep track of their upcoming tee times and groups they are a part of.
 
 Our application will consist of:
-* A user dashboard, with a calendar of upcoming events and a list of their groups
+* A user dashboard, with a list upcoming events and users/courses they have played
 * A feed page to display open events and public groups for users to join
 * Google Maps API to see events near you on the map
-* Web chat feature within groups/events to discuss details with your party
 
 ## Functionality & MVP 
 * User authorization: signup and login 
 * Users will be able to view nearby courses 
 * Users will be able to create and join groups 
 * Users will be able to create and join events 
-* Users will be able to connect with other users 
+* Users will be able to connect with other users
 * Production README 
 
-### Bonus Features 
-* Users will be able to chat within groups 
+### Overview
 
-## WireFrames 
+![Events](events.png)
 
-### User show page 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+Tee-Time is a full stack web application where users can connect with other users to find local games happening around their area. It is written in JavaScript and based on Node and Express using MongoDB to store data. 
 
-## Technologies
+Users can find local groups, join events and track which courses they've played on and who they've played with. The app boasts full CRUD functionality across all these features along with a sleek and easy user experience.
+
+## Technologies Used
 * Google Maps API 
 * AWS 
 * MongoDB
 * Express 
 * React/Redux 
-* Nodejs 
+* Nodejs
 
-## Group Members & Work Breakdown 
-#### Members: 
-* Michael Shen, David Hong, Calvin Koo, Torben Ginsberg
-#### Backend: 
-* David Hong, Torben Ginsberg 
-#### Frontend: 
-* Michael Shen, Calvin Koo
+### MERN Stack
 
-### Day 1 
-* Finish backend for user auth, groups, and courses 
-* Finish splash for login/signup
-* Start on user dashboard 
+The web app utilizes MongoDB, Express.js, React.js and Node.js. User's info as well as image data is stored using a non-relational database with documents while React renders everything to the screen through a single page model.
 
-### Day 2
-* Set up backend for events and connections
-* Finish dashboard/feed page 
-* Create event modals 
-* Get started with google maps API 
+## Implementation Details
 
-### Day 3 
-* Polish existing features 
-* Websocket if time 
+### Google Maps API
 
-### Day 4
-* Additional styling, seeding, websocket if not working
-* Additional polishing 
-* Set up AWS for images 
+Once a client logs in, they will immediately be directed to their events dashboard. This displays events in the area that they can join along with markers on an interactive map to show their location. Upon hover on these markers, information about the course is displayed.
+
+![MapCode](map_code.png)
+
+### MongoDB/Mongoose
+
+The backend architecture leverages MongoDB's NoSQL database structure to store documents for users, groups, events, and courses, include referential data across these documents as needed.
+
+![MongoDB](mongo.png)
+
+## Future additions
+
+* Chat functionality within events, deployed with Websocket
