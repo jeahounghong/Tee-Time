@@ -14,10 +14,11 @@
     display: flex;
     justify-content: center;
     width: 100vw;
-    margin-top: -880px;
+    /* margin-top: -880px; */
     transform: translate(-30px, 20px);
     position: fixed;
     z-index: 10000;
+    top: 5%;
 }
 
 .modal-group {
@@ -25,7 +26,7 @@
     padding: 20px;
     border-radius: 10px;
     width: 400px;
-    height: 800px;
+    height: 600px;
     z-index: 10;
 }
 

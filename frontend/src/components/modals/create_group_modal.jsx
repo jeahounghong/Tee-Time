@@ -73,7 +73,6 @@ class CreateGroupModal extends React.Component {
                 <div onClick={this.deleteGroupMember} className='added-user' id={`${this.props.currentUser.id}`}>{this.props.currentUser.firstName} <FontAwesomeIcon className='added-user-icon' icon={faXmark}></FontAwesomeIcon></div>
             )
         }  else {
-            debugger;
             const users = this.props.usersObjects
             return this.state.users.map((user) => {
                 return (
