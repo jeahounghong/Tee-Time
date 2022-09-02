@@ -76,8 +76,8 @@ class Profile extends React.Component {
             updatedUser.follows.following.push(userId);
         } else {
             // debugger;
-            followedUser.follows.followers.slice(0, followerIndex).concat(followedUser.follows.followers.slice(followerIndex+1));
-            updatedUser.follows.following.slice(0, followingIndex).concat(updatedUser.follows.following.slice(followingIndex+1));
+            followedUser.follows.followers = followedUser.follows.followers.slice(0, followerIndex).concat(followedUser.follows.followers.slice(followerIndex+1));
+            updatedUser.follows.following = updatedUser.follows.following.slice(0, followingIndex).concat(updatedUser.follows.following.slice(followingIndex+1));
         }
 
         this.props.updateUser(followedUser);
@@ -176,7 +176,6 @@ class Profile extends React.Component {
             keys.sort(function(a,b) {
                 return playedWithCount[b] - playedWithCount[a]
             })
-            // debugger;
             return <ul>    
                 {keys.map((key, i) => <li key={key+i} className={"frequently-played-with-list-item"}>
                     <div id="freq-played-item">
