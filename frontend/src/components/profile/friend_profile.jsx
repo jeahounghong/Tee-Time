@@ -54,9 +54,9 @@ class FriendProfile extends React.Component {
     // might need to refactor this not know what this is doing
     componentDidUpdate(){
         this.renderProfilePage()
-        if (this.state.currentProfileId != this.props.match.params.id){
-            // debugger;
-            // this.setState({userId: this.props.location.pathname.substring(7)})
+        if (this.state.currentProfileId !== this.props.match.params.id){
+            debugger;
+            this.setState({userId: this.props.location.pathname.substring(7)})
             this.props.fetchUserEvents(this.state.currentProfileId)
         }
     }
@@ -153,9 +153,10 @@ class FriendProfile extends React.Component {
         if (this.props.currentUser.id != e.target.id) {
             this.setState({
                 currentProfileId: e.target.id
-            }).then(() => {
-                this.props.history.push(`/member/${e.target.id}`)
             })
+            // .then(() => {
+                this.props.history.push(`/member/${e.target.id}`)
+            // })
         }
     }
 
