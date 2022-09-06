@@ -50,6 +50,7 @@ class About extends React.Component {
                                 </div>
                                 <div className="dev-profile-image">
                                     <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGWz2A2orT5uA/profile-displayphoto-shrink_800_800/0/1552154308118?e=1667433600&v=beta&t=NvMqCR4vbtOF9HrUZ_EhJ3BBzFHozAad1hlOow2L--E" alt="" />
+                                
                                 </div>
                             </div>
                             <div className="dev-profile-links">
