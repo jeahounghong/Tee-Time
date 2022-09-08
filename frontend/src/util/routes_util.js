@@ -19,7 +19,6 @@ const Protected = ({ component: Component, path, isAuthenticated, exact }) => {
       <Redirect to="/login" />
     )
   )} />
-  
 };
 const mapStateToProps = state => ({
   isAuthenticated: state.session.isAuthenticated,
