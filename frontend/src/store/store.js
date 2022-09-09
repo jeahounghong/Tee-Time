@@ -8,7 +8,8 @@ const configureStore = (preloadedState = {}) => (
   createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(thunk, (process.env.REACT_APP_MAP_KEY ? "" : logger))
+    applyMiddleware(thunk),
+    // applyMiddleware(thunk, logger)
   )
 );
 
