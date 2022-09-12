@@ -107,6 +107,7 @@ router.post('/register', (req, res) => {
     console.log("REQUEST BODY")
     console.log(req.body.email)
     if (!isValid) {
+        console.log(errors)
         return res.status(400).json(errors);
     }
 

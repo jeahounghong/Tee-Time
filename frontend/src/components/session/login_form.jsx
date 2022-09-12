@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
             email: '',
             password: '',
         });
-        this.props.history.push('/events');
+        // this.props.history.push('/events');
     }
 
     update(field) {
@@ -80,7 +80,7 @@ class LoginForm extends React.Component {
                             <label>Password</label>
                             <input type="password" value={this.state.password} onChange={this.update('password')}/>
                         </div>
-                        <button className="login-btn" type="login">Login</button>
+                        <input className="login-btn" type="submit" value="Login" />
                         <button onClick={this.handleDemo} className="login-btn" id='demo-login'>Demo User</button>
                         <p id="login-footer-info">Don't have an account? <Link id="signup-link" to="/signup">Sign up</Link></p>
                     </form>
