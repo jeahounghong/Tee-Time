@@ -214,11 +214,11 @@ class EditGroupModal extends React.Component {
     renderModal() {
         return (
             <div id="group-modal">
-                <div id="group-overlay" onClick={this.props.toggleModal}></div>
+                <div id="group-overlay" onClick={() => {this.props.toggleModal(); this.props.clearErrors();}}></div>
                 <div className="modal-group">
                     <div className="modal-header">
                         <p className="group-modal-header-info">Edit this Group</p>
-                        <div className="modal-close" onClick={this.props.toggleModal} >
+                        <div className="modal-close" onClick={() => {this.props.toggleModal(); this.props.clearErrors();}} >
                             <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
                         </div>
                     </div>
@@ -271,6 +271,7 @@ class EditGroupModal extends React.Component {
                         </div>
                         <div className="group-modal-input" id="modal-text-input">
                             <label>Description</label>
+                            <span className='error'> {this.props.groupErrors.description ? this.props.groupErrors.description : ""}</span>
                             <textarea className="modal-text" value={this.state.description} onChange={this.update('description')}></textarea>
                         </div>
                         <div className="edit-group-modal-button-container">

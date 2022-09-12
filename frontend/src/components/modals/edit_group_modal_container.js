@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
         updateUser: (user) => dispatch(updateUser(user)),
         deleteGroup: groupId => dispatch(deleteGroup(groupId)),
         fetchUsers: () => dispatch(fetchUsers()),
-        clearErrors: () => dispatch(clearGroupErrors)
+        clearErrors: () => dispatch(clearGroupErrors())
     }
 }
 
