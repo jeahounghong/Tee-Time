@@ -119,11 +119,7 @@ class SignUpForm extends React.Component {
                             <input type="password" value={this.state.password2} onChange={this.update('password2')}/>
                         </div>
                         <div className="login-form-footer">
-<<<<<<< HEAD
-                        <p id="signin-footer-info">Already have an account? <Link id="signup-link" to="/login" onClick={() => console.log("dispatched")}>Login</Link></p>
-=======
                         <p id="signin-footer-info">Already have an account? <Link onClick={this.clearErrors} id="signup-link" to="/login">Login</Link></p>
->>>>>>> 53b0d60254ed4ce05785c175dd38d5ef338762c4
                             <button id="signup-btn" type="login">Sign up</button>
                         </div>
                     </form>
