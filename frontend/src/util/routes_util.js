@@ -6,7 +6,7 @@ const Auth = ({ component: Component, path, isAuthenticated, exact }) => (
     !isAuthenticated ? (
       <Component {...props} />
     ) : (
-      <Redirect to="/login" />
+      <Redirect to="/events" />
     )
   )} />
 );
