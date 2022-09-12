@@ -76,7 +76,7 @@ class SignUpForm extends React.Component {
                             <input type="password" value={this.state.password2} onChange={this.update('password2')}/>
                         </div>
                         <div className="login-form-footer">
-                        <p id="signin-footer-info">Already have an account? <Link id="signup-link" to="/login">Login</Link></p>
+                        <p id="signin-footer-info">Already have an account? <Link id="signup-link" to="/login" onClick={() => console.log("dispatched")}>Login</Link></p>
                             <button id="signup-btn" type="login">Sign up</button>
                         </div>
                     </form>

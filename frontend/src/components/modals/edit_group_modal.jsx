@@ -191,7 +191,13 @@ class EditGroupModal extends React.Component {
         // close modal after submitting form 
 
         this.props.updateGroup(this.state);
-        this.props.toggleModal();
+        // this.props.toggleModal();
+        setTimeout(() => {
+            // debugger;
+            if (Object.values(this.props.groupErrors).length === 0){
+                this.props.toggleModal();
+            }
+        }, 500)
     }
 
     handleDelete(e) {
@@ -220,7 +226,11 @@ class EditGroupModal extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="group-modal-input">
                             <label>Name</label>
-                            <input type="text" value={this.state.name} onChange={this.update('name')} />
+                            {/* <input type="text" value={this.state.name} onChange={this.update('name')} /> */}
+                            <div className='error-input'>
+                                <input type="text" value={this.state.name} onChange={this.update('name')} />
+                                <span className='error'>{this.props.groupErrors.name ? this.props.groupErrors.name : ""}</span>
+                            </div>
                         </div>
                         <div className="users-search-container">
                             <div className="group-modal-input">
@@ -237,7 +247,7 @@ class EditGroupModal extends React.Component {
                                     </div>
                                     {this.userMessage ? this.userMessage : ""}
                                 </div>
-                                { this.state.filteredData.length != 0 && (
+                                { this.state. filteredData && this.state.filteredData.length != 0 && (
                                     <div className="users-search-results">
                                         {this.state.filteredData.slice(0,10).map((user => {
                                             return <p onClick={this.updateUsers(user)} className="users-item">{user.firstName}</p>

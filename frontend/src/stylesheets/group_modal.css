@@ -26,7 +26,7 @@
     padding: 20px;
     border-radius: 10px;
     width: 400px;
-    height: 600px;
+    height: 650px;
     z-index: 10;
 }
 
@@ -79,7 +79,7 @@
     margin-right: 20px;
 }
 
-.group-modal-input > input, .group-modal-input > select {
+.group-modal-input input, .group-modal-input > select  {
     height: 30px;
     width: 310px;
     border: 1px solid grey;
@@ -279,4 +279,18 @@
 
 .edit-group-modal-button-container button {
     background-color: red;
+}
+
+.error{
+    color: red;
+    font-style: italic;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.error-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

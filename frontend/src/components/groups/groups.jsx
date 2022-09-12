@@ -69,7 +69,7 @@ class Groups extends React.Component {
     }
 
     toggleEditGroupModal() {
-        debugger;
+        // debugger;
         if (this.state.groupShowGroup){
             this.setState({editGroupModalHidden: !this.state.editGroupModalHidden})
         }
@@ -103,7 +103,7 @@ class Groups extends React.Component {
     componentDidUpdate(prevProps){
         this.props.groups.forEach(group => {
             if (this.state.groupShowGroup && group._id === this.state.groupShowGroup._id){
-                debugger;
+                // debugger;
             }
         })
     }
