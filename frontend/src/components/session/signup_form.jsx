@@ -33,7 +33,7 @@ class SignUpForm extends React.Component {
             password2: ''
         });
         this.props.signup(this.state);
-        this.props.history.push('/events');
+        // this.props.history.push('/events');
     }
 
     update(field) {
