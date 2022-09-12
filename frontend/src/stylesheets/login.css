@@ -211,3 +211,59 @@ input[type=password] {
 #session-logo p {
     font-size: 28px;
 }
+
+.email-errors {
+    margin-left: 10px;
+    font-weight: 200;
+    font-size: 13px;
+    font-style: italic;
+    color: red;
+}
+
+.password-errors {
+    margin-left: 10px;
+    font-weight: 200;
+    font-size: 13px;
+    font-style: italic;
+    color: red;
+}
+
+.firstName-errors {
+    margin-left: 10px;
+    font-weight: 200;
+    font-size: 13px;
+    font-style: italic;
+    color: red;
+}
+
+.lastName-errors {
+    margin-left: 10px;
+    font-weight: 200;
+    font-size: 13px;
+    font-style: italic;
+    color: red;
+}
+
+.password2-errors {
+    margin-left: 10px;
+    font-weight: 200;
+    font-size: 13px;
+    font-style: italic;
+    color: red;
+}
+
+.password-signup-errors {
+    margin-left: 10px;
+    font-weight: 200;
+    font-size: 13px;
+    font-style: italic;
+    color: red;
+}
+
+.password-signup-errors {
+    margin-left: 10px;
+    font-weight: 200;
+    font-size: 13px;
+    font-style: italic;
+    color: red;
+}
