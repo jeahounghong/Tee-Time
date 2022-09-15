@@ -9,6 +9,7 @@ class Splash extends React.Component {
   constructor(props) {
     super(props);
     this.state = {rerender: true};
+    this.handleDemo = this.handleDemo.bind(this);
   }
   
   componentDidMount() {
@@ -26,6 +27,23 @@ class Splash extends React.Component {
     }
   }
 
+  handleDemo(e){
+    e.preventDefault();
+
+        // fill in with demo user information
+        const demoUser = {
+            email: 'twoods@gmail.com',
+            password: 'password'
+        }
+        this.props.login(demoUser);
+        this.setState({
+            email: '',
+            password: ''
+        });
+
+        this.props.history.push('/events');
+  }
+
   render() {
     return (
       <div className="splash-container">
@@ -37,6 +55,9 @@ class Splash extends React.Component {
             <h3 className="splash-logo-text-description">Connect with other players with a passion for the lovely sport of golf. Play anywhere and anytime.</h3>
             <Link to={'/signup'}>
               <button className="splash-signup-button">Sign Up</button>
+            </Link>
+            <Link to={'/signup'}>
+              <button id="demoo" onClick={this.handleDemo} className="splash-signup-button">Demo</button>
             </Link>
             <div className="splash-login-container">
               <h3 className="splash-login-redirect-text">Already have an account?</h3>
