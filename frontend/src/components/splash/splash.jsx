@@ -41,7 +41,7 @@ class Splash extends React.Component {
             password: ''
         });
 
-        this.props.history.push('/events');
+        // this.props.history.push('/events');
   }
 
   render() {
@@ -56,9 +56,9 @@ class Splash extends React.Component {
             <Link to={'/signup'}>
               <button className="splash-signup-button">Sign Up</button>
             </Link>
-            <Link to={'/signup'}>
+            {/* <Link to={'/'}> */}
               <button id="demoo" onClick={this.handleDemo} className="splash-signup-button">Demo</button>
-            </Link>
+            {/* </Link> */}
             <div className="splash-login-container">
               <h3 className="splash-login-redirect-text">Already have an account?</h3>
               <Link to={'/login'}>
