@@ -15,7 +15,7 @@ class Groups extends React.Component {
         this.state = {
             createGroupModalHidden: true,
             editGroupModalHidden: true,
-            groupShowGroup: this.props.groups[0]
+            groupShowGroup: null
         };
 
         this.toggleCreateGroupModal = this.toggleCreateGroupModal.bind(this)
@@ -24,6 +24,7 @@ class Groups extends React.Component {
         this.toggleGroupShow = this.toggleGroupShow.bind(this);
         this.renderGroupPage = this.renderGroupPage.bind(this);
         this.closeShow = this.closeShow.bind(this)
+        this.unjoinedGroups = this.unjoinedGroups.bind(this)
     }
 
     closeShow(){
@@ -36,6 +37,7 @@ class Groups extends React.Component {
         this.props.fetchUserGroups(this.props.currentUser.id);
         this.props.fetchUserEvents(this.props.currentUser.id);
         this.props.fetchUsers();
+        this.props.fetchGroups();
     }
 
     componentDidUpdate(prevProps){
@@ -77,9 +79,7 @@ class Groups extends React.Component {
 
     groupShow() {
         if (this.state.groupShowGroup === null) {
-            return (
-                null
-            )
+            return this.unjoinedGroups()
         } else {
             return (
                 <GroupShowContainer group={this.state.groupShowGroup} 
@@ -108,7 +108,19 @@ class Groups extends React.Component {
         })
     }
 
+    unjoinedGroups(){
+        return <div>
+            Unjoined Groups
+        </div>
+    }
+
     renderGroupPage() {
+        const joinedGroups = this.props.groups.filter(group => {
+            return group.users.indexOf(this.props.currentUser.id) >= 0
+        })
+        console.log("JOINED GROUPS")
+        console.log(joinedGroups)
+
         return (
             <div id='group'>
                 <NavBarContainer />
@@ -140,7 +152,7 @@ class Groups extends React.Component {
                             </div>
                         </div>
                         <ul>
-                        {Object.values(this.props.groups).map((group, i) => (
+                        {joinedGroups.map((group, i) => (
                                 <div onClick={() => {
                                     let idx = -1;
                                     for(let i = 0; i < this.props.groups.length; i++){
