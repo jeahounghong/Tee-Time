@@ -18,7 +18,7 @@ class CreateEventModal extends React.Component {
             description: '',
             users: [this.props.currentUser],
         };
-
+        this.futureDate = true;
         this.getDateFormat = this.getDateFormat.bind(this);
         this.getTimeFormat = this.getTimeFormat.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -72,61 +72,84 @@ class CreateEventModal extends React.Component {
         return e => this.setState({[field]: e.target.value});
     }
 
+    isAfterToday(date){
+        let day = new Date()
+        day = day.getFullYear() + "-" + ((day.getMonth() + 1) < 10 ? "0" + (day.getMonth() + 1) : (day.getMonth() + 1)) + "-" + 
+                        (day.getDate() < 10 ? ("0" + day.getDate()) : day.getDate())
+        let isAfterToday = day < date.substring(0,10)
+        return isAfterToday
+    }
+
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createEvent(this.state);
-        if (this.state.groupId){
-            setTimeout(() => this.props.fetchGroup(this.state.groupId),0)
+        let date = document.getElementById('event-time').value
+        if (this.isAfterToday(date)){
+            // console.log("yes")
+            this.props.createEvent(this.state);
+            if (this.state.groupId){
+                setTimeout(() => this.props.fetchGroup(this.state.groupId),0)
+            }
+            this.props.toggleModal();
+        } else {
+            // debugger;
+            this.futureDate = false;
+            this.setState(this.state)
         }
-        this.props.toggleModal();
+
     }
 
     renderModal() {
         return (
             <div id="create-event-modal-container">
-                <div id="create-event-modal-overlay" onClick={this.props.toggleModal}></div>
-                <div className="modal" id="create-event-modal">
-                    <div className="modal-header">
-                        <p className="modal-header-info">Create Event</p>
-                        <div className="modal-close" onClick={this.props.toggleModal} >
-                            <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
+                <div id="create-event-modal-overlay" onClick={(e) => { 
+                    if (e.currentTarget === e.target) {
+                        this.props.toggleModal();
+                    }
+                }}>
+                    <div className="modal" id="create-event-modal">
+                        <div className="modal-header">
+                            <p className="modal-header-info">Create Event</p>
+                            <div className="modal-close" onClick={this.props.toggleModal} >
+                                <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
+                            </div>
                         </div>
+                        <div className="modal-form-separator"></div>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="modal-input">
+                                <label>Name</label>
+                                <input type="text" value={this.state.name} onChange={this.update('name')} required/>
+                            </div>
+                                {!this.futureDate ? <p id="future-date">Events must be planned at least one day in advance.</p> : ""}
+                            <div className="modal-input">
+                                <label>Date</label>
+                                <input id="event-time" type="date" value={this.getDateFormat()} onChange={this.handleDate()} required />
+                            </div>
+                            <div className="modal-input">
+                                <label>Time</label>
+                                <input  type="time" value={this.getTimeFormat()} onChange={this.handleTime()}></input>
+                            </div>
+                            <div className="modal-input">
+                                <label>Size</label>
+                                <input id="event-size" type="number" value={this.state.eventSize} onChange={this.update('eventSize')} 
+                                placeholder="Enter a number between 1 and 4" min={2} max={4} required />
+                            </div>
+                            <div className="modal-input">
+                                <label>Course</label>
+                                <select value={this.state.courseId} onChange={this.update('courseId')} >
+                                    {Object.values(this.props.courses).map((course, i) => {
+                                        return <option value={course._id} key={course+i}>{course.name}</option>
+                                    })}
+                                </select>
+                            </div>
+                            <div className="modal-input" id="create-event-modal-text-input">
+                                <label>Description</label>
+                                <textarea value={this.state.description} onChange={this.update('description')} className="create-event-modal-text"></textarea>
+                            </div>
+                            <div className="modal-submit">
+                                <button type="submit">Create</button>
+                            </div>
+                        </form>
                     </div>
-                    <div className="modal-form-separator"></div>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="modal-input">
-                            <label>Name</label>
-                            <input type="text" value={this.state.name} onChange={this.update('name')} required/>
-                        </div>
-                        <div className="modal-input">
-                            <label>Date</label>
-                            <input type="date" value={this.getDateFormat()} onChange={this.handleDate()} required />
-                        </div>
-                        <div className="modal-input">
-                            <label>Time</label>
-                            <input type="time" value={this.getTimeFormat()} onChange={this.handleTime()}></input>
-                        </div>
-                        <div className="modal-input">
-                            <label>Size</label>
-                            <input id="event-size" type="number" value={this.state.eventSize} onChange={this.update('eventSize')} 
-                            placeholder="Enter a number between 1 and 4" min={2} max={4} required />
-                        </div>
-                        <div className="modal-input">
-                            <label>Course</label>
-                            <select value={this.state.courseId} onChange={this.update('courseId')} >
-                                {Object.values(this.props.courses).map((course, i) => {
-                                    return <option value={course._id} key={course+i}>{course.name}</option>
-                                })}
-                            </select>
-                        </div>
-                        <div className="modal-input" id="create-event-modal-text-input">
-                            <label>Description</label>
-                            <textarea value={this.state.description} onChange={this.update('description')} className="create-event-modal-text"></textarea>
-                        </div>
-                        <div className="modal-submit">
-                            <button type="submit">Create</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         )
