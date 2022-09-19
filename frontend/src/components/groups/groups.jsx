@@ -109,9 +109,9 @@ class Groups extends React.Component {
     }
 
     unjoinedGroups(){
-        return <div>
-            Unjoined Groups
-        </div>
+        // return <div>
+        //     Unjoined Groups
+        // </div>
     }
 
     renderGroupPage() {
