@@ -13,7 +13,6 @@ import NavbarContainer from './navbar/navbar_container';
 import AboutContainer from './about/about_container';
 import FriendProfileContainer from './profile/friend_profile_container';
 
-
 const App = () => (
     <div>   
         {/* <NavbarContainer /> */}
