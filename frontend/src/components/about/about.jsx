@@ -36,10 +36,10 @@ class About extends React.Component {
                                 </div>
                             </div>
                             <div className="dev-profile-links">
-                                <a href="https://github.com/shenshuu"><img className='dev-profile-icon' src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
-                                <a href="https://www.linkedin.com/in/michael-s-b7698b239/"><img className='dev-profile-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
-                                <a href="https://shenshuu.github.io/"><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
-                                <a href="https://angel.co/u/michael-shen-8"><img className='dev-profile-icon' src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
+                                <a href="https://github.com/shenshuu" target="_blank"><img className='dev-profile-icon' src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
+                                <a href="https://www.linkedin.com/in/michael-s-b7698b239/" target="_blank"><img className='dev-profile-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
+                                <a href="https://shenshuu.github.io/" target="_blank"><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
+                                <a href="https://angel.co/u/michael-shen-8" target="_blank"><img className='dev-profile-icon' src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
                             </div>
                         </div>
                         <div className="dev-profile-item">
@@ -53,10 +53,10 @@ class About extends React.Component {
                                 </div>
                             </div>
                             <div className="dev-profile-links">
-                                <a href="https://github.com/jeahounghong"><img className='dev-profile-icon' src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
-                                <a href="https://www.linkedin.com/in/david-jeahoung-hong-7ab00b134/"><img className='dev-profile-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
-                                <a href="https://jeahounghong.github.io/Portfolio/"><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
-                                <a href="https://angel.co/u/david-jeahoung-hong"><img className='dev-profile-icon' src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
+                                <a href="https://github.com/jeahounghong" target="_blank"><img className='dev-profile-icon' src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
+                                <a href="https://www.linkedin.com/in/david-jeahoung-hong-7ab00b134/" target="_blank"><img className='dev-profile-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
+                                <a href="https://jeahounghong.github.io/Portfolio/" target="_blank"><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
+                                <a href="https://angel.co/u/david-jeahoung-hong" target="_blank"><img className='dev-profile-icon' src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
                             </div>
                         </div>
                         <div className="dev-profile-item">
@@ -70,10 +70,10 @@ class About extends React.Component {
                                 </div>
                             </div>
                             <div className="dev-profile-links">
-                                <a href="https://github.com/torbenginsberg"><img className='dev-profile-icon' src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
-                                <a href="https://www.linkedin.com/in/torben-ginsberg-095a77112/"><img className='dev-profile-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
-                                <a href=""><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
-                                <a href="https://angel.co/u/torben-ginsberg"><img className='dev-profile-icon' src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
+                                <a href="https://github.com/torbenginsberg" target="_blank"><img className='dev-profile-icon' src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
+                                <a href="https://www.linkedin.com/in/torben-ginsberg-095a77112/" target="_blank"><img className='dev-profile-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
+                                <a href="https://torbenginsberg.github.io/" target="_blank"><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
+                                <a href="https://angel.co/u/torben-ginsberg" target="_blank"><img className='dev-profile-icon' src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
                             </div>
                         </div>
                         <div className="dev-profile-item">
@@ -87,10 +87,10 @@ class About extends React.Component {
                                 </div>
                             </div>
                             <div className="dev-profile-links">
-                                <a href="https://github.com/ckoo13"><img className='dev-profile-icon' src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
-                                <a href="https://www.linkedin.com/in/calvin-koo-9aa869158/"><img className='dev-profile-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
-                                <a href=""><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
-                                <a href="https://angel.co/u/kyung-koo"><img className='dev-profile-icon' src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
+                                <a href="https://github.com/ckoo13" target="_blank"><img className='dev-profile-icon' src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
+                                <a href="https://www.linkedin.com/in/calvin-koo-9aa869158/" target="_blank"><img className='dev-profile-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
+                                <a href="" target="_blank"><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
+                                <a href="https://angel.co/u/kyung-koo" target="_blank"><img className='dev-profile-icon' src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
                             </div>
                         </div>
                     </div>
