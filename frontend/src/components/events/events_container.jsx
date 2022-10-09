@@ -4,12 +4,14 @@ import { fetchUsers } from '../../actions/user_actions';
 import { connect } from 'react-redux';
 import Events from './events';
 
-const mapStateToProps = state => ({
-    events: state.entities.events,
-    currentUser: state.session.user,
-    courses: state.entities.courses,
-    users: state.entities.users,
-});
+const mapStateToProps = state => {
+    return ({
+        events: state.entities.events,
+        currentUser: state.session.user,
+        courses: state.entities.courses,
+        users: state.entities.users,
+    })
+};
 
 const mapDispatchToProps = dispatch => ({
     fetchCourses: () => dispatch(fetchCourses()),
