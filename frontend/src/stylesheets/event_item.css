@@ -190,3 +190,7 @@
 .event-actions-toggle:hover {
     cursor: pointer;
 }
+
+.event-actions-toggle {
+    font-size: 14px;
+}

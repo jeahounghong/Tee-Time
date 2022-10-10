@@ -125,7 +125,7 @@ class EventItem extends React.Component {
                         : 
                         <div className="user-actions" id="edit-actions">
                             <div onClick={() => this.setState({editing: !this.state.editing})} className="event-actions-toggle">
-                                <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
+                                Edit event <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
                             </div>
                         </div>
                         }
