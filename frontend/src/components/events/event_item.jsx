@@ -59,13 +59,14 @@ class EventItem extends React.Component {
         let day = date.getDate();
         let hours = date.getHours();
         let minutes = date.getMinutes();
+        let year = date.getFullYear();
         if (hours < 10) hours = `0${hours}`;
         if (minutes < 10) minutes = `0${minutes}`;
         let timeSuffix = "AM";
         if (hours >= 12) timeSuffix = "PM"; 
         hours = hours % 12;
         if (hours === 0) hours = 12;
-        return `${months[month]} ${day}, ${hours}:${minutes}${timeSuffix}`;
+        return `${months[month]} ${day}, ${hours}:${minutes}${timeSuffix}, ${year}`;
     }
 
     profileCircle(user){
