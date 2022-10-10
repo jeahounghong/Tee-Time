@@ -2,7 +2,7 @@
 
 .splash-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     font-family: 'Roboto Slab', serif;
 }
@@ -22,17 +22,36 @@
 
 .splash-right-container img {
     min-height: 700px;
-    max-width: 750px;
     top: -200px;
+    object-fit: cover;
+    max-width: 1100px;
 }
 
+#splash-img {
+    display: flex;
+    justify-content: end;
+    width: 850px;
+    overflow: hidden;
+}
+ 
 .splash-login-container {
     display: flex;
 }
 
 .splash-left-container {
-    margin-left: 120px;
     max-width: 500px;
+    margin-right: 350px;
+}
+
+@media only screen and (max-width: 1600px) {
+    .splash-left-container {
+        margin-left: 90px;
+        margin-right: 90px;
+    }
+
+    #splash-img {
+        justify-content: center;
+    }
 }
 
 .splash-logo-text-description {

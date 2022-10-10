@@ -16,6 +16,12 @@
     height: 5vh;
 }
 
+@media only screen and (min-height: 900px) {
+    .event-page #navbar {
+        height: 3vh;
+    }
+}
+
 #events-page {
     display: grid;
     grid-template-columns: 600px 850px;
