@@ -76,7 +76,7 @@
 
 .group-modal-input > label {
     font-size: 20px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .group-modal-input input, .group-modal-input > select  {
@@ -91,6 +91,8 @@
     width: 100%;
     height: 100px;
     border-radius: 12px;
+    padding: 5px;
+    padding-left: 7px;
 }
 
 #modal-text-input {
