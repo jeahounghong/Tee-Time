@@ -117,7 +117,7 @@ class CreateEventModal extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="modal-input">
                                 <label>Name</label>
-                                <input type="text" value={this.state.name} onChange={this.update('name')} required/>
+                                <input type="text" value={this.state.name} onChange={this.update('name')} maxLength="50" required/>
                             </div>
                                 {!this.futureDate ? <p id="future-date">Events must be planned at least one day in advance.</p> : ""}
                             <div className="modal-input">
@@ -143,7 +143,7 @@ class CreateEventModal extends React.Component {
                             </div>
                             <div className="modal-input" id="create-event-modal-text-input">
                                 <label>Description</label>
-                                <textarea value={this.state.description} onChange={this.update('description')} className="create-event-modal-text"></textarea>
+                                <textarea value={this.state.description} onChange={this.update('description')} className="create-event-modal-text" maxLength="200"></textarea>
                             </div>
                             <div className="modal-submit">
                                 <button type="submit">Create</button>

@@ -109,7 +109,7 @@ class EditEventModal extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="modal-input">
                             <label>Name</label>
-                            <input type="text" value={this.state.name} onChange={this.update('name')} />
+                            <input type="text" value={this.state.name} onChange={this.update('name')} maxLength="50" />
                         </div>
                         <div className="modal-input">
                             <label>Date</label>
@@ -134,7 +134,7 @@ class EditEventModal extends React.Component {
                         </div>
                         <div className="modal-input" id="create-event-modal-text-input">
                             <label>Description</label>
-                            <textarea value={this.state.description} onChange={this.update('description')} className="create-event-modal-text"></textarea>
+                            <textarea value={this.state.description} onChange={this.update('description')} className="create-event-modal-text" maxLength="200"></textarea>
                         </div>
                         <div className="modal-submit">
                             <button onClick={() => this.handleDelete()}>Delete</button>
