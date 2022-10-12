@@ -80,6 +80,12 @@
     color: black;
 }
 
+.session-link-profile:hover {
+    transform: scale(1.1);
+    transition: 150ms;
+    cursor: pointer;
+}
+
 .session-link-pro-pic {
     width: 30px;
     height: 30px;

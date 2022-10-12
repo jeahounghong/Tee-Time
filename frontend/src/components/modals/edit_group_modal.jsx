@@ -233,13 +233,7 @@ class EditGroupModal extends React.Component {
                             </div>
                         </div>
                         <div className="users-search-container">
-                            <div className="group-modal-input">
-                                <label>Add Member</label>
-                                {/* change this to this.updateUsers */}
-                                <input type="text" onChange={this.handleFilter}/>
-                                {/* render div of users here */}
-                            </div>
-                            <div className="search-results-container">
+                        <div className="search-results-container">
                                 <div className="selected-users">
                                     <h1>Current Members</h1>
                                     <div className="added-users-container">
@@ -255,6 +249,12 @@ class EditGroupModal extends React.Component {
                                     </div>
                                     )
                                 }
+                            </div>
+                            <div className="group-modal-input">
+                                <label>Add Member</label>
+                                {/* change this to this.updateUsers */}
+                                <input type="text" onChange={this.handleFilter}/>
+                                {/* render div of users here */}
                             </div>
                         </div>
                         <div className="group-modal-input">

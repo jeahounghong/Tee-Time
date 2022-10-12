@@ -191,6 +191,8 @@
 
 .event-actions-toggle:hover {
     cursor: pointer;
+    transform: scale(1.1);
+    transition: 150ms;
 }
 
 .event-actions-toggle {

@@ -127,8 +127,8 @@
 }
 
 .users-search-results {
-    width: 315px;
-    height: 80px;
+    width: 322px;
+    height: 90px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -140,9 +140,9 @@
     overflow: hidden;
     overflow-y: auto;
     padding: 15px auto;
-    margin-left: 140px;
+    margin-left: 137px;
     position: absolute;
-    top: 180px;
+    top: 276px;
 }
 
 .users-item {
