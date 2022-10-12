@@ -186,12 +186,12 @@
     min-height: 90px;
 }
 
-.selected-users h1 {
+/* .selected-users h1 {
     margin-left: 10px;
     margin-top: 10px;
     font-weight: bold;
     text-decoration: underline;
-}
+} */
 
 .added-users-container {
     display: flex;

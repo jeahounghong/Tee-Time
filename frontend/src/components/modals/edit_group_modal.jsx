@@ -235,7 +235,7 @@ class EditGroupModal extends React.Component {
                         <div className="users-search-container">
                         <div className="search-results-container">
                                 <div className="selected-users">
-                                    <h1>Current Members</h1>
+                                    <h1>Current Members:</h1>
                                     <div className="added-users-container">
                                         {this.populateGroupMembers()}
                                     </div>
