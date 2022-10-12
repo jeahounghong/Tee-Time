@@ -298,7 +298,8 @@
     align-items: center;
     column-gap: 5px;
     font-size: 14px;
-    color: gray;
+    color: rgb(55, 55, 55);
+    padding-right: 15px;
 }
 
 #freq-played-item-right:hover {
