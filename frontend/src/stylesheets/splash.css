@@ -22,6 +22,7 @@
 
 .splash-right-container img {
     min-height: 700px;
+    /* max-height: 1000px; */
     top: -200px;
     object-fit: cover;
     max-width: 1100px;
@@ -40,10 +41,10 @@
 
 .splash-left-container {
     max-width: 500px;
-    margin-right: 350px;
+    margin-right: 20%;
 }
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 1800px) {
     .splash-left-container {
         margin-left: 90px;
         margin-right: 90px;
@@ -51,6 +52,38 @@
 
     #splash-img {
         justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 2300px) and (max-width: 2650px) {
+    .splash-left-container {
+        margin-right: 25%;
+    }
+}
+
+@media only screen and (min-width: 2650px) and (max-width: 2950px) {
+    .splash-left-container {
+        margin-right: 30%;
+    }
+}
+
+@media only screen and (min-height: 1000px) and (max-height: 1300px) {
+    .splash-right-container img {
+        max-width: 1300px;
+    }
+
+    #splash-img {
+        width: 1150px;
+    }
+}
+
+@media only screen and (min-height: 1301px) {
+    .splash-right-container img {
+        max-width: 1600px;
+    }
+
+    #splash-img {
+        width: 1250px;
     }
 }
 
