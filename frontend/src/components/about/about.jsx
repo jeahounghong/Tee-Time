@@ -84,13 +84,13 @@ class About extends React.Component {
                                         <div className="dev-profile-title">Frontend Flex</div>
                                     </div>
                                     <div className="dev-profile-image">
-                                        <img src="https://media-exp1.licdn.com/dms/image/C5603AQGxuH2tbhQG4A/profile-displayphoto-shrink_800_800/0/1564471233730?e=1667433600&v=beta&t=GsGovfWd8oBqGm2KSQWHKspNyrzsGxH3r3GoDOeJW2M" alt="" />
+                                        <img src="https://media-exp1.licdn.com/dms/image/C5603AQGxuH2tbhQG4A/profile-displayphoto-shrink_400_400/0/1564471233730?e=1675900800&v=beta&t=blFgitkdO7n7SfCurkdBvnz1vbcz92J0Ej6kbsleF5I" alt="" />
                                     </div>
                                 </div>
                                 <div className="dev-profile-links">
                                     <a href="https://github.com/ckoo13" target="_blank"><img className='dev-profile-icon' src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" /></a>
                                     <a href="https://www.linkedin.com/in/calvin-koo-9aa869158/" target="_blank"><img className='dev-profile-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="" /></a>
-                                    <a href="" target="_blank"><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
+                                    <a href="https://calvinkoo.dev/" target="_blank"><FontAwesomeIcon className="dev-profile-icon" icon={faUserCircle}></FontAwesomeIcon></a>
                                     <a href="https://angel.co/u/kyung-koo" target="_blank"><img className='dev-profile-icon' src="https://cdn1.iconfinder.com/data/icons/logos-and-brands-3/512/20_Angellist_logo_logos-512.png" alt="" /></a> 
                                 </div>
                             </div>
